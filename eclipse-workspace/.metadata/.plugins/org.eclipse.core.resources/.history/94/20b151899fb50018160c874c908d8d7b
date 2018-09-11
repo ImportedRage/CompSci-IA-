@@ -363,7 +363,7 @@ public class Base {
 
         // view water cooling parts button
         // temporarily first view button
-        JButton viewcpu = new JButton(new ImageIcon(resourcePath + "b2.png"));
+        JButton viewcpu = new JButton(new ImageIcon());
         viewcpu.setBounds(xLocation(bcount++),115,120,120);
         viewcpu.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  

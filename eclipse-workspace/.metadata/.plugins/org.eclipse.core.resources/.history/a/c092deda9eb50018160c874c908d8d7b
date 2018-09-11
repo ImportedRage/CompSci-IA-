@@ -154,6 +154,7 @@ public class Base {
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
         frame.add(testtitle);
+        
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
@@ -320,6 +321,10 @@ public class Base {
         
     }
     
+	
+	
+	
+	
     private static int xLocation(int n) {
     	return n*(120+12) + 18;
     }
@@ -352,7 +357,7 @@ public class Base {
         
         // new system button
         // temporarily dummy test button
-        JButton buildsys = new JButton(new ImageIcon(resourcePath + "b1.png"));
+        JButton buildsys = new JButton(new ImageIcon(resourcePath + ""));
         buildsys.setBounds(xLocation(bcount++),115,120,120);
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
@@ -363,7 +368,7 @@ public class Base {
 
         // view water cooling parts button
         // temporarily first view button
-        JButton viewcpu = new JButton(new ImageIcon(resourcePath + "b2.png"));
+        JButton viewcpu = new JButton(new ImageIcon());
         viewcpu.setBounds(xLocation(bcount++),115,120,120);
         viewcpu.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -372,7 +377,7 @@ public class Base {
         });  
         comps[i++] = viewcpu;
         
-        JButton viewgpu = new JButton(new ImageIcon(resourcePath + "b3.png"));
+        JButton viewgpu = new JButton("View GPU Water-blocks",new ImageIcon(resourcePath + "gpuWaterblock.png"));
         viewgpu.setFont(buttontext);
         viewgpu.setBounds(xLocation(bcount++),115,120,120);
         viewgpu.setBackground(Color.ORANGE);
@@ -384,7 +389,7 @@ public class Base {
         	    });  
         comps[i++] = viewgpu;
         
-        JButton rad = new JButton(new ImageIcon(resourcePath + "b4.png"));
+        JButton rad = new JButton(new ImageIcon());
         rad.setBounds(xLocation(bcount++),115,120,120);
         rad.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -393,7 +398,7 @@ public class Base {
         	    });  
         comps[i++] = rad;
        
-        JButton tube = new JButton(new ImageIcon(resourcePath + "b5.png"));
+        JButton tube = new JButton(new ImageIcon());
         tube.setBounds(xLocation(bcount++),115,120,120);
         tube.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -402,7 +407,7 @@ public class Base {
         	    });  
         comps[i++] = tube;
         
-        JButton res = new JButton(new ImageIcon(resourcePath + "b6.png"));
+        JButton res = new JButton(new ImageIcon());
         res.setBounds(xLocation(bcount++),115,120,120);
         res.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -411,7 +416,7 @@ public class Base {
         	    });  
         comps[i++] = res;
 
-        JButton pump = new JButton(new ImageIcon(resourcePath + "b7.png"));
+        JButton pump = new JButton(new ImageIcon());
         pump.setBounds(xLocation(bcount++),115,120,120);
         pump.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -420,7 +425,7 @@ public class Base {
         	    });  
         comps[i++] = pump;
 
-        JButton fit = new JButton(new ImageIcon(resourcePath + "b8.png"));
+        JButton fit = new JButton(new ImageIcon());
         fit.setBounds(xLocation(bcount++),115,120,120);
         fit.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -428,7 +433,8 @@ public class Base {
         	        }  
         	    });  
         comps[i++] = fit;
-        JButton cool = new JButton(new ImageIcon(resourcePath + "b9.png"));
+
+        JButton cool = new JButton(new ImageIcon());
         cool.setBounds(xLocation(bcount++),115,120,120);
         cool.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
