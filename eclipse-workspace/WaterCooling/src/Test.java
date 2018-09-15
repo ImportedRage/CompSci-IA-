@@ -30,7 +30,7 @@ public class Test {
 		CPU cpu1 = new CPU("AMD4");
 		GPU gpu1 = new GPU("GTX970");
 		Case c1 = new Case(444);
-		CPUWaterblock block1 = new CPUWaterblock("2011-3", "Copper");
+		CPUWaterblock block1 = new CPUWaterblock("2011-3", "Copper", "Toby");
 		GPUWaterblock gblock1 = new GPUWaterblock("GTX980", "Copper");
 		Radiator rad1 = new Radiator(3, "Copper");
 		Tubing tub1 = new Tubing(false, 12);
