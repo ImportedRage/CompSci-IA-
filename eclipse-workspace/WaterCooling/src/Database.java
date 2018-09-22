@@ -1,16 +1,30 @@
 
+import java.sql.*;
+
 public class Database {
 	
+	Connection c;
 	
 	Database() {
-		// hook into sql database
-		
+	      Connection c = null;
+	      
+	      try {
+	         Class.forName("org.sqlite.JDBC");
+	         c = DriverManager.getConnection("jdbc:sqlite:watercoolers.odb");
+	      } catch ( Exception e ) {
+	         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+	         System.exit(0);
+	      }
+	      System.out.println("Opened database successfully");
+	   
+
 	}
 	
 	int countCpuWaterblocks() {
 		// query database for amount of cpu waterblocks
 		return 1;
 	}
+	
 	
 	public CPUWaterblock[] getCpuWaterblocks() {
 		//int n = countCpuWaterblocks();

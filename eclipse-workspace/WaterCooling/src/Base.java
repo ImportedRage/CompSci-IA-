@@ -39,17 +39,19 @@ public class Base {
 	int x;
 	int y;
 	
-	static Database database;
+	Database db;
 	
 	
 	public Base() {
 		x = 200;
 		y = 200;
+		
+		db = new Database();
+		
 		baseFrame = createBaseFrame();
 		dummyFrame = createDummyFrame();
 		
 		currentFrame = baseFrame;
-		
 		
 		systemFrame = currentFrame; 
 		cpuFrame = createCpuFrame(); 
@@ -60,8 +62,6 @@ public class Base {
 		pumpFrame = createPumpFrame(); 
 		fitFrame = createFitFrame(); 
 		coolFrame = createCoolFrame(); 
-		
-		database = new Database();
 		
 	}
 	
@@ -87,26 +87,46 @@ public class Base {
 	}
 	
     public Component[] createWaterblockRow(CPUWaterblock wb, int y) {
-    	Component[] comps = new Component[3];
+    	Component[] comps = new Component[6];
+    	y = 375;
+    	
+    	JLabel cpuWaterBlockTitleName = new JLabel ("CPU Waterblock Name:");
+    	cpuWaterBlockTitleName.setForeground(Color.GREEN);
+    	cpuWaterBlockTitleName.setFont(sheader);
+    	cpuWaterBlockTitleName.setBounds (20,325,500,70);
+    	comps[3] = cpuWaterBlockTitleName;
+    	
+     	JLabel cpuWaterBlockSocketName = new JLabel ("Socket Type:");
+     	cpuWaterBlockSocketName.setForeground(Color.GREEN);
+     	cpuWaterBlockSocketName.setFont(sheader);
+     	cpuWaterBlockSocketName.setBounds (400,325,200,70);
+     	comps[4] = cpuWaterBlockSocketName;
+    	
+     	JLabel cpuWaterBlockMetalName = new JLabel ("Metal Type:");
+     	cpuWaterBlockMetalName.setForeground(Color.GREEN);
+     	cpuWaterBlockMetalName.setFont(sheader);
+     	cpuWaterBlockMetalName.setBounds (600,325,200,70);
+    	comps[5] = cpuWaterBlockMetalName;
+    	
     	
     	JLabel cpuWaterblockName = new JLabel (wb.getName());    	
     	cpuWaterblockName.setForeground(Color.BLUE);
-    	cpuWaterblockName.setFont(fheader);
-    	cpuWaterblockName.setBounds (20,y,200,50);
+    	cpuWaterblockName.setFont(bodytext);
+    	cpuWaterblockName.setBounds (20,y,200,70);
         comps[0] = cpuWaterblockName;
     	
      	
     	JLabel cpuWaterblockSocket = new JLabel (wb.getSocket());    	
     	cpuWaterblockSocket.setForeground(Color.GREEN);
-    	cpuWaterblockSocket.setFont(fheader);
-    	cpuWaterblockSocket.setBounds (400,y,200,50);
+    	cpuWaterblockSocket.setFont(bodytext);
+    	cpuWaterblockSocket.setBounds (400,y,200,70);
         comps[1] = cpuWaterblockSocket;
         
      	
     	JLabel cpuWaterblockMetal = new JLabel (wb.getMetal());    	
     	cpuWaterblockMetal.setForeground(Color.RED);
-    	cpuWaterblockMetal.setFont(fheader);
-    	cpuWaterblockMetal.setBounds (600,y,800,50);
+    	cpuWaterblockMetal.setFont(bodytext);
+    	cpuWaterblockMetal.setBounds (600,y,800,70);
         comps[2] = cpuWaterblockMetal;
         
         // button
@@ -128,9 +148,7 @@ public class Base {
         frame.add(testtitle);
         
         int y = 400;
-        //CPUWaterblock[] waterblocks = database.getCpuWaterblocks(); // WHY THIS BUG?!
-		CPUWaterblock[] waterblocks = new CPUWaterblock[1];
-		waterblocks[0] = new CPUWaterblock("2011-3", "Copper", "Toby");
+        CPUWaterblock[] waterblocks = db.getCpuWaterblocks();
         
         for (int i = 0; i < waterblocks.length; i++) {
 	        Component[] row = createWaterblockRow(waterblocks[i], y);
