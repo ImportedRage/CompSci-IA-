@@ -55,29 +55,30 @@ public class Watercoolersystem {
 					+ "Please select another GPU Waterblock.");
 		}
 		
-		if(this.tub.bendable == false) {
+		if(this.tub.bendable.equals(false)) {
+			
 			advice.add("The currently selected Tubing does not support heat-treatment to enable bendability,"
 					+ "the use of angled fittings is required in your currently selected water-cooling system.");
 		} 
 		
-		if(this.rad.maxfancount != this.c4.maxfancount) {
+		if(this.rad.maxfancount.equals(this.c4.maxfancount)) {
 			advice.add("Do ensure that your selected radiator can be fit into your PC case. "
 					+ "This can be done by simply checking the fan size,counts of your PC case, "
 					+ "the fan count of the radiator should correspond with the number of fans and fan sizes of your PC case."); 
 		}
 		
-		if(this.res.combo == false) {
+		if(this.res.combo.equals("False")) {
 			advice.add("The currently selected reservoir does not contain a pump unit,"
 					+ "you would have to purchase an additional pumo unit for your system to function properly.");
 		}
 		
-		if(this.tub.diameter != this.fit.diameter) {
+		if(this.tub.diameter.equals(this.fit.diameter)) {
 			advice.add("Do ensure that you have the required number of fittings for your system. "
 					+ "Each component generally requires 2 - 3 fittings depending on the configuration. Also ensure that"
 					+ "your fitting corrosponds with your tubing diameter to ensure compatibility.");
 		}
 		
-		if(this.cool.edible == true) {
+		if(this.cool.edible.equals("True")) {
 			advice.add("The currently selected coolant does not contain some form of biocide/silver coil and will require biocide/silver coil"
 					+ "to be incorporated into the coolant to deter bacterial grwoth.");
 

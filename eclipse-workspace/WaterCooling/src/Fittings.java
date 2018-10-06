@@ -1,11 +1,19 @@
 
 public class Fittings {
-	
-		int diameter;
+
+String name; 
+String diameter;
 
 	
-	public Fittings(int diameter) {
+	public Fittings(String name, String diameter) {
+		this.name = name; 
 		this.diameter = diameter; 
 	}
-
+	public String getName() {
+		return name; 
+	}
+	public String getDiameter() {
+		return diameter;
+	
+	}
 }

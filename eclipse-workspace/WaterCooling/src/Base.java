@@ -135,6 +135,297 @@ public class Base {
 	  
     }
 	
+    public Component[] createGPUWaterblockRow(GPUWaterblock wb, int y) {
+    	Component[] comps = new Component[6];
+    	y = 375;
+    	
+    	JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
+    	gpuWaterBlockTitleName.setForeground(Color.GREEN);
+    	gpuWaterBlockTitleName.setFont(sheader);
+    	gpuWaterBlockTitleName.setBounds (20,325,500,70);
+    	comps[3] = gpuWaterBlockTitleName;
+    	
+     	JLabel gpuWaterBlockModelType = new JLabel ("Model Type:");
+     	gpuWaterBlockModelType.setForeground(Color.GREEN);
+     	gpuWaterBlockModelType.setFont(sheader);
+     	gpuWaterBlockModelType.setBounds (400,325,200,70);
+     	comps[4] = gpuWaterBlockModelType;
+    	
+     	JLabel gpuWaterBlockMetalName = new JLabel ("Metal Type:");
+     	gpuWaterBlockMetalName.setForeground(Color.GREEN);
+     	gpuWaterBlockMetalName.setFont(sheader);
+     	gpuWaterBlockMetalName.setBounds (600,325,200,70);
+    	comps[5] = gpuWaterBlockMetalName;
+    	
+    	
+    	JLabel gpuWaterblockName = new JLabel (wb.getName());    	
+    	gpuWaterblockName.setForeground(Color.BLUE);
+    	gpuWaterblockName.setFont(bodytext);
+    	gpuWaterblockName.setBounds (20,y,200,70);
+        comps[0] = gpuWaterblockName;
+    	
+     	
+    	JLabel gpuWaterblockSocket = new JLabel (wb.getModel());    	
+    	gpuWaterblockSocket.setForeground(Color.GREEN);
+    	gpuWaterblockSocket.setFont(bodytext);
+    	gpuWaterblockSocket.setBounds (400,y,200,70);
+        comps[1] = gpuWaterblockSocket;
+        
+     	
+    	JLabel gpuWaterblockMetal = new JLabel (wb.getMetal());    	
+    	gpuWaterblockMetal.setForeground(Color.RED);
+    	gpuWaterblockMetal.setFont(bodytext);
+    	gpuWaterblockMetal.setBounds (600,y,800,70);
+        comps[2] = gpuWaterblockMetal;
+        
+        // button
+    	
+    	return comps;
+	  
+    }
+    public Component[] createRadiatorRow(Radiator rad, int y) {
+    	Component[] comps = new Component[6];
+    	y = 375;
+    	
+    	JLabel RadiatorTitleName = new JLabel ("Radiator Name:");
+    	RadiatorTitleName.setForeground(Color.GREEN);
+    	RadiatorTitleName.setFont(sheader);
+    	RadiatorTitleName.setBounds (20,325,500,70);
+    	comps[3] = RadiatorTitleName;
+    	
+     	JLabel RadiatorFanCountNumber = new JLabel ("Maximum Number of Fans:");
+     	RadiatorFanCountNumber.setForeground(Color.GREEN);
+     	RadiatorFanCountNumber.setFont(sheader);
+     	RadiatorFanCountNumber.setBounds (250,325,550,70);
+     	comps[4] = RadiatorFanCountNumber;
+    	
+     	JLabel RadiatorMetalName = new JLabel ("Metal Type:");
+     	RadiatorMetalName.setForeground(Color.GREEN);
+     	RadiatorMetalName.setFont(sheader);
+     	RadiatorMetalName.setBounds (700,325,200,70);
+    	comps[5] = RadiatorMetalName;
+    	
+    	
+    	JLabel RadiatorName = new JLabel (rad.getName());    	
+    	RadiatorName.setForeground(Color.BLUE);
+    	RadiatorName.setFont(bodytext);
+    	RadiatorName.setBounds (20,y,200,70);
+        comps[0] = RadiatorName;
+    	
+     	
+    	JLabel RadiatorFanCount = new JLabel (rad.getMaxFanCount());    	
+    	RadiatorFanCount.setForeground(Color.GREEN);
+    	RadiatorFanCount.setFont(bodytext);
+    	RadiatorFanCount.setBounds (400,y,200,70);
+        comps[1] = RadiatorFanCount;
+        
+     	
+    	JLabel RadiatorMetal = new JLabel (rad.getMetal());    	
+    	RadiatorMetal.setForeground(Color.RED);
+    	RadiatorMetal.setFont(bodytext);
+    	RadiatorMetal.setBounds (700,y,800,70);
+        comps[2] = RadiatorMetal;
+        
+        // button
+    	
+    	return comps;
+	  
+    }
+    public Component[] createTubingRow(Tubing tub, int y) {
+    	Component[] comps = new Component[6];
+    	y = 375;
+    	
+    	JLabel TubingTitleName = new JLabel ("Tubing Name:");
+    	TubingTitleName.setForeground(Color.GREEN);
+    	TubingTitleName.setFont(sheader);
+    	TubingTitleName.setBounds (20,325,500,70);
+    	comps[3] = TubingTitleName;
+    	
+     	JLabel TubingBendability = new JLabel ("Tubing Bendabiliy?:");
+     	TubingBendability.setForeground(Color.GREEN);
+     	TubingBendability.setFont(sheader);
+     	TubingBendability.setBounds (250,325,550,70);
+     	comps[4] = TubingBendability;
+    	
+     	JLabel TubingDiameter = new JLabel ("Tubing Diameter:");
+     	TubingDiameter.setForeground(Color.GREEN);
+     	TubingDiameter.setFont(sheader);
+     	TubingDiameter.setBounds (600,325,300,70);
+    	comps[5] = TubingDiameter;
+    	
+    	
+    	JLabel TubingName = new JLabel (tub.getName());    	
+    	TubingName.setForeground(Color.BLUE);
+    	TubingName.setFont(bodytext);
+    	TubingName.setBounds (20,y,200,70);
+        comps[0] = TubingName;
+    	
+     	
+    	JLabel TubingBendable = new JLabel (tub.getBendable());    	
+    	TubingBendable.setForeground(Color.GREEN);
+    	TubingBendable.setFont(bodytext);
+    	TubingBendable.setBounds (250,y,200,70);
+        comps[1] = TubingBendable;
+        
+     	
+    	JLabel TubingDiameterSize = new JLabel (tub.getDiameter());    	
+    	TubingDiameterSize.setForeground(Color.RED);
+    	TubingDiameterSize.setFont(bodytext);
+    	TubingDiameterSize.setBounds (600,y,800,70);
+        comps[2] = TubingDiameterSize;
+        
+        // button
+    	
+    	return comps;
+    }
+    public Component[] createReservoirRow(Reservoir res, int y) {
+    	Component[] comps = new Component[4];
+    	y = 375;
+    	
+    	JLabel ReservoirTitleName = new JLabel ("Reservoir Name:");
+    	ReservoirTitleName.setForeground(Color.GREEN);
+    	ReservoirTitleName.setFont(sheader);
+    	ReservoirTitleName.setBounds (20,325,500,70);
+    	comps[0] = ReservoirTitleName;
+    	
+     	JLabel ReservoirCombo = new JLabel ("Reservoir Combo?:");
+     	ReservoirCombo.setForeground(Color.GREEN);
+     	ReservoirCombo.setFont(sheader);
+     	ReservoirCombo.setBounds (250,325,550,70);
+     	comps[1] = ReservoirCombo;
+    	
+    	JLabel ReservoirName = new JLabel (res.getName());    	
+    	ReservoirName.setForeground(Color.BLUE);
+    	ReservoirName.setFont(bodytext);
+    	ReservoirName.setBounds (20,y,200,70);
+        comps[2] = ReservoirName;
+    	
+     	
+    	JLabel ReservoirComboCondition = new JLabel (res.getCombo());    	
+    	ReservoirComboCondition.setForeground(Color.GREEN);
+    	ReservoirComboCondition.setFont(bodytext);
+    	ReservoirComboCondition.setBounds (250,y,200,70);
+        comps[3] = ReservoirComboCondition;
+        
+        // button
+    	
+    	return comps;
+    }
+    public Component[] createPumpRow(Pump pump, int y) {
+    	Component[] comps = new Component[6];
+    	y = 375;
+    	
+    	JLabel PumpTitleName = new JLabel ("Pump Name:");
+    	PumpTitleName.setForeground(Color.GREEN);
+    	PumpTitleName.setFont(sheader);
+    	PumpTitleName.setBounds (20,325,500,70);
+    	comps[3] = PumpTitleName;
+    	
+     	JLabel PumpTypeName = new JLabel ("Pump Type?:");
+     	PumpTypeName.setForeground(Color.GREEN);
+     	PumpTypeName.setFont(sheader);
+     	PumpTypeName.setBounds (250,325,550,70);
+     	comps[4] = PumpTypeName;
+    	
+     	JLabel PumpBrandName = new JLabel ("Pump Brand:");
+     	PumpBrandName.setForeground(Color.GREEN);
+     	PumpBrandName.setFont(sheader);
+     	PumpBrandName.setBounds (600,325,300,70);
+    	comps[5] = PumpBrandName;
+    	
+    	
+    	JLabel PumpName = new JLabel (pump.getName());    	
+    	PumpName.setForeground(Color.BLUE);
+    	PumpName.setFont(bodytext);
+    	PumpName.setBounds (20,y,200,70);
+        comps[0] = PumpName;
+    	
+     	
+    	JLabel PumpType = new JLabel (pump.getType());    	
+    	PumpType.setForeground(Color.GREEN);
+    	PumpType.setFont(bodytext);
+    	PumpType.setBounds (250,y,200,70);
+        comps[1] = PumpType;
+        
+     	
+    	JLabel PumpBrand = new JLabel (pump.getBrand());    	
+    	PumpBrand.setForeground(Color.RED);
+    	PumpBrand.setFont(bodytext);
+    	PumpBrand.setBounds (600,y,800,70);
+        comps[2] = PumpBrand;
+        
+        // button
+    	
+    	return comps;
+    }
+    public Component[] createFittingsRow(Fittings fit, int y) {
+    	Component[] comps = new Component[4];
+    	y = 375;
+    	
+    	JLabel FittingsTitleName = new JLabel ("Fittings Name:");
+    	FittingsTitleName.setForeground(Color.GREEN);
+    	FittingsTitleName.setFont(sheader);
+    	FittingsTitleName.setBounds (20,325,500,70);
+    	comps[0] = FittingsTitleName;
+    	
+     	JLabel FittingsDiameter = new JLabel ("Fitting(s) Size?:");
+     	FittingsDiameter.setForeground(Color.GREEN);
+     	FittingsDiameter.setFont(sheader);
+     	FittingsDiameter.setBounds (250,325,550,70);
+     	comps[1] = FittingsDiameter;
+    	
+    	JLabel FittingsTitle = new JLabel (fit.getName());    	
+    	FittingsTitle.setForeground(Color.BLUE);
+    	FittingsTitle.setFont(bodytext);
+    	FittingsTitle.setBounds (20,y,200,70);
+        comps[2] = FittingsTitle;
+    	
+     	
+    	JLabel FittingsDiameterSize = new JLabel (fit.getDiameter());    	
+    	FittingsDiameterSize.setForeground(Color.GREEN);
+    	FittingsDiameterSize.setFont(bodytext);
+    	FittingsDiameterSize.setBounds (250,y,200,70);
+        comps[3] = FittingsDiameterSize;
+        
+        // button
+    	
+    	return comps;
+    }
+	
+    public Component[] createCoolantRow(Coolant cool, int y) {
+    	Component[] comps = new Component[4];
+    	y = 375;
+    	
+    	JLabel CoolantTitleName = new JLabel ("Coolant Name:");
+    	CoolantTitleName.setForeground(Color.GREEN);
+    	CoolantTitleName.setFont(sheader);
+    	CoolantTitleName.setBounds (20,325,500,70);
+    	comps[0] = CoolantTitleName;
+    	
+     	JLabel CoolantEdibleQuestion = new JLabel ("Is the Coolant Edible?:");
+     	CoolantEdibleQuestion.setForeground(Color.GREEN);
+     	CoolantEdibleQuestion.setFont(sheader);
+     	CoolantEdibleQuestion.setBounds (250,325,550,70);
+     	comps[1] = CoolantEdibleQuestion;
+    	
+    	JLabel CoolantName = new JLabel (cool.getName());    	
+    	CoolantName.setForeground(Color.BLUE);
+    	CoolantName.setFont(bodytext);
+    	CoolantName.setBounds (20,y,200,70);
+        comps[2] = CoolantName;
+    	
+     	
+    	JLabel CoolantEdible = new JLabel (cool.getEdible());    	
+    	CoolantEdible.setForeground(Color.GREEN);
+    	CoolantEdible.setFont(bodytext);
+    	CoolantEdible.setBounds (250,y,200,70);
+        comps[3] = CoolantEdible;
+        
+        // button
+    	
+    	return comps;
+    }
+    
 	public JFrame createCpuFrame() {
 		JFrame frame = new JFrame ("cpu123");
         frame.setSize(1220,800);
@@ -200,7 +491,7 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-		JLabel testtitle = new JLabel ("gpu123"); 
+		JLabel testtitle = new JLabel ("GPU Waterblocks"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
@@ -212,6 +503,16 @@ public class Base {
 		
 		
     	}
+    	int y = 400;
+        GPUWaterblock[] waterblocks = db.getGpuWaterblocks();
+        
+        for (int i = 0; i < waterblocks.length; i++) {
+	        Component[] row = createGPUWaterblockRow(waterblocks[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        	
+	        }
+        }
 		return frame;
 	}
 	
@@ -222,7 +523,7 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-		JLabel testtitle = new JLabel ("rad123"); 
+		JLabel testtitle = new JLabel ("Radiators"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
@@ -231,9 +532,17 @@ public class Base {
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
-		
-		
     	}
+    	int y = 400;
+        Radiator[] rad = db.getRadiators();
+        
+        for (int i = 0; i < rad.length; i++) {
+	        Component[] row = createRadiatorRow(rad[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        	
+	        }
+        }
 		return frame;
 	}
 	
@@ -254,6 +563,16 @@ public class Base {
 		
 		
     	}
+        int y = 400;
+        Tubing[] tub = db.getTubing();
+        
+        for (int i = 0; i < tub.length; i++) {
+	        Component[] row = createTubingRow(tub[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        }
+	        //y += 50;
+        }
 		return frame;
 	}
 	
@@ -272,8 +591,16 @@ public class Base {
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
-		
-		
+    	}
+    		int y = 400;
+            Reservoir[] res = db.getReservoir();
+            
+            for (int i = 0; i < res.length; i++) {
+    	        Component[] row = createReservoirRow(res[i], y);
+    	        for (int j = 0; j < row.length; j++) {
+    	        	frame.add(row[j]);
+    	        }
+    	        //y += 50;
     	}
 		return frame;
 	}
@@ -284,7 +611,7 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-		JLabel testtitle = new JLabel ("pump123"); 
+		JLabel testtitle = new JLabel ("Pumps"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
@@ -294,9 +621,20 @@ public class Base {
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
 		
-		
     	}
+        int y = 400;
+        Pump[] pump = db.getPump();
+        
+        for (int i = 0; i < pump.length; i++) {
+	        Component[] row = createPumpRow(pump[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        }
+	        //y += 50;
+        }
 		return frame;
+		
+
 	}
 	
 	public JFrame createFitFrame() {
@@ -305,7 +643,7 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-		JLabel testtitle = new JLabel ("fitting123"); 
+		JLabel testtitle = new JLabel ("Fittings"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
@@ -317,11 +655,21 @@ public class Base {
 		
 		
     	}
-		return frame;
-	}
+    	  int y = 400;
+          Fittings[] fit = db.getFittings();
+          
+          for (int i = 0; i < fit.length; i++) {
+  	        Component[] row = createFittingsRow(fit[i], y);
+  	        for (int j = 0; j < row.length; j++) {
+  	        	frame.add(row[j]);
+  	        }
+  	        //y += 50;
+          }
+  		return frame;
+  			}
 	
 	public JFrame createCoolFrame() {
-		JFrame frame = new JFrame ("cool213");
+		JFrame frame = new JFrame ("Coolant");
         frame.setSize(1220,800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
@@ -336,10 +684,21 @@ public class Base {
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
 		
-		
     	}
-		return frame;
-	}
+    		 int y = 400;
+             Coolant[] cool = db.getCoolant();
+             
+             for (int i = 0; i < cool.length; i++) {
+     	        Component[] row = createCoolantRow(cool[i], y);
+     	        for (int j = 0; j < row.length; j++) {
+     	        	frame.add(row[j]);
+     	        }
+     	        //y += 50;
+             }
+     		return frame;
+     }
+    	
+	
 	
 	
 	public JFrame createDummyFrame() {

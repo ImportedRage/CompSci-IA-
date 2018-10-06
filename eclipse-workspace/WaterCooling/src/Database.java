@@ -36,5 +36,44 @@ public class Database {
 		
 		
 	}
-	
+	public GPUWaterblock[] getGpuWaterblocks() {
+		GPUWaterblock[] waterblocks = new GPUWaterblock[1]; 
+		
+		waterblocks[0] = new GPUWaterblock("Name01", "Model01", "Metal01" );
+		return waterblocks;
+	}
+	public Radiator[] getRadiators() {
+		Radiator[] rad = new Radiator[1];
+		rad[0] = new Radiator("RadName01","999", "Metal:Platinum");
+		return rad;
+	}
+	public Tubing[] getTubing() {
+		Tubing[] tub = new Tubing[1];
+		tub[0] = new Tubing("TubName01", "True/False", "Diameter:900 Meters");
+		return tub;
+			
+	}
+	public Reservoir[] getReservoir() {
+		Reservoir[] res = new Reservoir[1];
+		res[0] = new Reservoir("ResName01", "Combo:True");
+		return res;
+			
+	}
+	public Pump[] getPump() {
+		Pump[] pump = new Pump[1];
+		pump[0] = new Pump("PumpName","PumpType01", "Pump Brand");
+		return pump;
+			
+	}
+	public Fittings[] getFittings() {
+		Fittings[] fit = new Fittings[1];
+		fit[0] = new Fittings("FittingName01","FittingDiameter:9000");
+		return fit;
+			
+	}
+	public Coolant[] getCoolant() {
+		Coolant[] cool = new Coolant[1];
+		cool[0] = new Coolant("CoolantName01","True");
+		return cool;
+	}
 }

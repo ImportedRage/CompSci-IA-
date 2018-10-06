@@ -1,0 +1,24 @@
+
+public class Radiator {
+	String name; 
+	int maxfancount;
+	String metal;
+	
+	public Radiator(String name, int maxfancount, String metal) {
+		this.name = name;
+		this.maxfancount = maxfancount; 
+		this.metal = metal; 
+}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getMaxFanCount() {
+		return maxfancount;
+	}
+
+	public String getMetal() {
+		return metal;
+	}
+}

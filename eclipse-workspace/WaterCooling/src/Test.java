@@ -31,12 +31,12 @@ public class Test {
 		GPU gpu1 = new GPU("GTX970");
 		Case c1 = new Case(444);
 		CPUWaterblock block1 = new CPUWaterblock("2011-3", "Copper", "Toby");
-		GPUWaterblock gblock1 = new GPUWaterblock("GTX980", "Copper");
-		Radiator rad1 = new Radiator(3, "Copper");
-		Tubing tub1 = new Tubing(false, 12);
-		Reservoir res1 = new Reservoir(false); 
-		Pump pump1 = new Pump("EK", "D5");
-		Fittings fit1 = new Fittings(12);
+		GPUWaterblock gblock1 = new GPUWaterblock("Name1", "Model01", "Metal01");
+		Radiator rad1 = new Radiator("RadName","3", "Copper");
+		Tubing tub1 = new Tubing("TubeName01", "False, ", "12");
+		Reservoir res1 = new Reservoir("ResName01", "Combo:True"); 
+		Pump pump1 = new Pump("ThatPumpName", "ThatPumpBrand", "ThatPumpType");
+		Fittings fit1 = new Fittings("ThatFittingName", "ThatFittingDiameter:9000");
 		Coolant cool1 = new Coolant(true); 
 		
 		
