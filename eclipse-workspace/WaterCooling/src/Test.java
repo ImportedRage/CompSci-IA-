@@ -37,7 +37,7 @@ public class Test {
 		Reservoir res1 = new Reservoir("ResName01", "Combo:True"); 
 		Pump pump1 = new Pump("ThatPumpName", "ThatPumpBrand", "ThatPumpType");
 		Fittings fit1 = new Fittings("ThatFittingName", "ThatFittingDiameter:9000");
-		Coolant cool1 = new Coolant(true); 
+		Coolant cool1 = new Coolant("Cool1", "Not edible"); 
 		
 		
 		

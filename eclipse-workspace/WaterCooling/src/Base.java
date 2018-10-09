@@ -22,8 +22,8 @@ public class Base {
     Font bodytext = new Font("Serif", 3, 24);
     Font buttontext = new Font("Serif", 1, 11);
 	
+    static JFrame createFrame;
 	static JFrame baseFrame;
-	static JFrame dummyFrame;
 	static JFrame systemFrame;
 	static JFrame cpuFrame;
 	static JFrame gpuFrame;
@@ -33,7 +33,8 @@ public class Base {
 	static JFrame pumpFrame;
 	static JFrame fitFrame;
 	static JFrame coolFrame;
-	
+	static JFrame dummyFrame;
+
 	
 	static JFrame currentFrame;
 	int x;
@@ -52,7 +53,7 @@ public class Base {
 		dummyFrame = createDummyFrame();
 		
 		currentFrame = baseFrame;
-		
+		createFrame = createSystemFrame();
 		systemFrame = currentFrame; 
 		cpuFrame = createCpuFrame(); 
 		gpuFrame = createGpuFrame(); 
@@ -87,13 +88,14 @@ public class Base {
 	}
 	
     public Component[] createWaterblockRow(CPUWaterblock wb, int y) {
-    	Component[] comps = new Component[6];
+    	Component[] comps = new Component[7];
     	y = 375;
     	
     	JLabel cpuWaterBlockTitleName = new JLabel ("CPU Waterblock Name:");
     	cpuWaterBlockTitleName.setForeground(Color.GREEN);
     	cpuWaterBlockTitleName.setFont(sheader);
     	cpuWaterBlockTitleName.setBounds (20,325,500,70);
+    	
     	comps[3] = cpuWaterBlockTitleName;
     	
      	JLabel cpuWaterBlockSocketName = new JLabel ("Socket Type:");
@@ -129,14 +131,24 @@ public class Base {
     	cpuWaterblockMetal.setBounds (600,y,800,70);
         comps[2] = cpuWaterblockMetal;
         
-        // button
-    	
+        JButton addCPU = new JButton("Add CPU Waterblock");
+        addCPU.setBounds(900,y,180,35);
+        comps[6] = addCPU;
+        addCPU.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addCPUWaterblock(wb);
+        	        } 
+        	}
+        );
+        
+        
+        
     	return comps;
 	  
     }
 	
     public Component[] createGPUWaterblockRow(GPUWaterblock wb, int y) {
-    	Component[] comps = new Component[6];
+    	Component[] comps = new Component[7];
     	y = 375;
     	
     	JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
@@ -178,13 +190,22 @@ public class Base {
     	gpuWaterblockMetal.setBounds (600,y,800,70);
         comps[2] = gpuWaterblockMetal;
         
-        // button
+        JButton addGPU = new JButton("Add GPU Waterblock");
+        addGPU.setBounds(900,y,180,35);
+        comps[6] = addGPU;
+        addGPU.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addGPUWaterblock(wb);
+        	        } 
+        	}
+        );
+        
     	
     	return comps;
 	  
     }
     public Component[] createRadiatorRow(Radiator rad, int y) {
-    	Component[] comps = new Component[6];
+    	Component[] comps = new Component[7];
     	y = 375;
     	
     	JLabel RadiatorTitleName = new JLabel ("Radiator Name:");
@@ -226,13 +247,20 @@ public class Base {
     	RadiatorMetal.setBounds (700,y,800,70);
         comps[2] = RadiatorMetal;
         
-        // button
-    	
+        JButton addRad = new JButton("Add Radiators");
+        addRad.setBounds(900,y,180,35);
+        comps[6] = addRad;
+        addRad.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addGPUWaterblock(rad);
+        	        } 
+        	}
+        );    	
     	return comps;
 	  
     }
     public Component[] createTubingRow(Tubing tub, int y) {
-    	Component[] comps = new Component[6];
+    	Component[] comps = new Component[7];
     	y = 375;
     	
     	JLabel TubingTitleName = new JLabel ("Tubing Name:");
@@ -274,12 +302,19 @@ public class Base {
     	TubingDiameterSize.setBounds (600,y,800,70);
         comps[2] = TubingDiameterSize;
         
-        // button
-    	
+        JButton addTub = new JButton("Add Tubing");
+        addTub.setBounds(900,y,180,35);
+        comps[6] = addTub;
+        addTub.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addGPUWaterblock(tub);
+        	        } 
+        	}
+        );    	    	
     	return comps;
     }
     public Component[] createReservoirRow(Reservoir res, int y) {
-    	Component[] comps = new Component[4];
+    	Component[] comps = new Component[5];
     	y = 375;
     	
     	JLabel ReservoirTitleName = new JLabel ("Reservoir Name:");
@@ -307,12 +342,19 @@ public class Base {
     	ReservoirComboCondition.setBounds (250,y,200,70);
         comps[3] = ReservoirComboCondition;
         
-        // button
-    	
+        JButton addRes = new JButton("Add Tubing");
+        addRes.setBounds(900,y,180,35);
+        comps[4] = addRes;
+        addRes.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addGPUWaterblock(res);
+        	        } 
+        	}
+        );    	    	    	
     	return comps;
     }
     public Component[] createPumpRow(Pump pump, int y) {
-    	Component[] comps = new Component[6];
+    	Component[] comps = new Component[7];
     	y = 375;
     	
     	JLabel PumpTitleName = new JLabel ("Pump Name:");
@@ -354,12 +396,19 @@ public class Base {
     	PumpBrand.setBounds (600,y,800,70);
         comps[2] = PumpBrand;
         
-        // button
-    	
+        JButton addPump = new JButton("Add Pump");
+        addPump.setBounds(900,y,180,35);
+        comps[6] = addPump;
+        addPump.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addGPUWaterblock(pump);
+        	        } 
+        	}
+        );    	    	    	    	
     	return comps;
     }
     public Component[] createFittingsRow(Fittings fit, int y) {
-    	Component[] comps = new Component[4];
+    	Component[] comps = new Component[5];
     	y = 375;
     	
     	JLabel FittingsTitleName = new JLabel ("Fittings Name:");
@@ -387,8 +436,15 @@ public class Base {
     	FittingsDiameterSize.setBounds (250,y,200,70);
         comps[3] = FittingsDiameterSize;
         
-        // button
-    	
+        JButton addFit = new JButton("Add Fittings");
+        addFit.setBounds(900,y,180,35);
+        comps[4] = addFit;
+        addFit.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addGPUWaterblock(fit);
+        	        } 
+        	}
+        );    	        	
     	return comps;
     }
 	
@@ -421,8 +477,15 @@ public class Base {
     	CoolantEdible.setBounds (250,y,200,70);
         comps[3] = CoolantEdible;
         
-        // button
-    	
+        JButton addCool = new JButton("Add Coolants");
+        addCool.setBounds(900,y,180,35);
+        comps[4] = addCool;
+        addCool.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.addGPUWaterblock(cool);
+        	        } 
+        	}
+        );    	        	    	
     	return comps;
     }
     
@@ -552,7 +615,7 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-		JLabel testtitle = new JLabel ("tube123"); 
+		JLabel testtitle = new JLabel ("Tubing"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
@@ -582,7 +645,7 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-		JLabel testtitle = new JLabel ("res123"); 
+		JLabel testtitle = new JLabel ("Reservoirs"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
@@ -674,7 +737,7 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-		JLabel testtitle = new JLabel ("cool123"); 
+		JLabel testtitle = new JLabel ("Coolants"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         testtitle.setBounds (20,150,1000,300);
@@ -698,7 +761,29 @@ public class Base {
      		return frame;
      }
     	
-	
+	public JFrame createSystemFrame() {
+		JFrame frame = new JFrame("CreateSys");
+		
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel CreateSysTitle = new JLabel ("Create a new system "); 
+		CreateSysTitle.setForeground(Color.BLUE);
+		CreateSysTitle.setFont(fheader);
+		CreateSysTitle.setBounds (20,150,1000,300);
+        frame.add(CreateSysTitle);
+        
+
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+    	}
+    	
+    	return frame;
+	} 
+		
 	
 	
 	public JFrame createDummyFrame() {
@@ -809,7 +894,7 @@ public class Base {
         buildsys.setBounds(xLocation(bcount++),115,120,120);
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
-        		changeFrame(dummyFrame);
+        		changeFrame(createFrame);
         	 }  
         });  
         comps[i++] = buildsys;
