@@ -41,7 +41,7 @@ public class Test {
 		
 		
 		
-		Watercoolersystem system1 = new Watercoolersystem(			cpu1, 
+		WaterCoolerSystem system1 = new WaterCoolerSystem(			cpu1, 
 																	gpu1, 
 																	c1,
 																	block1,

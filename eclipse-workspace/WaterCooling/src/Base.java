@@ -40,21 +40,31 @@ public class Base {
 	int x;
 	int y;
 	
+	WaterCoolerSystem wcs;
 	Database db;
+
 	
 	
 	public Base() {
 		x = 200;
 		y = 200;
 		
-		db = new Database();
+		wcs = new WaterCoolerSystem();
+		//wcs.setCpu();
+		//wcs.setGpu();
+	
+		
+		//We need an option to gain user input regarding CPU/GPU Model, preferably a dropdown menu/option. 
+		
+		
+		
+		
+		db = new Database();	
 		
 		baseFrame = createBaseFrame();
 		dummyFrame = createDummyFrame();
-		
 		currentFrame = baseFrame;
-		createFrame = createSystemFrame();
-		systemFrame = currentFrame; 
+		systemFrame = createSystemFrame();
 		cpuFrame = createCpuFrame(); 
 		gpuFrame = createGpuFrame(); 
 		radFrame = createRadFrame(); 
@@ -136,7 +146,7 @@ public class Base {
         comps[6] = addCPU;
         addCPU.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addCPUWaterblock(wb);
+        				wcs.setCWB(wb);
         	        } 
         	}
         );
@@ -147,7 +157,7 @@ public class Base {
 	  
     }
 	
-    public Component[] createGPUWaterblockRow(GPUWaterblock wb, int y) {
+    public Component[] createGPUWaterblockRow(GPUWaterblock gwb, int y) {
     	Component[] comps = new Component[7];
     	y = 375;
     	
@@ -170,21 +180,21 @@ public class Base {
     	comps[5] = gpuWaterBlockMetalName;
     	
     	
-    	JLabel gpuWaterblockName = new JLabel (wb.getName());    	
+    	JLabel gpuWaterblockName = new JLabel (gwb.getName());    	
     	gpuWaterblockName.setForeground(Color.BLUE);
     	gpuWaterblockName.setFont(bodytext);
     	gpuWaterblockName.setBounds (20,y,200,70);
         comps[0] = gpuWaterblockName;
     	
      	
-    	JLabel gpuWaterblockSocket = new JLabel (wb.getModel());    	
+    	JLabel gpuWaterblockSocket = new JLabel (gwb.getModel());    	
     	gpuWaterblockSocket.setForeground(Color.GREEN);
     	gpuWaterblockSocket.setFont(bodytext);
     	gpuWaterblockSocket.setBounds (400,y,200,70);
         comps[1] = gpuWaterblockSocket;
         
      	
-    	JLabel gpuWaterblockMetal = new JLabel (wb.getMetal());    	
+    	JLabel gpuWaterblockMetal = new JLabel (gwb.getMetal());    	
     	gpuWaterblockMetal.setForeground(Color.RED);
     	gpuWaterblockMetal.setFont(bodytext);
     	gpuWaterblockMetal.setBounds (600,y,800,70);
@@ -195,7 +205,7 @@ public class Base {
         comps[6] = addGPU;
         addGPU.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addGPUWaterblock(wb);
+        		wcs.setGWB(gwb);
         	        } 
         	}
         );
@@ -252,7 +262,7 @@ public class Base {
         comps[6] = addRad;
         addRad.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addGPUWaterblock(rad);
+        			wcs.setRad(rad);
         	        } 
         	}
         );    	
@@ -307,7 +317,7 @@ public class Base {
         comps[6] = addTub;
         addTub.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addGPUWaterblock(tub);
+        			wcs.setTub(tub);
         	        } 
         	}
         );    	    	
@@ -347,7 +357,7 @@ public class Base {
         comps[4] = addRes;
         addRes.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addGPUWaterblock(res);
+        			wcs.setRes(res);
         	        } 
         	}
         );    	    	    	
@@ -401,7 +411,7 @@ public class Base {
         comps[6] = addPump;
         addPump.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addGPUWaterblock(pump);
+        			wcs.setPump(pump);
         	        } 
         	}
         );    	    	    	    	
@@ -441,7 +451,7 @@ public class Base {
         comps[4] = addFit;
         addFit.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addGPUWaterblock(fit);
+        			wcs.setFit(fit);
         	        } 
         	}
         );    	        	
@@ -449,7 +459,7 @@ public class Base {
     }
 	
     public Component[] createCoolantRow(Coolant cool, int y) {
-    	Component[] comps = new Component[4];
+    	Component[] comps = new Component[5];
     	y = 375;
     	
     	JLabel CoolantTitleName = new JLabel ("Coolant Name:");
@@ -482,7 +492,7 @@ public class Base {
         comps[4] = addCool;
         addCool.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
-        				wcs.addGPUWaterblock(cool);
+        			wcs.setCool(cool);
         	        } 
         	}
         );    	        	    	
@@ -512,32 +522,6 @@ public class Base {
 	        //y += 50;
         }
         
-        
-        
-
-	//}  
-     /*  JLabel wcputext = new JLabel(""
-        		+ "<html><p style=\"width:500px\">"
-        		+ "A CPU Water blocks are essential in cooling your CPU using liquid cooling. "
-        		+ "There are a variety of available options on the market, "
-        		+ "with different metal bases and materials used."
-        		+ "You will need a CPU Water-block if you wish to cool your CPU as part of your loop."
-        		+ "</p></html>");
-        wcputext.setForeground(Color.BLACK);
-        wcputext.setFont(bodytext);
-        wcputext.setBounds(15, 280, 1000, 250);
-        frame.add(wcputext);
-        
-        JButton viewcpu = new JButton(new ImageIcon(resourcePath + "b1.png"));
-        viewcpu.setBounds(250,500,240,70);
-        viewcpu.addActionListener(new ActionListener(){  
-        	public void actionPerformed(ActionEvent e){ 
-        		//GetDatabaseDataForCpuStuff;
-        	}
-        });       
-        frame.add(viewcpu);
-;
-	*/
         
         
         Component[] mainComponents = createMainComponents();
@@ -774,6 +758,78 @@ public class Base {
 		CreateSysTitle.setBounds (20,150,1000,300);
         frame.add(CreateSysTitle);
         
+        JLabel showSysCPU = new JLabel ("Current CPU:");
+        showSysCPU.setForeground(Color.BLUE);
+        showSysCPU.setFont(bodytext);
+        showSysCPU.setBounds (20,220,500,300);
+        frame.add(showSysCPU);
+        
+        JLabel currentCPU = new JLabel(wcs.CPUtoString());
+        currentCPU.setForeground(Color.BLUE);
+        currentCPU.setFont(bodytext);
+        currentCPU.setBounds(185, 220, 500, 300);
+        frame.add(currentCPU);
+        
+        JLabel showSysGPU = new JLabel ("Current GPU:");
+        showSysGPU.setForeground(Color.BLUE);
+        showSysGPU.setFont(bodytext);
+        showSysGPU.setBounds (20,280,500,300);
+        frame.add(showSysGPU);
+        
+        JLabel currentGPU = new JLabel(wcs.GPUtoString());
+        currentGPU.setForeground(Color.BLUE);
+        currentGPU.setFont(bodytext);
+        currentGPU.setBounds(185, 280, 500, 300);
+        frame.add(currentGPU);
+        
+        JLabel showSysCWB = new JLabel ("Current CPU Waterblock:");
+        showSysCWB.setForeground(Color.BLUE);
+        showSysCWB.setFont(bodytext);
+        showSysCWB.setBounds (20,340,500,300);
+        frame.add(showSysCWB);
+        
+        JLabel showSysGWB = new JLabel ("Current GPU Waterblock:");
+        showSysGWB.setForeground(Color.BLUE);
+        showSysGWB.setFont(bodytext);
+        showSysGWB.setBounds (20,400,500,300);
+        frame.add(showSysGWB);
+        
+        JLabel showSysRad = new JLabel ("Current Radiator:");
+        showSysRad.setForeground(Color.BLUE);
+        showSysRad.setFont(bodytext);
+        showSysRad.setBounds (20,460,500,300);
+        frame.add(showSysRad);
+        
+        JLabel showSysTub = new JLabel ("Current Tubing:");
+        showSysTub.setForeground(Color.BLUE);
+        showSysTub.setFont(bodytext);
+        showSysTub.setBounds (600,220,500,300);
+        frame.add(showSysTub);
+ 
+        JLabel showSysRes = new JLabel ("Current Reservoir:");
+        showSysRes.setForeground(Color.BLUE);
+        showSysRes.setFont(bodytext);
+        showSysRes.setBounds (600,280,500,300);
+        frame.add(showSysRes);
+    
+        JLabel showSysPump = new JLabel ("Current Pump:");
+        showSysPump.setForeground(Color.BLUE);
+        showSysPump.setFont(bodytext);
+        showSysPump.setBounds (600,340,500,300);
+        frame.add(showSysPump);
+        
+        JLabel showSysFit = new JLabel ("Current Fittings:");
+        showSysFit.setForeground(Color.BLUE);
+        showSysFit.setFont(bodytext);
+        showSysFit.setBounds (600,400,500,300);
+        frame.add(showSysFit);
+        
+        JLabel showSysCool = new JLabel ("Current Coolant:");
+        showSysCool.setForeground(Color.BLUE);
+        showSysCool.setFont(bodytext);
+        showSysCool.setBounds (600,460,500,300);
+        frame.add(showSysCool);
+    
 
         
         Component[] mainComponents = createMainComponents();
@@ -894,7 +950,7 @@ public class Base {
         buildsys.setBounds(xLocation(bcount++),115,120,120);
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
-        		changeFrame(createFrame);
+        		changeFrame(systemFrame);
         	 }  
         });  
         comps[i++] = buildsys;
