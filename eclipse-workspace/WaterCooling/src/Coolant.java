@@ -12,6 +12,9 @@ public class Coolant {
 	public String getEdible() {
 		return edible;
 	}
-	
+	public String toString() {
+		
+		return name;
+	}
 
 }

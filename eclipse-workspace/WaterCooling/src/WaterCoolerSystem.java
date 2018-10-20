@@ -43,59 +43,122 @@ public class WaterCoolerSystem {
 	public void setGpu(GPU gpu) {
 		this.gpu = gpu; 
 	}
-	public void setCase(Case thatcase) {
+	public void setCase(Case c4) {
 		this.c4 = c4;
 	}
 	
-	public void setCWB(CPUWaterblock cpublock) {
+	public void setCWB(CPUWaterblock cwb) {
 		this.cwb = cwb; 
 	}
 	
-	public void setGWB(GPUWaterblock gpublock) {
+	public void setGWB(GPUWaterblock gwb) {
 		this.gwb = gwb; 
 
 	}
 	
-	public void setRad(Radiator rad1) {
+	public void setRad(Radiator rad) {
 		this.rad = rad; 
 
 	}
 
-	public void setTub(Tubing tub1) {
+	public void setTub(Tubing tub) {
 		this.tub = tub; 
 	}
 	
-	public void setRes(Reservoir res1) {
+	public void setRes(Reservoir res) {
 		this.res = res;
 	}
 	
-	public void setPump(Pump pump1) {
+	public void setPump(Pump pump) {
 		this.pump = pump; 
 	}
 	
-	public void setFit(Fittings fit1) {
+	public void setFit(Fittings fit) {
 		this.fit = fit; 
 	}
 	
-	public void setCool(Coolant cool1) {
+	public void setCool(Coolant cool) {
 		this.cool = cool;
 	}
 	
 
 	public String CPUtoString() {
 		if(cpu == null) {
-			return "Null";
+			return "No CPU";
 		} else { 
 			return cpu.toString();
 		}
 	}
 	public String GPUtoString() {
 		if(gpu == null) {
-			return "Null";
+			return "No GPU";
 		} else { 
 			return gpu.toString();
 		}
 	}
+	public String CPUWBtoString() {
+		if(cwb == null) {
+			return "No CPU WB";
+		} else { 
+			return cwb.toString();
+		}
+	}
+	public String GPUWBtoString() {
+		if(gwb == null) {
+			return "No GPU WB";
+		} else { 
+			return gwb.toString();
+		}
+	}
+	public String RadtoString() {
+		if(rad == null) {
+			return "No Radiator";
+		} else { 
+			return rad.toString();
+		}
+		
+	}
+	
+	public String TubtoString() {
+		if(tub == null) {
+			return "No Tubing";
+		} else { 
+			return tub.toString();
+		}
+	}
+	public String RestoString() {
+		if(res == null) {
+			return "No Reservoir";
+		} else { 
+			return res.toString();
+		}
+	}
+
+	public String PumptoString() {
+		if(pump == null) {
+			return "No Pump";
+		} else { 
+			return pump.toString();
+		}
+	}
+	public String FittoString() {
+		if(fit == null) {
+			return "No Fittings";
+		} else { 
+			return fit.toString();
+		}
+	}
+	public String CooltoString() {
+		if(cool == null) {
+			return "No Coolant";
+		} else { 
+			return cool.toString();
+		}
+	}
+	
+	
+	
+
 	
 	
 	public boolean uniformMetals() {
@@ -108,7 +171,20 @@ public class WaterCoolerSystem {
 	
 	public void check() {
 		errors = new ArrayList<String>();
-		advice = new ArrayList<String>();    
+		advice = new ArrayList<String>();  
+		
+		if(cpu == null) return;
+		if(gpu == null) return;
+		if(c4 == null) return;
+		if(cwb == null) return;
+		if(gwb == null) return;
+		if(rad == null) return;
+		if(tub == null) return;
+		if(res == null) return;
+		if(pump == null) return;
+		if(fit == null) return; 
+		if(cool == null) return;
+		
 		
 		if(this.cwb.socket != this.cpu.socket) {
 			errors.add("The currently selected CPU Waterblock is incompatible with your current CPU Model."
@@ -153,6 +229,7 @@ public class WaterCoolerSystem {
 			advice.add("The current selection of radiators, CPU waterblock and GPU waterblock(s) have different "
 					+ "set(s) of metals, to ensure system longevity, we recommend keeping all metals uniform to prevent metal corrosion.");
 		} 
+		
 		
 		
 	}

@@ -25,6 +25,17 @@ public class Database {
 		return 1;
 	}
 	
+	public CPU[] getCpu() {
+		CPU[] CPUList = new CPU[1];
+		CPUList[0] = new CPU("IntelCPU001", "2011-3");
+		return CPUList; 
+	}
+	public GPU[] getGpu() {
+		GPU[] GPUList = new GPU[1]; 
+		GPUList[0] = new GPU("NVidiaGPU001", "GTX1080");
+		return GPUList;
+	}
+	
 	
 	public CPUWaterblock[] getCpuWaterblocks() {
 		//int n = countCpuWaterblocks();

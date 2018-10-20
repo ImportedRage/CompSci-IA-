@@ -20,5 +20,7 @@ public class Tubing {
 	public String getDiameter() {
 		return diameter;
 	}
-
+	public String toString() {
+		return name; 
+	}
 }

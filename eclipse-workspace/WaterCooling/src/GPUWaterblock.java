@@ -19,5 +19,9 @@ public class GPUWaterblock {
 	public String getMetal() {
 		return metal;
 	}
+	public String toString() {
+		
+		return name;
+	}
 
 }

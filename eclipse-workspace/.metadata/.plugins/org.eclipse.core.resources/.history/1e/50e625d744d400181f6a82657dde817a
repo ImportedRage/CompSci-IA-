@@ -1,0 +1,12 @@
+
+public class GPU {
+	String model;
+	public GPU(String model) {
+		this.model = model; 
+	}
+	public String toString() {
+		
+		return model;
+	}
+
+}

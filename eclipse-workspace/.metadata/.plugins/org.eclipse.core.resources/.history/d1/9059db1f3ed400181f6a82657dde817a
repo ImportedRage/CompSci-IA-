@@ -1,0 +1,1116 @@
+
+
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Base {
+	
+	private static String resourcePath = "/home/madacoo/Desktop/robert_choy/CompSci-IA-/resources/";
+	
+	// Style
+    Font fheader = new Font("Serif", 1, 52);
+    Font sheader = new Font("Serif", 3, 30);
+    Font bodytext = new Font("Serif", 3, 24);
+    Font buttontext = new Font("Serif", 1, 11);
+	
+    static JFrame createFrame;
+	static JFrame baseFrame;
+	static JFrame systemFrame;
+	static JFrame cpuFrame;
+	static JFrame gpuFrame;
+	static JFrame radFrame;
+	static JFrame tubFrame;
+	static JFrame resFrame;
+	static JFrame pumpFrame;
+	static JFrame fitFrame;
+	static JFrame coolFrame;
+	static JFrame dummyFrame;
+
+	
+	static JFrame currentFrame;
+	int x;
+	int y;
+	
+	WaterCoolerSystem wcs;
+	Database db;
+
+	
+	
+	public Base() {
+		x = 200;
+		y = 200;
+		
+		wcs = new WaterCoolerSystem();
+		//wcs.setCpu();
+		//wcs.setGpu();
+	
+		
+		//We need an option to gain user input regarding CPU/GPU Model, preferably a dropdown menu/option. 
+		
+		
+		
+		
+		db = new Database();	
+		
+		baseFrame = createBaseFrame();
+		dummyFrame = createDummyFrame();
+		currentFrame = baseFrame;
+		systemFrame = createSystemFrame();
+		cpuFrame = createCpuFrame(); 
+		gpuFrame = createGpuFrame(); 
+		radFrame = createRadFrame(); 
+		tubFrame = createTubFrame(); 
+		resFrame = createresFrame(); 
+		pumpFrame = createPumpFrame(); 
+		fitFrame = createFitFrame(); 
+		coolFrame = createCoolFrame(); 
+		
+	}
+	
+	public JFrame createBaseFrame() {
+		JFrame frame = new JFrame("WCS");
+		
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		Component[] mainComponents = createMainComponents();
+		Component[] firstViewComponents = createFirstViewComponents();
+		
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+    	}
+    	for (int i = 0; i < firstViewComponents.length; i++) {
+    		frame.add(firstViewComponents[i]);
+    	}
+		
+    	return frame;
+		
+	}
+	
+    public Component[] createWaterblockRow(CPUWaterblock wb, int y) {
+    	Component[] comps = new Component[7];
+    	y = 375;
+    	
+    	JLabel cpuWaterBlockTitleName = new JLabel ("CPU Waterblock Name:");
+    	cpuWaterBlockTitleName.setForeground(Color.GREEN);
+    	cpuWaterBlockTitleName.setFont(sheader);
+    	cpuWaterBlockTitleName.setBounds (20,325,500,70);
+    	
+    	comps[3] = cpuWaterBlockTitleName;
+    	
+     	JLabel cpuWaterBlockSocketName = new JLabel ("Socket Type:");
+     	cpuWaterBlockSocketName.setForeground(Color.GREEN);
+     	cpuWaterBlockSocketName.setFont(sheader);
+     	cpuWaterBlockSocketName.setBounds (400,325,200,70);
+     	comps[4] = cpuWaterBlockSocketName;
+    	
+     	JLabel cpuWaterBlockMetalName = new JLabel ("Metal Type:");
+     	cpuWaterBlockMetalName.setForeground(Color.GREEN);
+     	cpuWaterBlockMetalName.setFont(sheader);
+     	cpuWaterBlockMetalName.setBounds (600,325,200,70);
+    	comps[5] = cpuWaterBlockMetalName;
+    	
+    	
+    	JLabel cpuWaterblockName = new JLabel (wb.getName());    	
+    	cpuWaterblockName.setForeground(Color.BLUE);
+    	cpuWaterblockName.setFont(bodytext);
+    	cpuWaterblockName.setBounds (20,y,200,70);
+        comps[0] = cpuWaterblockName;
+    	
+     	
+    	JLabel cpuWaterblockSocket = new JLabel (wb.getSocket());    	
+    	cpuWaterblockSocket.setForeground(Color.GREEN);
+    	cpuWaterblockSocket.setFont(bodytext);
+    	cpuWaterblockSocket.setBounds (400,y,200,70);
+        comps[1] = cpuWaterblockSocket;
+        
+     	
+    	JLabel cpuWaterblockMetal = new JLabel (wb.getMetal());    	
+    	cpuWaterblockMetal.setForeground(Color.RED);
+    	cpuWaterblockMetal.setFont(bodytext);
+    	cpuWaterblockMetal.setBounds (600,y,800,70);
+        comps[2] = cpuWaterblockMetal;
+        
+        JButton addCPU = new JButton("Add CPU Waterblock");
+        addCPU.setBounds(900,y,180,35);
+        comps[6] = addCPU;
+        addCPU.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        				wcs.setCWB(wb);
+        	        } 
+        	}
+        );
+        
+        
+        
+    	return comps;
+	  
+    }
+	
+    public Component[] createGPUWaterblockRow(GPUWaterblock gwb, int y) {
+    	Component[] comps = new Component[7];
+    	y = 375;
+    	
+    	JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
+    	gpuWaterBlockTitleName.setForeground(Color.GREEN);
+    	gpuWaterBlockTitleName.setFont(sheader);
+    	gpuWaterBlockTitleName.setBounds (20,325,500,70);
+    	comps[3] = gpuWaterBlockTitleName;
+    	
+     	JLabel gpuWaterBlockModelType = new JLabel ("Model Type:");
+     	gpuWaterBlockModelType.setForeground(Color.GREEN);
+     	gpuWaterBlockModelType.setFont(sheader);
+     	gpuWaterBlockModelType.setBounds (400,325,200,70);
+     	comps[4] = gpuWaterBlockModelType;
+    	
+     	JLabel gpuWaterBlockMetalName = new JLabel ("Metal Type:");
+     	gpuWaterBlockMetalName.setForeground(Color.GREEN);
+     	gpuWaterBlockMetalName.setFont(sheader);
+     	gpuWaterBlockMetalName.setBounds (600,325,200,70);
+    	comps[5] = gpuWaterBlockMetalName;
+    	
+    	
+    	JLabel gpuWaterblockName = new JLabel (gwb.getName());    	
+    	gpuWaterblockName.setForeground(Color.BLUE);
+    	gpuWaterblockName.setFont(bodytext);
+    	gpuWaterblockName.setBounds (20,y,200,70);
+        comps[0] = gpuWaterblockName;
+    	
+     	
+    	JLabel gpuWaterblockSocket = new JLabel (gwb.getModel());    	
+    	gpuWaterblockSocket.setForeground(Color.GREEN);
+    	gpuWaterblockSocket.setFont(bodytext);
+    	gpuWaterblockSocket.setBounds (400,y,200,70);
+        comps[1] = gpuWaterblockSocket;
+        
+     	
+    	JLabel gpuWaterblockMetal = new JLabel (gwb.getMetal());    	
+    	gpuWaterblockMetal.setForeground(Color.RED);
+    	gpuWaterblockMetal.setFont(bodytext);
+    	gpuWaterblockMetal.setBounds (600,y,800,70);
+        comps[2] = gpuWaterblockMetal;
+        
+        JButton addGPU = new JButton("Add GPU Waterblock");
+        addGPU.setBounds(900,y,180,35);
+        comps[6] = addGPU;
+        addGPU.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        		wcs.setGWB(gwb);
+        	        } 
+        	}
+        );
+        
+    	
+    	return comps;
+	  
+    }
+    public Component[] createRadiatorRow(Radiator rad, int y) {
+    	Component[] comps = new Component[7];
+    	y = 375;
+    	
+    	JLabel RadiatorTitleName = new JLabel ("Radiator Name:");
+    	RadiatorTitleName.setForeground(Color.GREEN);
+    	RadiatorTitleName.setFont(sheader);
+    	RadiatorTitleName.setBounds (20,325,500,70);
+    	comps[3] = RadiatorTitleName;
+    	
+     	JLabel RadiatorFanCountNumber = new JLabel ("Maximum Number of Fans:");
+     	RadiatorFanCountNumber.setForeground(Color.GREEN);
+     	RadiatorFanCountNumber.setFont(sheader);
+     	RadiatorFanCountNumber.setBounds (250,325,550,70);
+     	comps[4] = RadiatorFanCountNumber;
+    	
+     	JLabel RadiatorMetalName = new JLabel ("Metal Type:");
+     	RadiatorMetalName.setForeground(Color.GREEN);
+     	RadiatorMetalName.setFont(sheader);
+     	RadiatorMetalName.setBounds (700,325,200,70);
+    	comps[5] = RadiatorMetalName;
+    	
+    	
+    	JLabel RadiatorName = new JLabel (rad.getName());    	
+    	RadiatorName.setForeground(Color.BLUE);
+    	RadiatorName.setFont(bodytext);
+    	RadiatorName.setBounds (20,y,200,70);
+        comps[0] = RadiatorName;
+    	
+     	
+    	JLabel RadiatorFanCount = new JLabel (rad.getMaxFanCount());    	
+    	RadiatorFanCount.setForeground(Color.GREEN);
+    	RadiatorFanCount.setFont(bodytext);
+    	RadiatorFanCount.setBounds (400,y,200,70);
+        comps[1] = RadiatorFanCount;
+        
+     	
+    	JLabel RadiatorMetal = new JLabel (rad.getMetal());    	
+    	RadiatorMetal.setForeground(Color.RED);
+    	RadiatorMetal.setFont(bodytext);
+    	RadiatorMetal.setBounds (700,y,800,70);
+        comps[2] = RadiatorMetal;
+        
+        JButton addRad = new JButton("Add Radiators");
+        addRad.setBounds(900,y,180,35);
+        comps[6] = addRad;
+        addRad.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        			wcs.setRad(rad);
+        	        } 
+        	}
+        );    	
+    	return comps;
+	  
+    }
+    public Component[] createTubingRow(Tubing tub, int y) {
+    	Component[] comps = new Component[7];
+    	y = 375;
+    	
+    	JLabel TubingTitleName = new JLabel ("Tubing Name:");
+    	TubingTitleName.setForeground(Color.GREEN);
+    	TubingTitleName.setFont(sheader);
+    	TubingTitleName.setBounds (20,325,500,70);
+    	comps[3] = TubingTitleName;
+    	
+     	JLabel TubingBendability = new JLabel ("Tubing Bendabiliy?:");
+     	TubingBendability.setForeground(Color.GREEN);
+     	TubingBendability.setFont(sheader);
+     	TubingBendability.setBounds (250,325,550,70);
+     	comps[4] = TubingBendability;
+    	
+     	JLabel TubingDiameter = new JLabel ("Tubing Diameter:");
+     	TubingDiameter.setForeground(Color.GREEN);
+     	TubingDiameter.setFont(sheader);
+     	TubingDiameter.setBounds (600,325,300,70);
+    	comps[5] = TubingDiameter;
+    	
+    	
+    	JLabel TubingName = new JLabel (tub.getName());    	
+    	TubingName.setForeground(Color.BLUE);
+    	TubingName.setFont(bodytext);
+    	TubingName.setBounds (20,y,200,70);
+        comps[0] = TubingName;
+    	
+     	
+    	JLabel TubingBendable = new JLabel (tub.getBendable());    	
+    	TubingBendable.setForeground(Color.GREEN);
+    	TubingBendable.setFont(bodytext);
+    	TubingBendable.setBounds (250,y,200,70);
+        comps[1] = TubingBendable;
+        
+     	
+    	JLabel TubingDiameterSize = new JLabel (tub.getDiameter());    	
+    	TubingDiameterSize.setForeground(Color.RED);
+    	TubingDiameterSize.setFont(bodytext);
+    	TubingDiameterSize.setBounds (600,y,800,70);
+        comps[2] = TubingDiameterSize;
+        
+        JButton addTub = new JButton("Add Tubing");
+        addTub.setBounds(900,y,180,35);
+        comps[6] = addTub;
+        addTub.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        			wcs.setTub(tub);
+        	        } 
+        	}
+        );    	    	
+    	return comps;
+    }
+    public Component[] createReservoirRow(Reservoir res, int y) {
+    	Component[] comps = new Component[5];
+    	y = 375;
+    	
+    	JLabel ReservoirTitleName = new JLabel ("Reservoir Name:");
+    	ReservoirTitleName.setForeground(Color.GREEN);
+    	ReservoirTitleName.setFont(sheader);
+    	ReservoirTitleName.setBounds (20,325,500,70);
+    	comps[0] = ReservoirTitleName;
+    	
+     	JLabel ReservoirCombo = new JLabel ("Reservoir Combo?:");
+     	ReservoirCombo.setForeground(Color.GREEN);
+     	ReservoirCombo.setFont(sheader);
+     	ReservoirCombo.setBounds (250,325,550,70);
+     	comps[1] = ReservoirCombo;
+    	
+    	JLabel ReservoirName = new JLabel (res.getName());    	
+    	ReservoirName.setForeground(Color.BLUE);
+    	ReservoirName.setFont(bodytext);
+    	ReservoirName.setBounds (20,y,200,70);
+        comps[2] = ReservoirName;
+    	
+     	
+    	JLabel ReservoirComboCondition = new JLabel (res.getCombo());    	
+    	ReservoirComboCondition.setForeground(Color.GREEN);
+    	ReservoirComboCondition.setFont(bodytext);
+    	ReservoirComboCondition.setBounds (250,y,200,70);
+        comps[3] = ReservoirComboCondition;
+        
+        JButton addRes = new JButton("Add Tubing");
+        addRes.setBounds(900,y,180,35);
+        comps[4] = addRes;
+        addRes.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        			wcs.setRes(res);
+        	        } 
+        	}
+        );    	    	    	
+    	return comps;
+    }
+    public Component[] createPumpRow(Pump pump, int y) {
+    	Component[] comps = new Component[7];
+    	y = 375;
+    	
+    	JLabel PumpTitleName = new JLabel ("Pump Name:");
+    	PumpTitleName.setForeground(Color.GREEN);
+    	PumpTitleName.setFont(sheader);
+    	PumpTitleName.setBounds (20,325,500,70);
+    	comps[3] = PumpTitleName;
+    	
+     	JLabel PumpTypeName = new JLabel ("Pump Type?:");
+     	PumpTypeName.setForeground(Color.GREEN);
+     	PumpTypeName.setFont(sheader);
+     	PumpTypeName.setBounds (250,325,550,70);
+     	comps[4] = PumpTypeName;
+    	
+     	JLabel PumpBrandName = new JLabel ("Pump Brand:");
+     	PumpBrandName.setForeground(Color.GREEN);
+     	PumpBrandName.setFont(sheader);
+     	PumpBrandName.setBounds (600,325,300,70);
+    	comps[5] = PumpBrandName;
+    	
+    	
+    	JLabel PumpName = new JLabel (pump.getName());    	
+    	PumpName.setForeground(Color.BLUE);
+    	PumpName.setFont(bodytext);
+    	PumpName.setBounds (20,y,200,70);
+        comps[0] = PumpName;
+    	
+     	
+    	JLabel PumpType = new JLabel (pump.getType());    	
+    	PumpType.setForeground(Color.GREEN);
+    	PumpType.setFont(bodytext);
+    	PumpType.setBounds (250,y,200,70);
+        comps[1] = PumpType;
+        
+     	
+    	JLabel PumpBrand = new JLabel (pump.getBrand());    	
+    	PumpBrand.setForeground(Color.RED);
+    	PumpBrand.setFont(bodytext);
+    	PumpBrand.setBounds (600,y,800,70);
+        comps[2] = PumpBrand;
+        
+        JButton addPump = new JButton("Add Pump");
+        addPump.setBounds(900,y,180,35);
+        comps[6] = addPump;
+        addPump.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        			wcs.setPump(pump);
+        	        } 
+        	}
+        );    	    	    	    	
+    	return comps;
+    }
+    public Component[] createFittingsRow(Fittings fit, int y) {
+    	Component[] comps = new Component[5];
+    	y = 375;
+    	
+    	JLabel FittingsTitleName = new JLabel ("Fittings Name:");
+    	FittingsTitleName.setForeground(Color.GREEN);
+    	FittingsTitleName.setFont(sheader);
+    	FittingsTitleName.setBounds (20,325,500,70);
+    	comps[0] = FittingsTitleName;
+    	
+     	JLabel FittingsDiameter = new JLabel ("Fitting(s) Size?:");
+     	FittingsDiameter.setForeground(Color.GREEN);
+     	FittingsDiameter.setFont(sheader);
+     	FittingsDiameter.setBounds (250,325,550,70);
+     	comps[1] = FittingsDiameter;
+    	
+    	JLabel FittingsTitle = new JLabel (fit.getName());    	
+    	FittingsTitle.setForeground(Color.BLUE);
+    	FittingsTitle.setFont(bodytext);
+    	FittingsTitle.setBounds (20,y,200,70);
+        comps[2] = FittingsTitle;
+    	
+     	
+    	JLabel FittingsDiameterSize = new JLabel (fit.getDiameter());    	
+    	FittingsDiameterSize.setForeground(Color.GREEN);
+    	FittingsDiameterSize.setFont(bodytext);
+    	FittingsDiameterSize.setBounds (250,y,200,70);
+        comps[3] = FittingsDiameterSize;
+        
+        JButton addFit = new JButton("Add Fittings");
+        addFit.setBounds(900,y,180,35);
+        comps[4] = addFit;
+        addFit.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        			wcs.setFit(fit);
+        	        } 
+        	}
+        );    	        	
+    	return comps;
+    }
+	
+    public Component[] createCoolantRow(Coolant cool, int y) {
+    	Component[] comps = new Component[5];
+    	y = 375;
+    	
+    	JLabel CoolantTitleName = new JLabel ("Coolant Name:");
+    	CoolantTitleName.setForeground(Color.GREEN);
+    	CoolantTitleName.setFont(sheader);
+    	CoolantTitleName.setBounds (20,325,500,70);
+    	comps[0] = CoolantTitleName;
+    	
+     	JLabel CoolantEdibleQuestion = new JLabel ("Is the Coolant Edible?:");
+     	CoolantEdibleQuestion.setForeground(Color.GREEN);
+     	CoolantEdibleQuestion.setFont(sheader);
+     	CoolantEdibleQuestion.setBounds (250,325,550,70);
+     	comps[1] = CoolantEdibleQuestion;
+    	
+    	JLabel CoolantName = new JLabel (cool.getName());    	
+    	CoolantName.setForeground(Color.BLUE);
+    	CoolantName.setFont(bodytext);
+    	CoolantName.setBounds (20,y,200,70);
+        comps[2] = CoolantName;
+    	
+     	
+    	JLabel CoolantEdible = new JLabel (cool.getEdible());    	
+    	CoolantEdible.setForeground(Color.GREEN);
+    	CoolantEdible.setFont(bodytext);
+    	CoolantEdible.setBounds (250,y,200,70);
+        comps[3] = CoolantEdible;
+        
+        JButton addCool = new JButton("Add Coolants");
+        addCool.setBounds(900,y,180,35);
+        comps[4] = addCool;
+        addCool.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        			wcs.setCool(cool);
+        	        } 
+        	}
+        );    	        	    	
+    	return comps;
+    }
+    
+	public JFrame createCpuFrame() {
+		JFrame frame = new JFrame ("cpu123");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("CPU Waterblocks"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        int y = 400;
+        CPUWaterblock[] waterblocks = db.getCpuWaterblocks();
+        
+        for (int i = 0; i < waterblocks.length; i++) {
+	        Component[] row = createWaterblockRow(waterblocks[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        }
+	        //y += 50;
+        }
+        
+        
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+		
+		
+    	}
+		return frame;
+	}
+	public JFrame createGpuFrame() {
+		JFrame frame = new JFrame ("gpu123");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("GPU Waterblocks"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+		
+		
+    	}
+    	int y = 400;
+        GPUWaterblock[] waterblocks = db.getGpuWaterblocks();
+        
+        for (int i = 0; i < waterblocks.length; i++) {
+	        Component[] row = createGPUWaterblockRow(waterblocks[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        	
+	        }
+        }
+		return frame;
+	}
+	
+	
+	public JFrame createRadFrame() {
+		JFrame frame = new JFrame ("rad123");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("Radiators"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+    	}
+    	int y = 400;
+        Radiator[] rad = db.getRadiators();
+        
+        for (int i = 0; i < rad.length; i++) {
+	        Component[] row = createRadiatorRow(rad[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        	
+	        }
+        }
+		return frame;
+	}
+	
+	public JFrame createTubFrame() {
+		JFrame frame = new JFrame ("tube123");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("Tubing"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+		
+		
+    	}
+        int y = 400;
+        Tubing[] tub = db.getTubing();
+        
+        for (int i = 0; i < tub.length; i++) {
+	        Component[] row = createTubingRow(tub[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        }
+	        //y += 50;
+        }
+		return frame;
+	}
+	
+	public JFrame createresFrame() {
+		JFrame frame = new JFrame ("res123");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("Reservoirs"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+    	}
+    		int y = 400;
+            Reservoir[] res = db.getReservoir();
+            
+            for (int i = 0; i < res.length; i++) {
+    	        Component[] row = createReservoirRow(res[i], y);
+    	        for (int j = 0; j < row.length; j++) {
+    	        	frame.add(row[j]);
+    	        }
+    	        //y += 50;
+    	}
+		return frame;
+	}
+	
+	public JFrame createPumpFrame() {
+		JFrame frame = new JFrame ("pump123");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("Pumps"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+		
+    	}
+        int y = 400;
+        Pump[] pump = db.getPump();
+        
+        for (int i = 0; i < pump.length; i++) {
+	        Component[] row = createPumpRow(pump[i], y);
+	        for (int j = 0; j < row.length; j++) {
+	        	frame.add(row[j]);
+	        }
+	        //y += 50;
+        }
+		return frame;
+		
+
+	}
+	
+	public JFrame createFitFrame() {
+		JFrame frame = new JFrame ("fitting123");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("Fittings"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+		
+		
+    	}
+    	  int y = 400;
+          Fittings[] fit = db.getFittings();
+          
+          for (int i = 0; i < fit.length; i++) {
+  	        Component[] row = createFittingsRow(fit[i], y);
+  	        for (int j = 0; j < row.length; j++) {
+  	        	frame.add(row[j]);
+  	        }
+  	        //y += 50;
+          }
+  		return frame;
+  			}
+	
+	public JFrame createCoolFrame() {
+		JFrame frame = new JFrame ("Coolant");
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("Coolants"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+		
+    	}
+    		 int y = 400;
+             Coolant[] cool = db.getCoolant();
+             
+             for (int i = 0; i < cool.length; i++) {
+     	        Component[] row = createCoolantRow(cool[i], y);
+     	        for (int j = 0; j < row.length; j++) {
+     	        	frame.add(row[j]);
+     	        }
+     	        //y += 50;
+             }
+     		return frame;
+     }
+    	
+	public JFrame createSystemFrame() {
+		JFrame frame = new JFrame("CreateSys");
+		
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel CreateSysTitle = new JLabel ("Create a new system "); 
+		CreateSysTitle.setForeground(Color.BLUE);
+		CreateSysTitle.setFont(fheader);
+		CreateSysTitle.setBounds (20,150,1000,300);
+        frame.add(CreateSysTitle);
+        
+        JLabel showSysCPU = new JLabel ("Current CPU:");
+        showSysCPU.setForeground(Color.BLUE);
+        showSysCPU.setFont(bodytext);
+        showSysCPU.setBounds (20,220,500,300);
+        frame.add(showSysCPU);
+        
+        JLabel currentCPU = new JLabel(wcs.CPUtoString());
+        currentCPU.setForeground(Color.BLUE);
+        currentCPU.setFont(bodytext);
+        currentCPU.setBounds(20,50, 500, 300);
+        frame.add(currentCPU);
+        
+        JLabel showSysGPU = new JLabel ("Current GPU:");
+        showSysGPU.setForeground(Color.BLUE);
+        showSysGPU.setFont(bodytext);
+        showSysGPU.setBounds (20,280,500,300);
+        frame.add(showSysGPU);
+        
+        JLabel currentGPU = new JLabel(wcs.GPUtoString());
+        currentGPU.setForeground(Color.BLUE);
+        currentGPU.setFont(bodytext);
+        currentGPU.setBounds(185, 280, 500, 300);
+        frame.add(currentGPU);
+        
+        JLabel showSysCWB = new JLabel ("Current CPU Waterblock:");
+        showSysCWB.setForeground(Color.BLUE);
+        showSysCWB.setFont(bodytext);
+        showSysCWB.setBounds (20,340,500,300);
+        frame.add(showSysCWB);
+        
+        JLabel currentCPUWB = new JLabel(wcs.CPUWBtoString());
+        currentCPUWB.setForeground(Color.BLUE);
+        currentCPUWB.setFont(bodytext);
+        currentCPUWB.setBounds(185, 220, 500, 300);
+        frame.add(currentCPUWB);
+       
+        JLabel showSysGWB = new JLabel ("Current GPU Waterblock:");
+        showSysGWB.setForeground(Color.BLUE);
+        showSysGWB.setFont(bodytext);
+        showSysGWB.setBounds (20,400,500,300);
+        frame.add(showSysGWB);
+        
+        JLabel currentGPUWB = new JLabel(wcs.GPUWBtoString());
+        currentGPUWB.setForeground(Color.BLUE);
+        currentGPUWB.setFont(bodytext);
+        currentGPUWB.setBounds(20, 320, 500, 300);
+        frame.add(currentGPUWB);
+        
+        JLabel showSysRad = new JLabel ("Current Radiator:");
+        showSysRad.setForeground(Color.BLUE);
+        showSysRad.setFont(bodytext);
+        showSysRad.setBounds (20,460,500,300);
+        frame.add(showSysRad);
+        
+        JLabel currentRad = new JLabel(wcs.RadtoString());
+        currentRad.setForeground(Color.BLUE);
+        currentRad.setFont(bodytext);
+        currentRad.setBounds(20, 760, 500, 300);
+        frame.add(currentRad);
+       
+        JLabel showSysTub = new JLabel ("Current Tubing:");
+        showSysTub.setForeground(Color.BLUE);
+        showSysTub.setFont(bodytext);
+        showSysTub.setBounds (600,220,500,300);
+        frame.add(showSysTub);
+        
+        JLabel currentTub = new JLabel(wcs.TubtoString());
+        currentTub.setForeground(Color.BLUE);
+        currentTub.setFont(bodytext);
+        currentTub.setBounds(800, 220, 500, 300);
+        frame.add(currentTub);
+ 
+        JLabel showSysRes = new JLabel ("Current Reservoir:");
+        showSysRes.setForeground(Color.BLUE);
+        showSysRes.setFont(bodytext);
+        showSysRes.setBounds (600,280,500,300);
+        frame.add(showSysRes);
+        
+        JLabel currentRes = new JLabel(wcs.RestoString());
+        currentRes.setForeground(Color.BLUE);
+        currentRes.setFont(bodytext);
+        currentRes.setBounds(800, 280, 500, 300);
+        frame.add(currentRes);
+    
+        JLabel showSysPump = new JLabel ("Current Pump:");
+        showSysPump.setForeground(Color.BLUE);
+        showSysPump.setFont(bodytext);
+        showSysPump.setBounds (600,340,500,300);
+        frame.add(showSysPump);
+        
+        JLabel currentPump = new JLabel(wcs.PumptoString());
+        currentPump.setForeground(Color.BLUE);
+        currentPump.setFont(bodytext);
+        currentPump.setBounds(800, 340, 500, 300);
+        frame.add(currentPump);
+        
+        JLabel showSysFit = new JLabel ("Current Fittings:");
+        showSysFit.setForeground(Color.BLUE);
+        showSysFit.setFont(bodytext);
+        showSysFit.setBounds (600,400,500,300);
+        frame.add(showSysFit);
+
+        JLabel currentFit = new JLabel(wcs.FittoString());
+        currentFit.setForeground(Color.BLUE);
+        currentFit.setFont(bodytext);
+        currentFit.setBounds(800, 400, 500, 300);
+        frame.add(currentFit);
+
+        
+        JLabel showSysCool = new JLabel ("Current Coolant:");
+        showSysCool.setForeground(Color.BLUE);
+        showSysCool.setFont(bodytext);
+        showSysCool.setBounds (600,460,500,300);
+        frame.add(showSysCool);
+        
+        JLabel currentCool = new JLabel(wcs.CooltoString());
+        currentCool.setForeground(Color.BLUE);
+        currentCool.setFont(bodytext);
+        currentCool.setBounds(800, 460, 500, 300);
+        frame.add(currentCool);
+    
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+    	}
+    	
+    	return frame;
+	} 
+		
+	
+	
+	public JFrame createDummyFrame() {
+		JFrame frame = new JFrame("WCS");
+		
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+		JLabel testtitle = new JLabel ("testing123"); 
+		testtitle.setForeground(Color.BLUE);
+        testtitle.setFont(fheader);
+        testtitle.setBounds (20,150,1000,300);
+        frame.add(testtitle);
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+    	}
+		
+    	return frame;
+		
+	}
+
+
+    public Component[] createFirstViewComponents() {
+    	
+    	Component[] comps = new Component[4];
+    	
+    	int i = 0;
+    	
+        // Create Title Text
+        JLabel title = new JLabel("Why Water-Cooling?");
+        title.setForeground(Color.BLUE);
+        title.setFont(fheader);
+        title.setBounds (20,150,1000,300);
+        comps[i++] = title;
+        
+        // Create Subtitle Text 
+        JLabel subtitle = new JLabel("Why Not?");
+        subtitle.setForeground(Color.BLACK);
+        subtitle.setFont(sheader);
+        subtitle.setBounds(15, 100, 500, 500);
+        comps[i++] = subtitle;
+        
+        // Create Body Text 
+        JLabel btext = new JLabel(""
+        		+ "<html><p style=\"width:500px\">"
+        		+ "In all seriousness, water-cooling your personal "
+        		+ "computer is the next step in truly becoming an "
+        		+ "enthusiast. The best components are only worthy of "
+        		+ "the best cooling-system out there- water-cooling. "
+        		+ "While water-cooling may seem extremely "
+        		+ "complicated for the beginning novice, here at WCPC "
+        		+ "we strive to simplify this process for oyu, and direct "
+        		+ "you on your journey to becoming a water-cooler."
+        		+ "</p></html>");
+        btext.setForeground(Color.BLACK);
+        btext.setFont(bodytext);
+        btext.setBounds(15, 350, 1000, 250);
+        comps[i++] = btext;
+        
+        // Create Front page photo 
+        
+        JLabel frontpic = new JLabel(new ImageIcon(resourcePath + "examplepic.JPG"));
+        frontpic.setBounds(689, 270, 495, 350);
+        comps[i++] = frontpic;
+
+        
+        return comps;
+        
+        
+    }
+    
+    private static int xLocation(int n) {
+    	return n*(120+12) + 18;
+    }
+    
+    
+    public void changeFrame(JFrame targetFrame) {
+    	if (currentFrame == targetFrame) return;
+		x = currentFrame.getX();
+		y = currentFrame.getY();
+		JFrame tmp = currentFrame;
+		currentFrame = targetFrame;
+		show();
+		tmp.setVisible(false);
+    }
+    
+    
+    public Component[] createMainComponents() {
+    	Component[] comps = new Component[11]; 
+    	int i = 0;
+    	
+    	// Create banner
+    	JLabel banner = new JLabel(new ImageIcon(resourcePath + "banner.png"));
+        banner.setBounds(0, 0, 1212, 108);
+        comps[i++] = banner;
+        
+
+        
+        // Create buttons
+        int bcount = 0; 
+        
+        // new system button
+        // temporarily dummy test button
+        JButton buildsys = new JButton(new ImageIcon(resourcePath + "b1.png"));
+        buildsys.setBounds(xLocation(bcount++),115,120,120);
+        buildsys.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){ 
+        		changeFrame(systemFrame);
+        		System.out.println(wcs.CPUWBtoString());
+        	 }  
+        });  
+        comps[i++] = buildsys;
+
+        // view water cooling parts button
+        // temporarily first view button
+        JButton viewcpu = new JButton(new ImageIcon(resourcePath + "b2.png"));
+        viewcpu.setBounds(xLocation(bcount++),115,120,120);
+        viewcpu.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        		changeFrame(cpuFrame);
+        	}  
+        });  
+        comps[i++] = viewcpu;
+        
+        JButton viewgpu = new JButton(new ImageIcon(resourcePath + "b3.png"));
+        viewgpu.setFont(buttontext);
+        viewgpu.setBounds(xLocation(bcount++),115,120,120);
+        viewgpu.setBackground(Color.ORANGE);
+        viewgpu.addActionListener(new ActionListener(){  
+        	
+        	public void actionPerformed(ActionEvent e){  
+        	            changeFrame(gpuFrame);  
+        	        }  
+        	    });  
+        comps[i++] = viewgpu;
+        
+        JButton rad = new JButton(new ImageIcon(resourcePath + "b4.png"));
+        rad.setBounds(xLocation(bcount++),115,120,120);
+        rad.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        	            changeFrame(radFrame);  
+        	        }  
+        	    });  
+        comps[i++] = rad;
+       
+        JButton tube = new JButton(new ImageIcon(resourcePath + "b5.png"));
+        tube.setBounds(xLocation(bcount++),115,120,120);
+        tube.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        	            changeFrame(tubFrame);  
+        	        }  
+        	    });  
+        comps[i++] = tube;
+        
+        JButton res = new JButton(new ImageIcon(resourcePath + "b6.png"));
+        res.setBounds(xLocation(bcount++),115,120,120);
+        res.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        	            changeFrame(resFrame);  
+        	        }  
+        	    });  
+        comps[i++] = res;
+
+        JButton pump = new JButton(new ImageIcon(resourcePath + "b7.png"));
+        pump.setBounds(xLocation(bcount++),115,120,120);
+        pump.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        	            changeFrame(pumpFrame);  
+        	        }  
+        	    });  
+        comps[i++] = pump;
+
+        JButton fit = new JButton(new ImageIcon(resourcePath + "b8.png"));
+        fit.setBounds(xLocation(bcount++),115,120,120);
+        fit.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        	            changeFrame(fitFrame);  
+        	        }  
+        	    });  
+        comps[i++] = fit;
+        JButton cool = new JButton(new ImageIcon(resourcePath + "b9.png"));
+        cool.setBounds(xLocation(bcount++),115,120,120);
+        cool.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){  
+        	           changeFrame(coolFrame);  
+        	        }  
+        	    });  
+        comps[i++] = cool;
+        
+        
+        // Create TextIcon 
+        
+        JLabel botbanner = new JLabel(new ImageIcon(resourcePath + "botbanner2.png"));
+        botbanner.setBounds(0, 800-185, 1212, 204);
+        comps[i++] = botbanner;
+        
+    	return comps;
+    }
+    
+    public void loadWorkspace(Component[] comps) {
+    	for (int i = 0; i < comps.length; i++) {
+    		baseFrame.add(comps[i]);
+    	}
+    	
+    }
+    
+    public void unloadWorkspace(Component[] comps) {
+    	for (int i = 0; i < comps.length; i++) {
+    		baseFrame.remove(comps[i]);
+    	}
+    	
+    }
+    
+    public void show() {
+        // Show frame
+    	currentFrame.setLocation(x, y);
+        currentFrame.setLayout(null);
+        currentFrame.setVisible(true);
+    }
+    
+    
+    
+
+}

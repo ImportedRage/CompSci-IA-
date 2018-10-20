@@ -14,4 +14,8 @@ public class Reservoir {
 	public String getCombo() {
 		return combo;
 	}
+	public String toString() {
+		
+		return name;
+	}
 }

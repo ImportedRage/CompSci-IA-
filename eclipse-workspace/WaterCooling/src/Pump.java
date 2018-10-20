@@ -21,5 +21,8 @@ public class Pump {
 	public String getBrand() {
 		return brand;
 	}
-
+	public String toString() {
+		
+		return name;
+	}
 }

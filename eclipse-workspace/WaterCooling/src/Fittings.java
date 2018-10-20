@@ -16,4 +16,9 @@ String diameter;
 		return diameter;
 	
 	}
+	public String toString() {
+		
+		return name;
+	}
+	
 }

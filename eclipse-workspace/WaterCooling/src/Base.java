@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -752,6 +753,24 @@ public class Base {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
+        JButton testSys = new JButton("TEST");
+        testSys.setBounds(800,680,250,80);
+    	frame.add(testSys);
+        testSys.addActionListener(new ActionListener(){  
+        	public void actionPerformed(ActionEvent e){
+        		wcs.check();
+        		System.out.println(wcs.getAdvice());
+        	}
+        });	
+        
+        String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+      JComboBox petList = new JComboBox(petStrings);
+      petList.setSelectedIndex(4);
+     // petList.addActionListener((ActionListener) this);
+      petList.setBounds(170,330,200,50);
+      frame.add(petList);
+
+        	
 		JLabel CreateSysTitle = new JLabel ("Create a new system "); 
 		CreateSysTitle.setForeground(Color.BLUE);
 		CreateSysTitle.setFont(fheader);
@@ -767,7 +786,7 @@ public class Base {
         JLabel currentCPU = new JLabel(wcs.CPUtoString());
         currentCPU.setForeground(Color.BLUE);
         currentCPU.setFont(bodytext);
-        currentCPU.setBounds(185, 220, 500, 300);
+        currentCPU.setBounds(170,220, 500, 300);
         frame.add(currentCPU);
         
         JLabel showSysGPU = new JLabel ("Current GPU:");
@@ -779,7 +798,7 @@ public class Base {
         JLabel currentGPU = new JLabel(wcs.GPUtoString());
         currentGPU.setForeground(Color.BLUE);
         currentGPU.setFont(bodytext);
-        currentGPU.setBounds(185, 280, 500, 300);
+        currentGPU.setBounds(170, 280, 500, 300);
         frame.add(currentGPU);
         
         JLabel showSysCWB = new JLabel ("Current CPU Waterblock:");
@@ -788,11 +807,23 @@ public class Base {
         showSysCWB.setBounds (20,340,500,300);
         frame.add(showSysCWB);
         
+        JLabel currentCPUWB = new JLabel(wcs.CPUWBtoString());
+        currentCPUWB.setForeground(Color.BLUE);
+        currentCPUWB.setFont(bodytext);
+        currentCPUWB.setBounds(290, 340, 500, 300);
+        frame.add(currentCPUWB);
+       
         JLabel showSysGWB = new JLabel ("Current GPU Waterblock:");
         showSysGWB.setForeground(Color.BLUE);
         showSysGWB.setFont(bodytext);
         showSysGWB.setBounds (20,400,500,300);
         frame.add(showSysGWB);
+        
+        JLabel currentGPUWB = new JLabel(wcs.GPUWBtoString());
+        currentGPUWB.setForeground(Color.BLUE);
+        currentGPUWB.setFont(bodytext);
+        currentGPUWB.setBounds(290, 400, 500, 300);
+        frame.add(currentGPUWB);
         
         JLabel showSysRad = new JLabel ("Current Radiator:");
         showSysRad.setForeground(Color.BLUE);
@@ -800,17 +831,35 @@ public class Base {
         showSysRad.setBounds (20,460,500,300);
         frame.add(showSysRad);
         
+        JLabel currentRad = new JLabel(wcs.RadtoString());
+        currentRad.setForeground(Color.BLUE);
+        currentRad.setFont(bodytext);
+        currentRad.setBounds(210, 460, 500, 300);
+        frame.add(currentRad);
+       
         JLabel showSysTub = new JLabel ("Current Tubing:");
         showSysTub.setForeground(Color.BLUE);
         showSysTub.setFont(bodytext);
         showSysTub.setBounds (600,220,500,300);
         frame.add(showSysTub);
+        
+        JLabel currentTub = new JLabel(wcs.TubtoString());
+        currentTub.setForeground(Color.BLUE);
+        currentTub.setFont(bodytext);
+        currentTub.setBounds(800, 220, 500, 300);
+        frame.add(currentTub);
  
         JLabel showSysRes = new JLabel ("Current Reservoir:");
         showSysRes.setForeground(Color.BLUE);
         showSysRes.setFont(bodytext);
         showSysRes.setBounds (600,280,500,300);
         frame.add(showSysRes);
+        
+        JLabel currentRes = new JLabel(wcs.RestoString());
+        currentRes.setForeground(Color.BLUE);
+        currentRes.setFont(bodytext);
+        currentRes.setBounds(800, 280, 500, 300);
+        frame.add(currentRes);
     
         JLabel showSysPump = new JLabel ("Current Pump:");
         showSysPump.setForeground(Color.BLUE);
@@ -818,20 +867,37 @@ public class Base {
         showSysPump.setBounds (600,340,500,300);
         frame.add(showSysPump);
         
+        JLabel currentPump = new JLabel(wcs.PumptoString());
+        currentPump.setForeground(Color.BLUE);
+        currentPump.setFont(bodytext);
+        currentPump.setBounds(800, 340, 500, 300);
+        frame.add(currentPump);
+        
         JLabel showSysFit = new JLabel ("Current Fittings:");
         showSysFit.setForeground(Color.BLUE);
         showSysFit.setFont(bodytext);
         showSysFit.setBounds (600,400,500,300);
         frame.add(showSysFit);
+
+        JLabel currentFit = new JLabel(wcs.FittoString());
+        currentFit.setForeground(Color.BLUE);
+        currentFit.setFont(bodytext);
+        currentFit.setBounds(800, 400, 500, 300);
+        frame.add(currentFit);
+
         
         JLabel showSysCool = new JLabel ("Current Coolant:");
         showSysCool.setForeground(Color.BLUE);
         showSysCool.setFont(bodytext);
         showSysCool.setBounds (600,460,500,300);
         frame.add(showSysCool);
-    
-
         
+        JLabel currentCool = new JLabel(wcs.CooltoString());
+        currentCool.setForeground(Color.BLUE);
+        currentCool.setFont(bodytext);
+        currentCool.setBounds(800, 460, 500, 300);
+        frame.add(currentCool);
+    
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
@@ -839,6 +905,9 @@ public class Base {
     	
     	return frame;
 	} 
+	
+	
+	
 		
 	
 	
@@ -945,18 +1014,18 @@ public class Base {
         int bcount = 0; 
         
         // new system button
-        // temporarily dummy test button
         JButton buildsys = new JButton(new ImageIcon(resourcePath + "b1.png"));
         buildsys.setBounds(xLocation(bcount++),115,120,120);
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
+        		systemFrame = createSystemFrame();
         		changeFrame(systemFrame);
         	 }  
         });  
         comps[i++] = buildsys;
 
         // view water cooling parts button
-        // temporarily first view button
+        // temporarily first view buttonsystemFrame
         JButton viewcpu = new JButton(new ImageIcon(resourcePath + "b2.png"));
         viewcpu.setBounds(xLocation(bcount++),115,120,120);
         viewcpu.addActionListener(new ActionListener(){  

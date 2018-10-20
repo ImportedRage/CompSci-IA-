@@ -21,4 +21,9 @@ public class Radiator {
 	public String getMetal() {
 		return metal;
 	}
+	
+	public String toString() {
+		return name; 
+	}
+	
 }
