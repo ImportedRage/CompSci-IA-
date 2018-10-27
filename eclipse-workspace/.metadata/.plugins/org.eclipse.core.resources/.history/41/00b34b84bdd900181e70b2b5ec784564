@@ -1,6 +1,5 @@
 
 import java.sql.*;
-import java.util.*;
 
 public class Database {
 	
@@ -88,28 +87,4 @@ public class Database {
 		cool[0] = new Coolant("CoolantName01","True");
 		return cool;
 	}
-	
-	public ArrayList<Part> partSearch(String name) {
-	    Part part;
-		ArrayList<Part> matchingParts = new ArrayList<Part>();
-	    ArrayList<Part> allParts = getAllParts();
-	    for(int i = 0; i < allParts.size; i++) {
-	    	if(allParts.get(i).getName().equals(name)) {
-	    		part = allParts.get(i); 
-	    		matchingParts.add(part);
-	    	}
-	    }
-	    
-	    
-		
-		return matchingParts;
-	}
-	
-	
-	
-	
-	
-	
 }
-
-

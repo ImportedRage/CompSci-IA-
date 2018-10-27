@@ -80,7 +80,7 @@ public class Base {
 	public JFrame createBaseFrame() {
 		JFrame frame = new JFrame("WCS");
 		
-        frame.setSize(WCSChecker.WIDTH,WCSChecker.HEIGHT);
+        frame.setSize(1220,800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         

@@ -7,6 +7,10 @@ import userInterface.*;
 public class WCSChecker {
 	
 
+	String name; 
+	
+	public static final int WIDTH = 1220;
+	public static final int HEIGHT = 800;
 	
 
 

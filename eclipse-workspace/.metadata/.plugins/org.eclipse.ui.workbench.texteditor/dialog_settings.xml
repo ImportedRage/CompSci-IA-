@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="wcs.setCpu" key="selection"/>
+		<item value="CreateSys" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="createSys"/>
+			<item value="CreateSys"/>
+			<item value="CreateSysFra"/>
+			<item value="Button"/>
+			<item value="actionList"/>
+			<item value="wcs.CooltoString()"/>
+			<item value="action"/>
+			<item value="actionListen"/>
+			<item value="system.out"/>
+			<item value="system"/>
+			<item value="setCWB"/>
+			<item value="addCPU"/>
+			<item value="System.out"/>
 			<item value="wcs.setCPU"/>
 			<item value="wcs."/>
-			<item value="Watercoolersystem"/>
-			<item value="createFrame"/>
-			<item value="systemFrame"/>
-			<item value="createDummyFrame"/>
-			<item value="C"/>
-			<item value="Systemframe"/>
-			<item value="wcs"/>
-			<item value="createSystem"/>
-			<item value="createSystemsFrame"/>
-			<item value="create"/>
-			<item value="testing123"/>
-			<item value="dummyFrame"/>
-			<item value="test"/>
 		</list>
 		<list key="replacehistory">
 			<item value="WaterCoolerSystem"/>
@@ -33,7 +33,7 @@
 		<item value="335" key="DIALOG_WIDTH"/>
 		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="426" key="DIALOG_HEIGHT"/>
-		<item value="676" key="DIALOG_X_ORIGIN"/>
-		<item value="109" key="DIALOG_Y_ORIGIN"/>
+		<item value="1148" key="DIALOG_X_ORIGIN"/>
+		<item value="48" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
