@@ -1,12 +1,11 @@
 
-public class Fittings {
+public class Fittings extends Part{
 
-String name; 
 String diameter;
 
 	
 	public Fittings(String name, String diameter) {
-		this.name = name; 
+		partName = name; 
 		this.diameter = diameter; 
 	}
 	public String getName() {
@@ -15,10 +14,6 @@ String diameter;
 	public String getDiameter() {
 		return diameter;
 	
-	}
-	public String toString() {
-		
-		return name;
 	}
 	
 }

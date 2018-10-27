@@ -2,12 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="CreateSys" key="selection"/>
+		<item value="wcs.set" key="selection"/>
 		<item value="false" key="casesensitive"/>
-		<item value="false" key="incremental"/>
+		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="wcs.set"/>
+			<item value="addCPU"/>
+			<item value="add"/>
+			<item value="if"/>
+			<item value="button"/>
 			<item value="createSys"/>
 			<item value="CreateSys"/>
 			<item value="CreateSysFra"/>
@@ -18,11 +23,6 @@
 			<item value="actionListen"/>
 			<item value="system.out"/>
 			<item value="system"/>
-			<item value="setCWB"/>
-			<item value="addCPU"/>
-			<item value="System.out"/>
-			<item value="wcs.setCPU"/>
-			<item value="wcs."/>
 		</list>
 		<list key="replacehistory">
 			<item value="WaterCoolerSystem"/>

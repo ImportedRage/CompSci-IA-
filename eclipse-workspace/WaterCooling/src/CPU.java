@@ -1,18 +1,15 @@
 
-public class CPU {
+public class CPU extends Part{
+	String socket;
+
 	public CPU(String name, String socket) {
 		this.socket = socket; 
-		this.name = name; 
+		partName = name; 
 	}
 	
 	
-	String socket;
-	String name;
 
 	
-	public String toString() {
-		
-		return name;
-	}
+
 
 }

@@ -1,20 +1,16 @@
 
-public class Coolant {
-	String name; 
+public class Coolant extends Part {
 	String edible;
 	public Coolant(String name, String edible) {
-		this.name = name; 
+		partName = name; 
 		this.edible = edible; 
 	}
 	public String getName() {
-		return name; 
+		return partName; 
 	}
 	public String getEdible() {
 		return edible;
 	}
-	public String toString() {
-		
-		return name;
-	}
+	
 
 }

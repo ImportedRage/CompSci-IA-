@@ -1,11 +1,10 @@
 
-public class Pump {
-	String name; 
+public class Pump extends Part { 
 	String type;
 	String brand;
 	
 	public Pump(String name, String type, String brand) {
-		this.name = name; 
+		partName = name; 
 		this.type = type; 
 		this.brand = brand; 
 	
@@ -13,7 +12,7 @@ public class Pump {
 	}
 	
 	public String getName() {
-		return name; 
+		return partName; 
 	}
 	public String getType() {
 		return type;
@@ -21,8 +20,5 @@ public class Pump {
 	public String getBrand() {
 		return brand;
 	}
-	public String toString() {
-		
-		return name;
-	}
+
 }

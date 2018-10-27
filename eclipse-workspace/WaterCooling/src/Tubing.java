@@ -1,18 +1,17 @@
 
-public class Tubing {
-	String name;
+public class Tubing extends Part{
 	String bendable; 
 	String diameter; 
 	
 	public Tubing(String name, String bendable, String diameter) {
-		this.name = name; 
+		partName = name; 
 		this.bendable = bendable; 
 		this.diameter = diameter; 
 		
 	}
 
 	public String getName() {
-		return name; 
+		return partName; 
 	}
 	public String getBendable() {
 		return bendable;
@@ -20,7 +19,5 @@ public class Tubing {
 	public String getDiameter() {
 		return diameter;
 	}
-	public String toString() {
-		return name; 
-	}
+
 }

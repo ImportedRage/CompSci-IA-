@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 public class Base {
 	
 	private static String resourcePath = "/home/madacoo/Desktop/robert_choy/CompSci-IA-/resources/";
+	//Sentinel/Flag: Reload the WCS mainscreen for UI dependent on user changes 
+	boolean wcsChanged = true; 
 	
 	// Style
     Font fheader = new Font("Serif", 1, 52);
@@ -148,6 +150,7 @@ public class Base {
         addCPU.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         				wcs.setCWB(wb);
+            			wcsChanged = true; 
         	        } 
         	}
         );
@@ -207,6 +210,8 @@ public class Base {
         addGPU.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         		wcs.setGWB(gwb);
+    			wcsChanged = true; 
+
         	        } 
         	}
         );
@@ -264,6 +269,8 @@ public class Base {
         addRad.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         			wcs.setRad(rad);
+        			wcsChanged = true; 
+
         	        } 
         	}
         );    	
@@ -319,6 +326,8 @@ public class Base {
         addTub.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         			wcs.setTub(tub);
+        			wcsChanged = true; 
+
         	        } 
         	}
         );    	    	
@@ -359,6 +368,8 @@ public class Base {
         addRes.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         			wcs.setRes(res);
+        			wcsChanged = true; 
+
         	        } 
         	}
         );    	    	    	
@@ -413,6 +424,8 @@ public class Base {
         addPump.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         			wcs.setPump(pump);
+        			wcsChanged = true; 
+
         	        } 
         	}
         );    	    	    	    	
@@ -453,6 +466,8 @@ public class Base {
         addFit.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         			wcs.setFit(fit);
+        			wcsChanged = true; 
+
         	        } 
         	}
         );    	        	
@@ -494,6 +509,8 @@ public class Base {
         addCool.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         			wcs.setCool(cool);
+        			wcsChanged = true; 
+
         	        } 
         	}
         );    	        	    	
@@ -1018,7 +1035,10 @@ public class Base {
         buildsys.setBounds(xLocation(bcount++),115,120,120);
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
-        		systemFrame = createSystemFrame();
+        		if(wcsChanged == true) {
+        			systemFrame = createSystemFrame();
+        			wcsChanged = false; 
+        		}
         		changeFrame(systemFrame);
         	 }  
         });  

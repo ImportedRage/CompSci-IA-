@@ -1,17 +1,16 @@
 
-public class Radiator {
-	String name; 
+public class Radiator extends Part{
 	String maxfancount;
 	String metal;
 	
 	public Radiator(String name, String maxfancount, String metal) {
-		this.name = name;
+		partName = name;
 		this.maxfancount = maxfancount; 
 		this.metal = metal; 
 }
 
 	public String getName() {
-		return name;
+		return partName;
 	}
 
 	public String getMaxFanCount() {
@@ -22,8 +21,5 @@ public class Radiator {
 		return metal;
 	}
 	
-	public String toString() {
-		return name; 
-	}
 	
 }

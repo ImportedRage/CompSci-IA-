@@ -93,8 +93,8 @@ public class Database {
 	    Part part;
 		ArrayList<Part> matchingParts = new ArrayList<Part>();
 	    ArrayList<Part> allParts = getAllParts();
-	    for(int i = 0; i < allParts.size; i++) {
-	    	if(allParts.get(i).getName().equals(name)) {
+	    for(int i = 0; i < allParts.size(); i++) {
+	    	if(allParts.get(i).toString().equals(name)) {
 	    		part = allParts.get(i); 
 	    		matchingParts.add(part);
 	    	}

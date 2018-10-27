@@ -1,9 +1,8 @@
 
-public class Reservoir {
-	String name;
+public class Reservoir extends Part{
 	String combo; 
 	public Reservoir(String name, String combo) {
-		this.name = name; 	
+		partName = name; 	
 		this.combo = combo; 
 
 		}
@@ -14,8 +13,5 @@ public class Reservoir {
 	public String getCombo() {
 		return combo;
 	}
-	public String toString() {
-		
-		return name;
-	}
+	
 }
