@@ -7,7 +7,7 @@ public class Reservoir extends Part{
 
 		}
 	public String getName() {
-		return partName;
+		return name;
 	}
 
 	public String getCombo() {

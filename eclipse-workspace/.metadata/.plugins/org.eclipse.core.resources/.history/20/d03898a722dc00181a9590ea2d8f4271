@@ -922,11 +922,9 @@ public class Base {
     	}
     	JTextField searchBar = new JTextField();
     	searchBar.setColumns(20);
-    	searchBar.setBounds(500,600,60,60);
-    	frame.add(searchBar);
     	
     	JButton searchBtn = new JButton("Search");
-    	searchBtn.setBounds(500, 500, 60, 100);
+    	searchBtn.setBounds(800, 800, 60, 100);
     	searchBtn.addActionListener(new ActionListener(){  
     		public void actionPerformed(ActionEvent e){ 
     			String search = searchBar.getText();
@@ -940,7 +938,7 @@ public class Base {
     	return frame;
 	} 
 	
-		
+	
 	
 		
 	

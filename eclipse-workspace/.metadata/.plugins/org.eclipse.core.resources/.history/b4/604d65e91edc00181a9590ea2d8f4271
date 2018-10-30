@@ -9,7 +9,7 @@ String diameter;
 		this.diameter = diameter; 
 	}
 	public String getName() {
-		return partName; 
+		return name; 
 	}
 	public String getDiameter() {
 		return diameter;

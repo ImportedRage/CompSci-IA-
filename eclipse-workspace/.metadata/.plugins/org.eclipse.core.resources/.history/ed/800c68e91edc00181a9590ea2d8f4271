@@ -104,33 +104,6 @@ public class Database {
 		
 		return matchingParts;
 	}
-
-	private ArrayList<Part> getAllParts() {
-		ArrayList<Part> allParts = new ArrayList<Part>(); 
-		
-		ArrayList<Part[]> partArrays = new ArrayList<Part[]>();
-		partArrays.add(getCpu());
-		partArrays.add(getGpu());
-		partArrays.add(getCpuWaterblocks());
-		partArrays.add(getGpuWaterblocks());
-		partArrays.add(getRadiators());
-		partArrays.add(getTubing());
-		partArrays.add(getReservoir());
-		partArrays.add(getPump());
-		partArrays.add(getFittings());
-		partArrays.add(getCoolant());
-		
-		for(int i = 0; i < partArrays.size(); i++) {
-			for(int j = 0; j < partArrays.get(i).length; j++) {
-				allParts.add(partArrays.get(i)[j]);
-			}
-		}
-		
-		return allParts;
-	
-	
-		
-	}
 	
 	
 	
