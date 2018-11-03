@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -922,17 +923,19 @@ public class Base {
     	}
     	JTextField searchBar = new JTextField();
     	searchBar.setColumns(20);
-    	searchBar.setBounds(500,600,60,60);
+    	searchBar.setBounds(850,250,200,70);
     	frame.add(searchBar);
     	
     	JButton searchBtn = new JButton("Search");
-    	searchBtn.setBounds(500, 500, 60, 100);
+    	searchBtn.setBounds(1050, 250, 70, 70);
     	searchBtn.addActionListener(new ActionListener(){  
     		public void actionPerformed(ActionEvent e){ 
     			String search = searchBar.getText();
-    	        db.partSearch(search);
-        		
-        	 }  
+    			ArrayList<String> parts = db.partSearch(search);
+    			for (int i = 0; i < parts.size(); i++) {
+    				System.out.println(parts.get(i));
+    			}
+    		}  
         });
     	frame.add(searchBtn);
     	

@@ -89,44 +89,42 @@ public class Database {
 		return cool;
 	}
 	
-	public ArrayList<Part> partSearch(String name) {
-	    Part part;
-		ArrayList<Part> matchingParts = new ArrayList<Part>();
-	    ArrayList<Part> allParts = getAllParts();
+	public ArrayList<String> partSearch(String name) {
+		ArrayList<String> matchingParts = new ArrayList<String>();
+	    ArrayList<String> allParts = getAllParts();
+	    
 	    for(int i = 0; i < allParts.size(); i++) {
-	    	if(allParts.get(i).toString().equals(name)) {
-	    		part = allParts.get(i); 
-	    		matchingParts.add(part);
+	    	if(allParts.get(i).equals(name)) {
+	    		matchingParts.add(allParts.get(i));
 	    	}
 	    }
-	    
-	    
 		
 		return matchingParts;
 	}
 
-	private ArrayList<Part> getAllParts() {
-		ArrayList<Part> allParts = new ArrayList<Part>(); 
+	private ArrayList<String> getAllParts() {
+		ArrayList<String> partNames = new ArrayList<String>();
+		Part[] parts;
 		
-		ArrayList<Part[]> partArrays = new ArrayList<Part[]>();
-		partArrays.add(getCpu());
-		partArrays.add(getGpu());
-		partArrays.add(getCpuWaterblocks());
-		partArrays.add(getGpuWaterblocks());
-		partArrays.add(getRadiators());
-		partArrays.add(getTubing());
-		partArrays.add(getReservoir());
-		partArrays.add(getPump());
-		partArrays.add(getFittings());
-		partArrays.add(getCoolant());
-		
-		for(int i = 0; i < partArrays.size(); i++) {
-			for(int j = 0; j < partArrays.get(i).length; j++) {
-				allParts.add(partArrays.get(i)[j]);
-			}
+		parts = getCpu();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
 		}
 		
-		return allParts;
+		parts = getGpu();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		
+		parts = getCpuWaterblocks();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		
+		// add other parts
+
+		
+		return partNames;
 	
 	
 		

@@ -8,6 +8,8 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Search"/>
+			<item value="Create A bew"/>
 			<item value="search"/>
 			<item value="JButton"/>
 			<item value="JText"/>
@@ -21,8 +23,6 @@
 			<item value="createSys"/>
 			<item value="CreateSys"/>
 			<item value="CreateSysFra"/>
-			<item value="actionList"/>
-			<item value="wcs.CooltoString()"/>
 		</list>
 		<list key="replacehistory">
 			<item value="WaterCoolerSystem"/>
@@ -30,9 +30,9 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="335" key="DIALOG_WIDTH"/>
-		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="426" key="DIALOG_HEIGHT"/>
+		<item value="350" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|12.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="451" key="DIALOG_HEIGHT"/>
 		<item value="1117" key="DIALOG_X_ORIGIN"/>
 		<item value="425" key="DIALOG_Y_ORIGIN"/>
 	</section>

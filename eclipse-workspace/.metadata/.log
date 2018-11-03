@@ -3569,3 +3569,146 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
 	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
 	at java.base/java.lang.Thread.run(Thread.java:844)
+!SESSION 2018-11-03 15:33:16.362 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=10.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 4 2 2018-11-03 15:34:48.869
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:297)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:369)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findClass(NameEnvironment.java:524)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findType(NameEnvironment.java:556)
+	at org.eclipse.jdt.internal.compiler.env.IModuleAwareNameEnvironment.findType(IModuleAwareNameEnvironment.java:99)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.askForType(LookupEnvironment.java:291)
+	at org.eclipse.jdt.internal.compiler.lookup.PackageBinding.getTypeOrPackage(PackageBinding.java:262)
+	at org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope.getDefaultImports(CompilationUnitScope.java:653)
+	at org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope.checkAndSetImports(CompilationUnitScope.java:235)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.completeTypeBindings(LookupEnvironment.java:501)
+	at org.eclipse.jdt.internal.compiler.Compiler.internalBeginToCompile(Compiler.java:868)
+	at org.eclipse.jdt.internal.compiler.Compiler.beginToCompile(Compiler.java:394)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:444)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:214)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:79)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:262)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:284)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:798)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:219)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:262)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:315)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:318)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:370)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:391)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:145)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 75 2018-11-03 15:34:48.887
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.jdt.core 4 75 2018-11-03 15:34:48.887
+!MESSAGE Errors running builder 'Java Builder' on project 'WaterCooling'.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:297)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:369)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findClass(NameEnvironment.java:524)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findType(NameEnvironment.java:556)
+	at org.eclipse.jdt.internal.compiler.env.IModuleAwareNameEnvironment.findType(IModuleAwareNameEnvironment.java:99)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.askForType(LookupEnvironment.java:291)
+	at org.eclipse.jdt.internal.compiler.lookup.PackageBinding.getTypeOrPackage(PackageBinding.java:262)
+	at org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope.getDefaultImports(CompilationUnitScope.java:653)
+	at org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope.checkAndSetImports(CompilationUnitScope.java:235)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.completeTypeBindings(LookupEnvironment.java:501)
+	at org.eclipse.jdt.internal.compiler.Compiler.internalBeginToCompile(Compiler.java:868)
+	at org.eclipse.jdt.internal.compiler.Compiler.beginToCompile(Compiler.java:394)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:444)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:214)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:79)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:262)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:284)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:798)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:219)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:262)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:315)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:318)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:370)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:391)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:145)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-11-03 15:49:31.484
+!MESSAGE Full project indexing required:
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [*] /home/madacoo/Desktop/robert_choy/CompSci-IA-/eclipse-workspace/WaterCooling/sqlite-jdbc-3.23.1.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.base/java.lang.Thread.run(Thread.java:844)
