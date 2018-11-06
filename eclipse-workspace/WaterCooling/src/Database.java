@@ -121,8 +121,39 @@ public class Database {
 			partNames.add(parts[i].toString());
 		}
 		
-		// add other parts
-
+		parts = getGpuWaterblocks();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		parts = getRadiators();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		parts = getTubing();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		
+		parts = getReservoir();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		
+		parts = getPump();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		
+		parts = getFittings();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+		
+		parts = getCoolant();
+		for (int i = 0; i < parts.length; i++) {
+			partNames.add(parts[i].toString());
+		}
+	
 		
 		return partNames;
 	

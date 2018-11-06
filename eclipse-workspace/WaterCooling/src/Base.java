@@ -39,6 +39,7 @@ public class Base {
 	static JFrame fitFrame;
 	static JFrame coolFrame;
 	static JFrame dummyFrame;
+	static JFrame searchFrame;
 
 	
 	static JFrame currentFrame;
@@ -78,6 +79,7 @@ public class Base {
 		pumpFrame = createPumpFrame(); 
 		fitFrame = createFitFrame(); 
 		coolFrame = createCoolFrame(); 
+		searchFrame = createSearchedFrame();
 		
 	}
 	
@@ -926,15 +928,18 @@ public class Base {
     	searchBar.setBounds(850,250,200,70);
     	frame.add(searchBar);
     	
-    	JButton searchBtn = new JButton("Search");
+    	JButton searchBtn = new JButton("Search for Components");
     	searchBtn.setBounds(1050, 250, 70, 70);
     	searchBtn.addActionListener(new ActionListener(){  
     		public void actionPerformed(ActionEvent e){ 
     			String search = searchBar.getText();
     			ArrayList<String> parts = db.partSearch(search);
-    			for (int i = 0; i < parts.size(); i++) {
+    			changeFrame(searchFrame);
+    			
+    			
+    			/*for (int i = 0; i < parts.size(); i++) {
     				System.out.println(parts.get(i));
-    			}
+    			} */
     		}  
         });
     	frame.add(searchBtn);
@@ -943,9 +948,51 @@ public class Base {
     	return frame;
 	} 
 	
+	public JFrame createSearchedFrame() {
+		JFrame frame = new JFrame("Search Results");
 		
-	
-		
+        frame.setSize(1220,800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+        JLabel searchResult = new JLabel ("Search Results");    	
+        searchResult.setForeground(Color.BLUE);
+        searchResult.setFont(fheader);
+        searchResult.setBounds (20,275,500,70);
+        frame.add(searchResult);
+       
+        JTextField searchBar = new JTextField();
+    	searchBar.setColumns(20);
+    	searchBar.setBounds(850,250,200,70);
+    	frame.add(searchBar);
+		String search = searchBar.getText();
+        ArrayList<String> Results = db.partSearch("Toby");
+        for(int i = 0; i < Results.size(); i++) {
+        	String stringResult = Results.get(i); 
+        	JLabel searchContent = new JLabel (stringResult);    	
+            searchContent.setForeground(Color.BLUE);
+            searchContent.setFont(bodytext);
+            searchContent.setBounds (20,y,200,70);
+            frame.add(searchContent);
+        }
+        
+        
+         
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+    	}
+    	
+		return frame;
+      
+        	}
+       
+
+        
+        
+        
+      
 	
 	
 	public JFrame createDummyFrame() {
