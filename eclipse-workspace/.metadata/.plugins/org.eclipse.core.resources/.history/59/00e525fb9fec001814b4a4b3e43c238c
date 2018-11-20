@@ -971,7 +971,7 @@ public class Base {
         	String stringResult = Results.get(i); 
         	JLabel searchContent = new JLabel (stringResult);    	
             searchContent.setForeground(Color.BLUE);
-            searchContent.setFont(sheader);
+            searchContent.setFont(fheader);
             searchContent.setBounds (20,350,200,70);
             frame.add(searchContent);
         }

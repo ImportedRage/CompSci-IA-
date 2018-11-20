@@ -79,7 +79,7 @@ public class Base {
 		pumpFrame = createPumpFrame(); 
 		fitFrame = createFitFrame(); 
 		coolFrame = createCoolFrame(); 
-		searchFrame = createSearchedFrame("");
+		searchFrame = createSearchedFrame();
 		
 	}
 	
@@ -971,14 +971,10 @@ public class Base {
         	String stringResult = Results.get(i); 
         	JLabel searchContent = new JLabel (stringResult);    	
             searchContent.setForeground(Color.BLUE);
-            searchContent.setFont(sheader);
+            searchContent.setFont(bodytext);
             searchContent.setBounds (20,350,200,70);
             frame.add(searchContent);
         }
-        
-        
-        
-        
     	/*tab2*/
 
     	JButton searchBtn = new JButton("Search");
