@@ -26,6 +26,9 @@ public class Base {
     Font sheader = new Font("Serif", 3, 30);
     Font bodytext = new Font("Serif", 3, 24);
     Font buttontext = new Font("Serif", 1, 11);
+    
+    int width;
+    int height;
 	
     static JFrame createFrame;
 	static JFrame baseFrame;
@@ -51,7 +54,10 @@ public class Base {
 
 	
 	
-	public Base() {
+	public Base(int width, int height) {
+		this.width = width;
+		this.height = height;
+		
 		x = 200;
 		y = 200;
 		
@@ -111,45 +117,76 @@ public class Base {
     	JLabel cpuWaterBlockTitleName = new JLabel ("CPU Waterblock Name:");
     	cpuWaterBlockTitleName.setForeground(Color.GREEN);
     	cpuWaterBlockTitleName.setFont(sheader);
-    	cpuWaterBlockTitleName.setBounds (20,325,500,70);
+    	
+    	
+    	cpuWaterBlockTitleName.setBounds ((int) Math.round(0.01639344262295082* width),
+    									  (int) Math.round(0.40625* height),
+    									  (int) Math.round(0.4098360655737705* width),
+    									  (int) Math.round(0.05737704918032787* height));
     	
     	comps[3] = cpuWaterBlockTitleName;
     	
      	JLabel cpuWaterBlockSocketName = new JLabel ("Socket Type:");
      	cpuWaterBlockSocketName.setForeground(Color.GREEN);
      	cpuWaterBlockSocketName.setFont(sheader);
-     	cpuWaterBlockSocketName.setBounds (400,325,200,70);
+     	cpuWaterBlockSocketName.setBounds (
+     			(int) Math.round(0.32786885245901637* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.16393442622950818* width), 
+     			(int) Math.round(0.05737704918032787* height) );
      	comps[4] = cpuWaterBlockSocketName;
     	
      	JLabel cpuWaterBlockMetalName = new JLabel ("Metal Type:");
      	cpuWaterBlockMetalName.setForeground(Color.GREEN);
      	cpuWaterBlockMetalName.setFont(sheader);
-     	cpuWaterBlockMetalName.setBounds (600,325,200,70);
+     	cpuWaterBlockMetalName.setBounds (
+     			(int) Math.round(0.4918032786885246* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.16393442622950818* width), 
+     			(int) Math.round(0.05737704918032787* height) );
     	comps[5] = cpuWaterBlockMetalName;
     	
     	
     	JLabel cpuWaterblockName = new JLabel (wb.getName());    	
     	cpuWaterblockName.setForeground(Color.BLUE);
     	cpuWaterblockName.setFont(bodytext);
-    	cpuWaterblockName.setBounds (20,y,200,70);
+    	cpuWaterblockName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[0] = cpuWaterblockName;
     	
      	
     	JLabel cpuWaterblockSocket = new JLabel (wb.getSocket());    	
     	cpuWaterblockSocket.setForeground(Color.GREEN);
     	cpuWaterblockSocket.setFont(bodytext);
-    	cpuWaterblockSocket.setBounds (400,y,200,70);
+    	cpuWaterblockSocket.setBounds (
+    			(int) Math.round(0.32786885245901637* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) 
+
+);
         comps[1] = cpuWaterblockSocket;
         
      	
     	JLabel cpuWaterblockMetal = new JLabel (wb.getMetal());    	
     	cpuWaterblockMetal.setForeground(Color.RED);
     	cpuWaterblockMetal.setFont(bodytext);
-    	cpuWaterblockMetal.setBounds (600,y,800,70);
+    	cpuWaterblockMetal.setBounds (
+    			(int) Math.round(0.4918032786885246* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.6557377049180327* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[2] = cpuWaterblockMetal;
         
         JButton addCPU = new JButton("Add CPU Waterblock");
-        addCPU.setBounds(900,y,180,35);
+        addCPU.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) );
         comps[6] = addCPU;
         addCPU.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -172,44 +209,76 @@ public class Base {
     	JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
     	gpuWaterBlockTitleName.setForeground(Color.GREEN);
     	gpuWaterBlockTitleName.setFont(sheader);
-    	gpuWaterBlockTitleName.setBounds (20,325,500,70);
+    	gpuWaterBlockTitleName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.40625* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.05737704918032787* height) );
     	comps[3] = gpuWaterBlockTitleName;
     	
      	JLabel gpuWaterBlockModelType = new JLabel ("Model Type:");
      	gpuWaterBlockModelType.setForeground(Color.GREEN);
      	gpuWaterBlockModelType.setFont(sheader);
-     	gpuWaterBlockModelType.setBounds (400,325,200,70);
+     	gpuWaterBlockModelType.setBounds (
+
+(int) Math.round(0.32786885245901637* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.05737704918032787* height) );
      	comps[4] = gpuWaterBlockModelType;
     	
      	JLabel gpuWaterBlockMetalName = new JLabel ("Metal Type:");
      	gpuWaterBlockMetalName.setForeground(Color.GREEN);
      	gpuWaterBlockMetalName.setFont(sheader);
-     	gpuWaterBlockMetalName.setBounds (600,325,200,70);
+     	gpuWaterBlockMetalName.setBounds (
+     			(int) Math.round(0.4918032786885246* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.16393442622950818* width), 
+     			(int) Math.round(0.05737704918032787* height));
     	comps[5] = gpuWaterBlockMetalName;
     	
     	
     	JLabel gpuWaterblockName = new JLabel (gwb.getName());    	
     	gpuWaterblockName.setForeground(Color.BLUE);
     	gpuWaterblockName.setFont(bodytext);
-    	gpuWaterblockName.setBounds (20,y,200,70);
+    	gpuWaterblockName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) 
+);
         comps[0] = gpuWaterblockName;
     	
      	
     	JLabel gpuWaterblockSocket = new JLabel (gwb.getModel());    	
     	gpuWaterblockSocket.setForeground(Color.GREEN);
     	gpuWaterblockSocket.setFont(bodytext);
-    	gpuWaterblockSocket.setBounds (400,y,200,70);
+    	gpuWaterblockSocket.setBounds (
+    			(int) Math.round(0.32786885245901637* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[1] = gpuWaterblockSocket;
         
      	
     	JLabel gpuWaterblockMetal = new JLabel (gwb.getMetal());    	
     	gpuWaterblockMetal.setForeground(Color.RED);
     	gpuWaterblockMetal.setFont(bodytext);
-    	gpuWaterblockMetal.setBounds (600,y,800,70);
+    	gpuWaterblockMetal.setBounds (
+    			(int) Math.round(0.4918032786885246* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.6557377049180327* width), 
+    			(int) Math.round(0.05737704918032787* height) 
+);
         comps[2] = gpuWaterblockMetal;
         
         JButton addGPU = new JButton("Add GPU Waterblock");
-        addGPU.setBounds(900,y,180,35);
+        addGPU.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) 
+);
         comps[6] = addGPU;
         addGPU.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -231,44 +300,74 @@ public class Base {
     	JLabel RadiatorTitleName = new JLabel ("Radiator Name:");
     	RadiatorTitleName.setForeground(Color.GREEN);
     	RadiatorTitleName.setFont(sheader);
-    	RadiatorTitleName.setBounds (20,325,500,70);
+    	RadiatorTitleName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.40625* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.05737704918032787* height) );
     	comps[3] = RadiatorTitleName;
     	
      	JLabel RadiatorFanCountNumber = new JLabel ("Maximum Number of Fans:");
      	RadiatorFanCountNumber.setForeground(Color.GREEN);
      	RadiatorFanCountNumber.setFont(sheader);
-     	RadiatorFanCountNumber.setBounds (250,325,550,70);
+     	RadiatorFanCountNumber.setBounds (
+     			(int) Math.round(0.20491803278688525* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.45081967213114754* width), 
+     			(int) Math.round(0.05737704918032787* height) );
      	comps[4] = RadiatorFanCountNumber;
     	
      	JLabel RadiatorMetalName = new JLabel ("Metal Type:");
      	RadiatorMetalName.setForeground(Color.GREEN);
      	RadiatorMetalName.setFont(sheader);
-     	RadiatorMetalName.setBounds (700,325,200,70);
+     	RadiatorMetalName.setBounds (
+     			(int) Math.round(0.5737704918032787* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.16393442622950818* width), 
+     			(int) Math.round(0.05737704918032787* height) 
+);
     	comps[5] = RadiatorMetalName;
     	
     	
     	JLabel RadiatorName = new JLabel (rad.getName());    	
     	RadiatorName.setForeground(Color.BLUE);
     	RadiatorName.setFont(bodytext);
-    	RadiatorName.setBounds (20,y,200,70);
+    	RadiatorName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[0] = RadiatorName;
     	
      	
     	JLabel RadiatorFanCount = new JLabel (rad.getMaxFanCount());    	
     	RadiatorFanCount.setForeground(Color.GREEN);
     	RadiatorFanCount.setFont(bodytext);
-    	RadiatorFanCount.setBounds (400,y,200,70);
+    	RadiatorFanCount.setBounds (
+    			(int) Math.round(0.32786885245901637* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) 
+);
         comps[1] = RadiatorFanCount;
         
      	
     	JLabel RadiatorMetal = new JLabel (rad.getMetal());    	
     	RadiatorMetal.setForeground(Color.RED);
     	RadiatorMetal.setFont(bodytext);
-    	RadiatorMetal.setBounds (700,y,800,70);
+    	RadiatorMetal.setBounds (
+    			(int) Math.round(0.5737704918032787* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.6557377049180327* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[2] = RadiatorMetal;
         
         JButton addRad = new JButton("Add Radiators");
-        addRad.setBounds(900,y,180,35);
+        addRad.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) );
         comps[6] = addRad;
         addRad.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -288,44 +387,73 @@ public class Base {
     	JLabel TubingTitleName = new JLabel ("Tubing Name:");
     	TubingTitleName.setForeground(Color.GREEN);
     	TubingTitleName.setFont(sheader);
-    	TubingTitleName.setBounds (20,325,500,70);
+    	TubingTitleName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.40625* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.05737704918032787* height) );
     	comps[3] = TubingTitleName;
     	
      	JLabel TubingBendability = new JLabel ("Tubing Bendabiliy?:");
      	TubingBendability.setForeground(Color.GREEN);
      	TubingBendability.setFont(sheader);
-     	TubingBendability.setBounds (250,325,550,70);
+     	TubingBendability.setBounds (
+     			(int) Math.round(0.20491803278688525* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.45081967213114754* width), 
+     			(int) Math.round(0.05737704918032787* height) );
      	comps[4] = TubingBendability;
     	
      	JLabel TubingDiameter = new JLabel ("Tubing Diameter:");
      	TubingDiameter.setForeground(Color.GREEN);
      	TubingDiameter.setFont(sheader);
-     	TubingDiameter.setBounds (600,325,300,70);
+     	TubingDiameter.setBounds (
+     			(int) Math.round(0.4918032786885246* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.2459016393442623* width), 
+     			(int) Math.round(0.05737704918032787* height) );
     	comps[5] = TubingDiameter;
     	
     	
     	JLabel TubingName = new JLabel (tub.getName());    	
     	TubingName.setForeground(Color.BLUE);
     	TubingName.setFont(bodytext);
-    	TubingName.setBounds (20,y,200,70);
+    	TubingName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[0] = TubingName;
     	
      	
     	JLabel TubingBendable = new JLabel (tub.getBendable());    	
     	TubingBendable.setForeground(Color.GREEN);
     	TubingBendable.setFont(bodytext);
-    	TubingBendable.setBounds (250,y,200,70);
+    	TubingBendable.setBounds (
+    			(int) Math.round(0.20491803278688525* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) 
+);
         comps[1] = TubingBendable;
         
      	
     	JLabel TubingDiameterSize = new JLabel (tub.getDiameter());    	
     	TubingDiameterSize.setForeground(Color.RED);
     	TubingDiameterSize.setFont(bodytext);
-    	TubingDiameterSize.setBounds (600,y,800,70);
+    	TubingDiameterSize.setBounds (
+    			(int) Math.round(0.4918032786885246* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.6557377049180327* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[2] = TubingDiameterSize;
         
         JButton addTub = new JButton("Add Tubing");
-        addTub.setBounds(900,y,180,35);
+        addTub.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) );
         comps[6] = addTub;
         addTub.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -344,30 +472,53 @@ public class Base {
     	JLabel ReservoirTitleName = new JLabel ("Reservoir Name:");
     	ReservoirTitleName.setForeground(Color.GREEN);
     	ReservoirTitleName.setFont(sheader);
-    	ReservoirTitleName.setBounds (20,325,500,70);
+    	ReservoirTitleName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.40625* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.05737704918032787* height) );
     	comps[0] = ReservoirTitleName;
     	
      	JLabel ReservoirCombo = new JLabel ("Reservoir Combo?:");
      	ReservoirCombo.setForeground(Color.GREEN);
      	ReservoirCombo.setFont(sheader);
-     	ReservoirCombo.setBounds (250,325,550,70);
+     	ReservoirCombo.setBounds (
+
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.45081967213114754* width), 
+(int) Math.round(0.05737704918032787* height) 
+);
      	comps[1] = ReservoirCombo;
     	
     	JLabel ReservoirName = new JLabel (res.getName());    	
     	ReservoirName.setForeground(Color.BLUE);
     	ReservoirName.setFont(bodytext);
-    	ReservoirName.setBounds (20,y,200,70);
+    	ReservoirName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[2] = ReservoirName;
     	
      	
     	JLabel ReservoirComboCondition = new JLabel (res.getCombo());    	
     	ReservoirComboCondition.setForeground(Color.GREEN);
     	ReservoirComboCondition.setFont(bodytext);
-    	ReservoirComboCondition.setBounds (250,y,200,70);
+    	ReservoirComboCondition.setBounds (
+    			(int) Math.round(0.20491803278688525* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) 
+);
         comps[3] = ReservoirComboCondition;
         
         JButton addRes = new JButton("Add Tubing");
-        addRes.setBounds(900,y,180,35);
+        addRes.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) );
         comps[4] = addRes;
         addRes.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -386,44 +537,72 @@ public class Base {
     	JLabel PumpTitleName = new JLabel ("Pump Name:");
     	PumpTitleName.setForeground(Color.GREEN);
     	PumpTitleName.setFont(sheader);
-    	PumpTitleName.setBounds (20,325,500,70);
+    	PumpTitleName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.40625* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.05737704918032787* height) );
     	comps[3] = PumpTitleName;
     	
      	JLabel PumpTypeName = new JLabel ("Pump Type?:");
      	PumpTypeName.setForeground(Color.GREEN);
      	PumpTypeName.setFont(sheader);
-     	PumpTypeName.setBounds (250,325,550,70);
+     	PumpTypeName.setBounds (
+     			(int) Math.round(0.20491803278688525* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.45081967213114754* width), 
+     			(int) Math.round(0.05737704918032787* height) );
      	comps[4] = PumpTypeName;
     	
      	JLabel PumpBrandName = new JLabel ("Pump Brand:");
      	PumpBrandName.setForeground(Color.GREEN);
      	PumpBrandName.setFont(sheader);
-     	PumpBrandName.setBounds (600,325,300,70);
+     	PumpBrandName.setBounds (
+     			(int) Math.round(0.4918032786885246* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.2459016393442623* width), 
+     			(int) Math.round(0.05737704918032787* height) );
     	comps[5] = PumpBrandName;
     	
     	
     	JLabel PumpName = new JLabel (pump.getName());    	
     	PumpName.setForeground(Color.BLUE);
     	PumpName.setFont(bodytext);
-    	PumpName.setBounds (20,y,200,70);
+    	PumpName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[0] = PumpName;
     	
      	
     	JLabel PumpType = new JLabel (pump.getType());    	
     	PumpType.setForeground(Color.GREEN);
     	PumpType.setFont(bodytext);
-    	PumpType.setBounds (250,y,200,70);
+    	PumpType.setBounds (
+    			(int) Math.round(0.20491803278688525* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[1] = PumpType;
         
      	
     	JLabel PumpBrand = new JLabel (pump.getBrand());    	
     	PumpBrand.setForeground(Color.RED);
     	PumpBrand.setFont(bodytext);
-    	PumpBrand.setBounds (600,y,800,70);
+    	PumpBrand.setBounds (
+    			(int) Math.round(0.4918032786885246* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.6557377049180327* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[2] = PumpBrand;
         
         JButton addPump = new JButton("Add Pump");
-        addPump.setBounds(900,y,180,35);
+        addPump.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) );
         comps[6] = addPump;
         addPump.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -442,30 +621,51 @@ public class Base {
     	JLabel FittingsTitleName = new JLabel ("Fittings Name:");
     	FittingsTitleName.setForeground(Color.GREEN);
     	FittingsTitleName.setFont(sheader);
-    	FittingsTitleName.setBounds (20,325,500,70);
+    	FittingsTitleName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.40625* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.05737704918032787* height) );
     	comps[0] = FittingsTitleName;
     	
      	JLabel FittingsDiameter = new JLabel ("Fitting(s) Size?:");
      	FittingsDiameter.setForeground(Color.GREEN);
      	FittingsDiameter.setFont(sheader);
-     	FittingsDiameter.setBounds (250,325,550,70);
+     	FittingsDiameter.setBounds (
+     			(int) Math.round(0.20491803278688525* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.45081967213114754* width), 
+     			(int) Math.round(0.05737704918032787* height) );
      	comps[1] = FittingsDiameter;
     	
     	JLabel FittingsTitle = new JLabel (fit.getName());    	
     	FittingsTitle.setForeground(Color.BLUE);
     	FittingsTitle.setFont(bodytext);
-    	FittingsTitle.setBounds (20,y,200,70);
+    	FittingsTitle.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[2] = FittingsTitle;
     	
      	
     	JLabel FittingsDiameterSize = new JLabel (fit.getDiameter());    	
     	FittingsDiameterSize.setForeground(Color.GREEN);
     	FittingsDiameterSize.setFont(bodytext);
-    	FittingsDiameterSize.setBounds (250,y,200,70);
+    	FittingsDiameterSize.setBounds (
+    			(int) Math.round(0.20491803278688525* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[3] = FittingsDiameterSize;
         
         JButton addFit = new JButton("Add Fittings");
-        addFit.setBounds(900,y,180,35);
+        addFit.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) 
+);
         comps[4] = addFit;
         addFit.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -485,30 +685,52 @@ public class Base {
     	JLabel CoolantTitleName = new JLabel ("Coolant Name:");
     	CoolantTitleName.setForeground(Color.GREEN);
     	CoolantTitleName.setFont(sheader);
-    	CoolantTitleName.setBounds (20,325,500,70);
+    	CoolantTitleName.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.40625* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.05737704918032787* height) );
     	comps[0] = CoolantTitleName;
     	
      	JLabel CoolantEdibleQuestion = new JLabel ("Is the Coolant Edible?:");
      	CoolantEdibleQuestion.setForeground(Color.GREEN);
      	CoolantEdibleQuestion.setFont(sheader);
-     	CoolantEdibleQuestion.setBounds (250,325,550,70);
+     	CoolantEdibleQuestion.setBounds (
+     			(int) Math.round(0.20491803278688525* width), 
+     			(int) Math.round(0.40625* height), 
+     			(int) Math.round(0.45081967213114754* width), 
+     			(int) Math.round(0.05737704918032787* height) );
      	comps[1] = CoolantEdibleQuestion;
     	
     	JLabel CoolantName = new JLabel (cool.getName());    	
     	CoolantName.setForeground(Color.BLUE);
     	CoolantName.setFont(bodytext);
-    	CoolantName.setBounds (20,y,200,70);
+    	CoolantName.setBounds (
+
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.05737704918032787* height) 
+);
         comps[2] = CoolantName;
     	
      	
     	JLabel CoolantEdible = new JLabel (cool.getEdible());    	
     	CoolantEdible.setForeground(Color.GREEN);
     	CoolantEdible.setFont(bodytext);
-    	CoolantEdible.setBounds (250,y,200,70);
+    	CoolantEdible.setBounds (
+    			(int) Math.round(0.20491803278688525* width), 
+    			(int) Math.round(0.46875* height), 
+    			(int) Math.round(0.16393442622950818* width), 
+    			(int) Math.round(0.05737704918032787* height) );
         comps[3] = CoolantEdible;
         
         JButton addCool = new JButton("Add Coolants");
-        addCool.setBounds(900,y,180,35);
+        addCool.setBounds(
+        		(int) Math.round(0.7377049180327869* width), 
+        		(int) Math.round(0.46875* height), 
+        		(int) Math.round(0.14754098360655737* width), 
+        		(int) Math.round(0.028688524590163935* height) );
         comps[4] = addCool;
         addCool.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -530,7 +752,16 @@ public class Base {
 		JLabel testtitle = new JLabel ("CPU Waterblocks"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        //20,150,1000,300
+        System.out.println((int) Math.round(0.01639344262295082* width)); 
+        System.out.println((int) Math.round(0.1875* height));
+        System.out.println((int) Math.round(0.819672131147541* width)); 
+        System.out.println((int) Math.round(0.2459016393442623* height)); 
+        testtitle.setBounds (
+        		(int) Math.round(0.01639344262295082* width), 
+        		(int) Math.round(0.1875* height), 
+        		(int) Math.round(0.819672131147541* width), 
+        		(int) Math.round(0.2459016393442623* height) );
         frame.add(testtitle);
         
         int y = 400;
@@ -991,6 +1222,19 @@ public class Base {
     		}
     	});
     	frame.add(searchBtn);
+    	
+    	JButton addComp = new JButton("Add Component");
+    	addComp.setBounds(1050,550,150,50);
+    	searchBtn.addActionListener(new ActionListener(){  
+    		public void actionPerformed(ActionEvent e){ 
+    			wcs.setGWB(gwb);
+    			wcsChanged = true; 
+    	
+    	frame.add(addComp);
+    	
+    		}
+    	});
+    	
         
         
         Component[] mainComponents = createMainComponents();
