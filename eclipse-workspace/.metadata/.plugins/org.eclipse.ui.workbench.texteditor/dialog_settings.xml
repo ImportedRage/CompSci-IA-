@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="y" key="selection"/>
+		<item value="In all" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="In all"/>
+			<item value="Why Not?"/>
+			<item value="bodytext"/>
+			<item value="view"/>
+			<item value="view CPU"/>
+			<item value="Banner"/>
+			<item value="LAbel"/>
+			<item value="fheader"/>
+			<item value="View "/>
+			<item value="createSystemFrame"/>
 			<item value="y"/>
 			<item value="add Component"/>
 			<item value="GPUWater"/>
 			<item value="tab2"/>
 			<item value="tab"/>
-			<item value="Tab2"/>
-			<item value="addCPU"/>
-			<item value="Add"/>
-			<item value="searchFrame"/>
-			<item value="/*tab"/>
-			<item value="tab1"/>
-			<item value="tab "/>
-			<item value="Search"/>
-			<item value="Searchg"/>
-			<item value="Current "/>
 		</list>
 		<list key="replacehistory">
 			<item value="WaterCoolerSystem"/>
@@ -33,7 +33,7 @@
 		<item value="350" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|12.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="451" key="DIALOG_HEIGHT"/>
-		<item value="991" key="DIALOG_X_ORIGIN"/>
-		<item value="53" key="DIALOG_Y_ORIGIN"/>
+		<item value="1182" key="DIALOG_X_ORIGIN"/>
+		<item value="373" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

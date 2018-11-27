@@ -9,8 +9,8 @@ public class WCSChecker {
 
 	String name; 
 	
-	public static final int WIDTH = 1220;
-	public static final int HEIGHT = 800;
+	public static final int WIDTH = 660;
+	public static final int HEIGHT = 400;
 	
 
 

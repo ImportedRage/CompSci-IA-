@@ -22,10 +22,10 @@ public class Base {
 	boolean wcsChanged = true; 
 	
 	// Style
-    Font fheader = new Font("Serif", 1, 52);
-    Font sheader = new Font("Serif", 3, 30);
-    Font bodytext = new Font("Serif", 3, 24);
-    Font buttontext = new Font("Serif", 1, 11);
+    Font fheader; 
+    Font sheader; 
+    Font bodytext; 
+    Font buttontext;
     
     int width;
     int height;
@@ -57,6 +57,13 @@ public class Base {
 	public Base(int width, int height) {
 		this.width = width;
 		this.height = height;
+		
+		fheader = new Font("Serif", 1, (int) Math.round(0.065*height));
+	    sheader = new Font("Serif", 3, (int) Math.round(0.0375 * height));
+	    bodytext = new Font("Serif", 3, (int) Math.round(0.03* height));
+	    buttontext = new Font("Serif", 1, (int) Math.round(0.1375 * height));
+		
+		
 		
 		x = 200;
 		y = 200;
@@ -90,6 +97,7 @@ public class Base {
 	}
 	
 	public JFrame createBaseFrame() {
+
 		JFrame frame = new JFrame("WCS");
 		
         frame.setSize(WCSChecker.WIDTH,WCSChecker.HEIGHT);
@@ -1498,14 +1506,14 @@ public class Base {
         
         // Create Body Text 
         JLabel btext = new JLabel(""
-        		+ "<html><p style=\"width:500px\">"
+        		+ "<html><p style=\"width:" + 0.40983606557 * height + "px\">"
         		+ "In all seriousness, water-cooling your personal "
         		+ "computer is the next step in truly becoming an "
         		+ "enthusiast. The best components are only worthy of "
         		+ "the best cooling-system out there- water-cooling. "
         		+ "While water-cooling may seem extremely "
         		+ "complicated for the beginning novice, here at WCPC "
-        		+ "we strive to simplify this process for oyu, and direct "
+        		+ "we strive to simplify this process for you, and direct "
         		+ "you on your journey to becoming a water-cooler."
         		+ "</p></html>");
         btext.setForeground(Color.BLACK);
@@ -1558,11 +1566,8 @@ public class Base {
     	
     	// Create banner
     	JLabel banner = new JLabel(new ImageIcon(resourcePath + "banner.png"));
-        banner.setBounds(
-(int) Math.round(0.0* width), 
-(int) Math.round(0.0* height), 
-(int) Math.round(0.9934426229508196* width), 
-(int) Math.round(0.135* height) 
+        banner.setBounds(0, 0, width, 
+        		(int) Math.round(0.135* height) 
 );
         comps[i++] = banner;
         
@@ -1573,7 +1578,14 @@ public class Base {
         
         // new system button
         JButton buildsys = new JButton(new ImageIcon(resourcePath + "b1.png"));
-        buildsys.setBounds(xLocation(bcount++),115,120,120);
+        buildsys.setBounds(
+        		(int) Math.round(0.014754098360655738* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height) 
+);
+        bcount++;
+        
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
         		if(wcsChanged == true) {
@@ -1588,7 +1600,12 @@ public class Base {
         // view water cooling parts button
         // temporarily first view buttonsystemFrame
         JButton viewcpu = new JButton(new ImageIcon(resourcePath + "b2.png"));
-        viewcpu.setBounds(xLocation(bcount++),115,120,120);
+        viewcpu.setBounds(
+        		(int) Math.round(0.12295081967213115* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height) );
+        bcount++;
         viewcpu.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         		changeFrame(cpuFrame);
@@ -1598,7 +1615,14 @@ public class Base {
         
         JButton viewgpu = new JButton(new ImageIcon(resourcePath + "b3.png"));
         viewgpu.setFont(buttontext);
-        viewgpu.setBounds(xLocation(bcount++),115,120,120);
+        viewgpu.setBounds(
+        		(int) Math.round(0.23114754098360657* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height) 
+);
+
+        bcount++;
         viewgpu.setBackground(Color.ORANGE);
         viewgpu.addActionListener(new ActionListener(){  
         	
@@ -1609,7 +1633,12 @@ public class Base {
         comps[i++] = viewgpu;
         
         JButton rad = new JButton(new ImageIcon(resourcePath + "b4.png"));
-        rad.setBounds(xLocation(bcount++),115,120,120);
+        rad.setBounds(
+        		(int) Math.round(0.33934426229508197* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height) );
+        bcount++;
         rad.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         	            changeFrame(radFrame);  
@@ -1618,7 +1647,12 @@ public class Base {
         comps[i++] = rad;
        
         JButton tube = new JButton(new ImageIcon(resourcePath + "b5.png"));
-        tube.setBounds(xLocation(bcount++),115,120,120);
+        tube.setBounds(
+        		(int) Math.round(0.44754098360655736* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height));
+        bcount++;
         tube.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         	            changeFrame(tubFrame);  
@@ -1627,7 +1661,12 @@ public class Base {
         comps[i++] = tube;
         
         JButton res = new JButton(new ImageIcon(resourcePath + "b6.png"));
-        res.setBounds(xLocation(bcount++),115,120,120);
+        res.setBounds(
+        		(int) Math.round(0.5557377049180328* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height));
+        bcount++;
         res.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         	            changeFrame(resFrame);  
@@ -1636,7 +1675,12 @@ public class Base {
         comps[i++] = res;
 
         JButton pump = new JButton(new ImageIcon(resourcePath + "b7.png"));
-        pump.setBounds(xLocation(bcount++),115,120,120);
+        pump.setBounds(
+        		(int) Math.round(0.6639344262295082* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height) );
+        bcount++;
         pump.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         	            changeFrame(pumpFrame);  
@@ -1645,7 +1689,12 @@ public class Base {
         comps[i++] = pump;
 
         JButton fit = new JButton(new ImageIcon(resourcePath + "b8.png"));
-        fit.setBounds(xLocation(bcount++),115,120,120);
+        fit.setBounds(
+        		(int) Math.round(0.7721311475409836* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height) );
+        bcount++;
         fit.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         	            changeFrame(fitFrame);  
@@ -1653,7 +1702,12 @@ public class Base {
         	    });  
         comps[i++] = fit;
         JButton cool = new JButton(new ImageIcon(resourcePath + "b9.png"));
-        cool.setBounds(xLocation(bcount++),115,120,120);
+        cool.setBounds(
+        		(int) Math.round(0.8803278688524591* width), 
+        		(int) Math.round(0.14375* height), 
+        		(int) Math.round(0.09836065573770492* width), 
+        		(int) Math.round(0.15* height) );
+        bcount++;
         cool.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         	           changeFrame(coolFrame);  
