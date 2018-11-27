@@ -119,10 +119,11 @@ public class Base {
     	cpuWaterBlockTitleName.setFont(sheader);
     	
     	
-    	cpuWaterBlockTitleName.setBounds ((int) Math.round(0.01639344262295082* width),
-    									  (int) Math.round(0.40625* height),
-    									  (int) Math.round(0.4098360655737705* width),
-    									  (int) Math.round(0.05737704918032787* height));
+    	cpuWaterBlockTitleName.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height));
     	
     	comps[3] = cpuWaterBlockTitleName;
     	
@@ -130,20 +131,21 @@ public class Base {
      	cpuWaterBlockSocketName.setForeground(Color.GREEN);
      	cpuWaterBlockSocketName.setFont(sheader);
      	cpuWaterBlockSocketName.setBounds (
-     			(int) Math.round(0.32786885245901637* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.16393442622950818* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.32786885245901637* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height));
      	comps[4] = cpuWaterBlockSocketName;
     	
      	JLabel cpuWaterBlockMetalName = new JLabel ("Metal Type:");
      	cpuWaterBlockMetalName.setForeground(Color.GREEN);
      	cpuWaterBlockMetalName.setFont(sheader);
      	cpuWaterBlockMetalName.setBounds (
-     			(int) Math.round(0.4918032786885246* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.16393442622950818* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
+);
     	comps[5] = cpuWaterBlockMetalName;
     	
     	
@@ -151,10 +153,10 @@ public class Base {
     	cpuWaterblockName.setForeground(Color.BLUE);
     	cpuWaterblockName.setFont(bodytext);
     	cpuWaterblockName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height));
         comps[0] = cpuWaterblockName;
     	
      	
@@ -162,10 +164,10 @@ public class Base {
     	cpuWaterblockSocket.setForeground(Color.GREEN);
     	cpuWaterblockSocket.setFont(bodytext);
     	cpuWaterblockSocket.setBounds (
-    			(int) Math.round(0.32786885245901637* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.32786885245901637* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height)  
 
 );
         comps[1] = cpuWaterblockSocket;
@@ -175,18 +177,21 @@ public class Base {
     	cpuWaterblockMetal.setForeground(Color.RED);
     	cpuWaterblockMetal.setFont(bodytext);
     	cpuWaterblockMetal.setBounds (
-    			(int) Math.round(0.4918032786885246* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.6557377049180327* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.0875* height) 
+ );
         comps[2] = cpuWaterblockMetal;
         
         JButton addCPU = new JButton("Add CPU Waterblock");
         addCPU.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) );
+        		
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height) 
+);
         comps[6] = addCPU;
         addCPU.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -210,31 +215,31 @@ public class Base {
     	gpuWaterBlockTitleName.setForeground(Color.GREEN);
     	gpuWaterBlockTitleName.setFont(sheader);
     	gpuWaterBlockTitleName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.40625* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) );
     	comps[3] = gpuWaterBlockTitleName;
     	
      	JLabel gpuWaterBlockModelType = new JLabel ("Model Type:");
      	gpuWaterBlockModelType.setForeground(Color.GREEN);
      	gpuWaterBlockModelType.setFont(sheader);
      	gpuWaterBlockModelType.setBounds (
-
 (int) Math.round(0.32786885245901637* width), 
 (int) Math.round(0.40625* height), 
 (int) Math.round(0.16393442622950818* width), 
-(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.0875* height)  );
      	comps[4] = gpuWaterBlockModelType;
     	
      	JLabel gpuWaterBlockMetalName = new JLabel ("Metal Type:");
      	gpuWaterBlockMetalName.setForeground(Color.GREEN);
      	gpuWaterBlockMetalName.setFont(sheader);
      	gpuWaterBlockMetalName.setBounds (
-     			(int) Math.round(0.4918032786885246* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.16393442622950818* width), 
-     			(int) Math.round(0.05737704918032787* height));
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
+);
     	comps[5] = gpuWaterBlockMetalName;
     	
     	
@@ -242,10 +247,10 @@ public class Base {
     	gpuWaterblockName.setForeground(Color.BLUE);
     	gpuWaterblockName.setFont(bodytext);
     	gpuWaterblockName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height)  
 );
         comps[0] = gpuWaterblockName;
     	
@@ -254,10 +259,10 @@ public class Base {
     	gpuWaterblockSocket.setForeground(Color.GREEN);
     	gpuWaterblockSocket.setFont(bodytext);
     	gpuWaterblockSocket.setBounds (
-    			(int) Math.round(0.32786885245901637* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.32786885245901637* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height)  );
         comps[1] = gpuWaterblockSocket;
         
      	
@@ -265,19 +270,19 @@ public class Base {
     	gpuWaterblockMetal.setForeground(Color.RED);
     	gpuWaterblockMetal.setFont(bodytext);
     	gpuWaterblockMetal.setBounds (
-    			(int) Math.round(0.4918032786885246* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.6557377049180327* width), 
-    			(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.0875* height) 
 );
         comps[2] = gpuWaterblockMetal;
         
         JButton addGPU = new JButton("Add GPU Waterblock");
         addGPU.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) 
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height) 
 );
         comps[6] = addGPU;
         addGPU.addActionListener(new ActionListener(){  
@@ -301,30 +306,32 @@ public class Base {
     	RadiatorTitleName.setForeground(Color.GREEN);
     	RadiatorTitleName.setFont(sheader);
     	RadiatorTitleName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.40625* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) );
     	comps[3] = RadiatorTitleName;
     	
      	JLabel RadiatorFanCountNumber = new JLabel ("Maximum Number of Fans:");
      	RadiatorFanCountNumber.setForeground(Color.GREEN);
      	RadiatorFanCountNumber.setFont(sheader);
      	RadiatorFanCountNumber.setBounds (
-     			(int) Math.round(0.20491803278688525* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.45081967213114754* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+     			
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.45081967213114754* width), 
+(int) Math.round(0.0875* height) );
      	comps[4] = RadiatorFanCountNumber;
     	
      	JLabel RadiatorMetalName = new JLabel ("Metal Type:");
      	RadiatorMetalName.setForeground(Color.GREEN);
      	RadiatorMetalName.setFont(sheader);
      	RadiatorMetalName.setBounds (
-     			(int) Math.round(0.5737704918032787* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.16393442622950818* width), 
-     			(int) Math.round(0.05737704918032787* height) 
+     			
+(int) Math.round(0.5737704918032787* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
 );
     	comps[5] = RadiatorMetalName;
     	
@@ -333,10 +340,10 @@ public class Base {
     	RadiatorName.setForeground(Color.BLUE);
     	RadiatorName.setFont(bodytext);
     	RadiatorName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) );
         comps[0] = RadiatorName;
     	
      	
@@ -344,10 +351,10 @@ public class Base {
     	RadiatorFanCount.setForeground(Color.GREEN);
     	RadiatorFanCount.setFont(bodytext);
     	RadiatorFanCount.setBounds (
-    			(int) Math.round(0.32786885245901637* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.32786885245901637* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
 );
         comps[1] = RadiatorFanCount;
         
@@ -356,18 +363,18 @@ public class Base {
     	RadiatorMetal.setForeground(Color.RED);
     	RadiatorMetal.setFont(bodytext);
     	RadiatorMetal.setBounds (
-    			(int) Math.round(0.5737704918032787* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.6557377049180327* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.5737704918032787* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.0875* height)  );
         comps[2] = RadiatorMetal;
         
         JButton addRad = new JButton("Add Radiators");
         addRad.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) );
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height) );
         comps[6] = addRad;
         addRad.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -388,30 +395,34 @@ public class Base {
     	TubingTitleName.setForeground(Color.GREEN);
     	TubingTitleName.setFont(sheader);
     	TubingTitleName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.40625* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+    			
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) 
+
+);
     	comps[3] = TubingTitleName;
     	
      	JLabel TubingBendability = new JLabel ("Tubing Bendabiliy?:");
      	TubingBendability.setForeground(Color.GREEN);
      	TubingBendability.setFont(sheader);
      	TubingBendability.setBounds (
-     			(int) Math.round(0.20491803278688525* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.45081967213114754* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.45081967213114754* width), 
+(int) Math.round(0.0875* height) );
      	comps[4] = TubingBendability;
     	
      	JLabel TubingDiameter = new JLabel ("Tubing Diameter:");
      	TubingDiameter.setForeground(Color.GREEN);
      	TubingDiameter.setFont(sheader);
      	TubingDiameter.setBounds (
-     			(int) Math.round(0.4918032786885246* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.2459016393442623* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.2459016393442623* width), 
+(int) Math.round(0.0875* height) 
+ );
     	comps[5] = TubingDiameter;
     	
     	
@@ -419,10 +430,10 @@ public class Base {
     	TubingName.setForeground(Color.BLUE);
     	TubingName.setFont(bodytext);
     	TubingName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) );
         comps[0] = TubingName;
     	
      	
@@ -430,10 +441,10 @@ public class Base {
     	TubingBendable.setForeground(Color.GREEN);
     	TubingBendable.setFont(bodytext);
     	TubingBendable.setBounds (
-    			(int) Math.round(0.20491803278688525* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
 );
         comps[1] = TubingBendable;
         
@@ -442,18 +453,19 @@ public class Base {
     	TubingDiameterSize.setForeground(Color.RED);
     	TubingDiameterSize.setFont(bodytext);
     	TubingDiameterSize.setBounds (
-    			(int) Math.round(0.4918032786885246* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.6557377049180327* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.0875* height)  );
         comps[2] = TubingDiameterSize;
         
         JButton addTub = new JButton("Add Tubing");
         addTub.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) );
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height) 
+ );
         comps[6] = addTub;
         addTub.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -473,21 +485,21 @@ public class Base {
     	ReservoirTitleName.setForeground(Color.GREEN);
     	ReservoirTitleName.setFont(sheader);
     	ReservoirTitleName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.40625* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) 
+ );
     	comps[0] = ReservoirTitleName;
     	
      	JLabel ReservoirCombo = new JLabel ("Reservoir Combo?:");
      	ReservoirCombo.setForeground(Color.GREEN);
      	ReservoirCombo.setFont(sheader);
      	ReservoirCombo.setBounds (
-
 (int) Math.round(0.20491803278688525* width), 
 (int) Math.round(0.40625* height), 
 (int) Math.round(0.45081967213114754* width), 
-(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.0875* height) 
 );
      	comps[1] = ReservoirCombo;
     	
@@ -495,10 +507,10 @@ public class Base {
     	ReservoirName.setForeground(Color.BLUE);
     	ReservoirName.setFont(bodytext);
     	ReservoirName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) );
         comps[2] = ReservoirName;
     	
      	
@@ -506,19 +518,19 @@ public class Base {
     	ReservoirComboCondition.setForeground(Color.GREEN);
     	ReservoirComboCondition.setFont(bodytext);
     	ReservoirComboCondition.setBounds (
-    			(int) Math.round(0.20491803278688525* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
 );
         comps[3] = ReservoirComboCondition;
         
         JButton addRes = new JButton("Add Tubing");
         addRes.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) );
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height) );
         comps[4] = addRes;
         addRes.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -538,30 +550,32 @@ public class Base {
     	PumpTitleName.setForeground(Color.GREEN);
     	PumpTitleName.setFont(sheader);
     	PumpTitleName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.40625* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) 
+ );
     	comps[3] = PumpTitleName;
     	
      	JLabel PumpTypeName = new JLabel ("Pump Type?:");
      	PumpTypeName.setForeground(Color.GREEN);
      	PumpTypeName.setFont(sheader);
      	PumpTypeName.setBounds (
-     			(int) Math.round(0.20491803278688525* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.45081967213114754* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.45081967213114754* width), 
+(int) Math.round(0.0875* height)  );
      	comps[4] = PumpTypeName;
     	
      	JLabel PumpBrandName = new JLabel ("Pump Brand:");
      	PumpBrandName.setForeground(Color.GREEN);
      	PumpBrandName.setFont(sheader);
      	PumpBrandName.setBounds (
-     			(int) Math.round(0.4918032786885246* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.2459016393442623* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.2459016393442623* width), 
+(int) Math.round(0.0875* height) 
+);
     	comps[5] = PumpBrandName;
     	
     	
@@ -569,10 +583,11 @@ public class Base {
     	PumpName.setForeground(Color.BLUE);
     	PumpName.setFont(bodytext);
     	PumpName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
+);
         comps[0] = PumpName;
     	
      	
@@ -580,10 +595,10 @@ public class Base {
     	PumpType.setForeground(Color.GREEN);
     	PumpType.setFont(bodytext);
     	PumpType.setBounds (
-    			(int) Math.round(0.20491803278688525* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) );
         comps[1] = PumpType;
         
      	
@@ -591,18 +606,18 @@ public class Base {
     	PumpBrand.setForeground(Color.RED);
     	PumpBrand.setFont(bodytext);
     	PumpBrand.setBounds (
-    			(int) Math.round(0.4918032786885246* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.6557377049180327* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.0875* height) );
         comps[2] = PumpBrand;
         
         JButton addPump = new JButton("Add Pump");
         addPump.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) );
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height) );
         comps[6] = addPump;
         addPump.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -622,30 +637,30 @@ public class Base {
     	FittingsTitleName.setForeground(Color.GREEN);
     	FittingsTitleName.setFont(sheader);
     	FittingsTitleName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.40625* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height)  );
     	comps[0] = FittingsTitleName;
     	
      	JLabel FittingsDiameter = new JLabel ("Fitting(s) Size?:");
      	FittingsDiameter.setForeground(Color.GREEN);
      	FittingsDiameter.setFont(sheader);
      	FittingsDiameter.setBounds (
-     			(int) Math.round(0.20491803278688525* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.45081967213114754* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.45081967213114754* width), 
+(int) Math.round(0.0875* height)  );
      	comps[1] = FittingsDiameter;
     	
     	JLabel FittingsTitle = new JLabel (fit.getName());    	
     	FittingsTitle.setForeground(Color.BLUE);
     	FittingsTitle.setFont(bodytext);
     	FittingsTitle.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height)  );
         comps[2] = FittingsTitle;
     	
      	
@@ -653,18 +668,18 @@ public class Base {
     	FittingsDiameterSize.setForeground(Color.GREEN);
     	FittingsDiameterSize.setFont(bodytext);
     	FittingsDiameterSize.setBounds (
-    			(int) Math.round(0.20491803278688525* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height)  );
         comps[3] = FittingsDiameterSize;
         
         JButton addFit = new JButton("Add Fittings");
         addFit.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) 
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height) 
 );
         comps[4] = addFit;
         addFit.addActionListener(new ActionListener(){  
@@ -686,31 +701,32 @@ public class Base {
     	CoolantTitleName.setForeground(Color.GREEN);
     	CoolantTitleName.setFont(sheader);
     	CoolantTitleName.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.40625* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) 
+ );
     	comps[0] = CoolantTitleName;
     	
      	JLabel CoolantEdibleQuestion = new JLabel ("Is the Coolant Edible?:");
      	CoolantEdibleQuestion.setForeground(Color.GREEN);
      	CoolantEdibleQuestion.setFont(sheader);
      	CoolantEdibleQuestion.setBounds (
-     			(int) Math.round(0.20491803278688525* width), 
-     			(int) Math.round(0.40625* height), 
-     			(int) Math.round(0.45081967213114754* width), 
-     			(int) Math.round(0.05737704918032787* height) );
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.45081967213114754* width), 
+(int) Math.round(0.0875* height) 
+);
      	comps[1] = CoolantEdibleQuestion;
     	
     	JLabel CoolantName = new JLabel (cool.getName());    	
     	CoolantName.setForeground(Color.BLUE);
     	CoolantName.setFont(bodytext);
     	CoolantName.setBounds (
-
 (int) Math.round(0.01639344262295082* width), 
 (int) Math.round(0.46875* height), 
 (int) Math.round(0.16393442622950818* width), 
-(int) Math.round(0.05737704918032787* height) 
+(int) Math.round(0.0875* height) 
 );
         comps[2] = CoolantName;
     	
@@ -719,18 +735,21 @@ public class Base {
     	CoolantEdible.setForeground(Color.GREEN);
     	CoolantEdible.setFont(bodytext);
     	CoolantEdible.setBounds (
-    			(int) Math.round(0.20491803278688525* width), 
-    			(int) Math.round(0.46875* height), 
-    			(int) Math.round(0.16393442622950818* width), 
-    			(int) Math.round(0.05737704918032787* height) );
+    			
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
+ );
         comps[3] = CoolantEdible;
         
         JButton addCool = new JButton("Add Coolants");
         addCool.setBounds(
-        		(int) Math.round(0.7377049180327869* width), 
-        		(int) Math.round(0.46875* height), 
-        		(int) Math.round(0.14754098360655737* width), 
-        		(int) Math.round(0.028688524590163935* height) );
+        		
+(int) Math.round(0.7377049180327869* width), 
+(int) Math.round(0.46875* height), 
+(int) Math.round(0.14754098360655737* width), 
+(int) Math.round(0.04375* height)  );
         comps[4] = addCool;
         addCool.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
@@ -758,10 +777,11 @@ public class Base {
         System.out.println((int) Math.round(0.819672131147541* width)); 
         System.out.println((int) Math.round(0.2459016393442623* height)); 
         testtitle.setBounds (
-        		(int) Math.round(0.01639344262295082* width), 
-        		(int) Math.round(0.1875* height), 
-        		(int) Math.round(0.819672131147541* width), 
-        		(int) Math.round(0.2459016393442623* height) );
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) 
+ );
         frame.add(testtitle);
         
         int y = 400;
@@ -794,7 +814,11 @@ public class Base {
 		JLabel testtitle = new JLabel ("GPU Waterblocks"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) );
         frame.add(testtitle);
         
         Component[] mainComponents = createMainComponents();
@@ -826,7 +850,12 @@ public class Base {
 		JLabel testtitle = new JLabel ("Radiators"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(testtitle);
         
         Component[] mainComponents = createMainComponents();
@@ -855,7 +884,11 @@ public class Base {
 		JLabel testtitle = new JLabel ("Tubing"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) );
         frame.add(testtitle);
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
@@ -885,7 +918,13 @@ public class Base {
 		JLabel testtitle = new JLabel ("Reservoirs"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) 
+
+);
         frame.add(testtitle);
         
         Component[] mainComponents = createMainComponents();
@@ -914,7 +953,11 @@ public class Base {
 		JLabel testtitle = new JLabel ("Pumps"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) );
         frame.add(testtitle);
         
         Component[] mainComponents = createMainComponents();
@@ -946,7 +989,11 @@ public class Base {
 		JLabel testtitle = new JLabel ("Fittings"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) );
         frame.add(testtitle);
         
         Component[] mainComponents = createMainComponents();
@@ -977,7 +1024,11 @@ public class Base {
 		JLabel testtitle = new JLabel ("Coolants"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) );
         frame.add(testtitle);
         
         Component[] mainComponents = createMainComponents();
@@ -1006,7 +1057,11 @@ public class Base {
         frame.getContentPane().setBackground(Color.GRAY);
         
         JButton testSys = new JButton("TEST");
-        testSys.setBounds(800,680,250,80);
+        testSys.setBounds(
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.85* height), 
+(int) Math.round(0.20491803278688525* width), 
+(int) Math.round(0.1* height) );
     	frame.add(testSys);
         testSys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){
@@ -1026,128 +1081,224 @@ public class Base {
 		JLabel CreateSysTitle = new JLabel ("Create a new system "); 
 		CreateSysTitle.setForeground(Color.BLUE);
 		CreateSysTitle.setFont(fheader);
-		CreateSysTitle.setBounds (20,150,1000,300);
+		CreateSysTitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) 
+
+);
         frame.add(CreateSysTitle);
         
         JLabel showSysCPU = new JLabel ("Current CPU:");
         showSysCPU.setForeground(Color.BLUE);
         showSysCPU.setFont(bodytext);
-        showSysCPU.setBounds (20,220,500,300);
+        showSysCPU.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.275* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(showSysCPU);
         
         JLabel currentCPU = new JLabel(wcs.CPUtoString());
         currentCPU.setForeground(Color.BLUE);
         currentCPU.setFont(bodytext);
-        currentCPU.setBounds(170,220, 500, 300);
+        currentCPU.setBounds(
+(int) Math.round(0.13934426229508196* width), 
+(int) Math.round(0.275* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(currentCPU);
         
         JLabel showSysGPU = new JLabel ("Current GPU:");
         showSysGPU.setForeground(Color.BLUE);
         showSysGPU.setFont(bodytext);
-        showSysGPU.setBounds (20,280,500,300);
+        showSysGPU.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.35* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(showSysGPU);
         
         JLabel currentGPU = new JLabel(wcs.GPUtoString());
         currentGPU.setForeground(Color.BLUE);
         currentGPU.setFont(bodytext);
-        currentGPU.setBounds(170, 280, 500, 300);
+        currentGPU.setBounds(
+(int) Math.round(0.13934426229508196* width), 
+(int) Math.round(0.35* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+
+);
         frame.add(currentGPU);
         
         JLabel showSysCWB = new JLabel ("Current CPU Waterblock:");
         showSysCWB.setForeground(Color.BLUE);
         showSysCWB.setFont(bodytext);
-        showSysCWB.setBounds (20,340,500,300);
+        showSysCWB.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.425* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(showSysCWB);
         
         JLabel currentCPUWB = new JLabel(wcs.CPUWBtoString());
         currentCPUWB.setForeground(Color.BLUE);
         currentCPUWB.setFont(bodytext);
-        currentCPUWB.setBounds(290, 340, 500, 300);
+        currentCPUWB.setBounds(
+(int) Math.round(0.23770491803278687* width), 
+(int) Math.round(0.425* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(currentCPUWB);
        
         JLabel showSysGWB = new JLabel ("Current GPU Waterblock:");
         showSysGWB.setForeground(Color.BLUE);
         showSysGWB.setFont(bodytext);
-        showSysGWB.setBounds (20,400,500,300);
+        showSysGWB.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.5* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(showSysGWB);
         
         JLabel currentGPUWB = new JLabel(wcs.GPUWBtoString());
         currentGPUWB.setForeground(Color.BLUE);
         currentGPUWB.setFont(bodytext);
-        currentGPUWB.setBounds(290, 400, 500, 300);
+        currentGPUWB.setBounds(
+(int) Math.round(0.23770491803278687* width), 
+(int) Math.round(0.5* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(currentGPUWB);
         
         JLabel showSysRad = new JLabel ("Current Radiator:");
         showSysRad.setForeground(Color.BLUE);
         showSysRad.setFont(bodytext);
-        showSysRad.setBounds (20,460,500,300);
+        showSysRad.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.575* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(showSysRad);
         
         JLabel currentRad = new JLabel(wcs.RadtoString());
         currentRad.setForeground(Color.BLUE);
         currentRad.setFont(bodytext);
-        currentRad.setBounds(210, 460, 500, 300);
+        currentRad.setBounds(
+(int) Math.round(0.1721311475409836* width), 
+(int) Math.round(0.575* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(currentRad);
        
         JLabel showSysTub = new JLabel ("Current Tubing:");
         showSysTub.setForeground(Color.BLUE);
         showSysTub.setFont(bodytext);
-        showSysTub.setBounds (600,220,500,300);
+        showSysTub.setBounds (
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.275* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(showSysTub);
         
         JLabel currentTub = new JLabel(wcs.TubtoString());
         currentTub.setForeground(Color.BLUE);
         currentTub.setFont(bodytext);
-        currentTub.setBounds(800, 220, 500, 300);
+        currentTub.setBounds(
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.275* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(currentTub);
  
         JLabel showSysRes = new JLabel ("Current Reservoir:");
         showSysRes.setForeground(Color.BLUE);
         showSysRes.setFont(bodytext);
-        showSysRes.setBounds (600,280,500,300);
+        showSysRes.setBounds (
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.35* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(showSysRes);
         
         JLabel currentRes = new JLabel(wcs.RestoString());
         currentRes.setForeground(Color.BLUE);
         currentRes.setFont(bodytext);
-        currentRes.setBounds(800, 280, 500, 300);
+        currentRes.setBounds(
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.35* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(currentRes);
     
         JLabel showSysPump = new JLabel ("Current Pump:");
         showSysPump.setForeground(Color.BLUE);
         showSysPump.setFont(bodytext);
-        showSysPump.setBounds (600,340,500,300);
+        showSysPump.setBounds (
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.425* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(showSysPump);
         
         JLabel currentPump = new JLabel(wcs.PumptoString());
         currentPump.setForeground(Color.BLUE);
         currentPump.setFont(bodytext);
-        currentPump.setBounds(800, 340, 500, 300);
+        currentPump.setBounds(
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.425* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(currentPump);
         
         JLabel showSysFit = new JLabel ("Current Fittings:");
         showSysFit.setForeground(Color.BLUE);
         showSysFit.setFont(bodytext);
-        showSysFit.setBounds (600,400,500,300);
+        showSysFit.setBounds (
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.5* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(showSysFit);
 
         JLabel currentFit = new JLabel(wcs.FittoString());
         currentFit.setForeground(Color.BLUE);
         currentFit.setFont(bodytext);
-        currentFit.setBounds(800, 400, 500, 300);
+        currentFit.setBounds(
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.5* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(currentFit);
 
         
         JLabel showSysCool = new JLabel ("Current Coolant:");
         showSysCool.setForeground(Color.BLUE);
         showSysCool.setFont(bodytext);
-        showSysCool.setBounds (600,460,500,300);
+        showSysCool.setBounds (
+(int) Math.round(0.4918032786885246* width), 
+(int) Math.round(0.575* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(showSysCool);
         
         JLabel currentCool = new JLabel(wcs.CooltoString());
         currentCool.setForeground(Color.BLUE);
         currentCool.setFont(bodytext);
-        currentCool.setBounds(800, 460, 500, 300);
+        currentCool.setBounds(
+(int) Math.round(0.6557377049180327* width), 
+(int) Math.round(0.575* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.375* height) );
         frame.add(currentCool);
     
         Component[] mainComponents = createMainComponents();
@@ -1156,14 +1307,24 @@ public class Base {
     	}
     	JTextField searchBar = new JTextField();
     	searchBar.setColumns(20);
-    	searchBar.setBounds(850,250,200,70);
+    	searchBar.setBounds(
+(int) Math.round(0.6967213114754098* width), 
+(int) Math.round(0.3125* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
+
+);
     	frame.add(searchBar);
     	
     	/* tab1 */
 
         	
     	JButton searchBtn = new JButton("Search for Components");
-    	searchBtn.setBounds(1050, 250, 70, 70);
+    	searchBtn.setBounds(
+(int) Math.round(0.860655737704918* width), 
+(int) Math.round(0.3125* height), 
+(int) Math.round(0.05737704918032787* width), 
+(int) Math.round(0.0875* height) );
     	searchBtn.addActionListener(new ActionListener(){  
     		public void actionPerformed(ActionEvent e){ 
     			String search = searchBar.getText();
@@ -1189,12 +1350,21 @@ public class Base {
         JLabel searchResult = new JLabel ("Search Results");    	
         searchResult.setForeground(Color.BLUE);
         searchResult.setFont(fheader);
-        searchResult.setBounds (20,275,500,70);
+        searchResult.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.34375* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) );
         frame.add(searchResult);
        
         JTextField searchBar = new JTextField();
     	searchBar.setColumns(20);
-    	searchBar.setBounds(850,250,200,70);
+    	searchBar.setBounds(
+(int) Math.round(0.6967213114754098* width), 
+(int) Math.round(0.3125* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) 
+);
     	frame.add(searchBar);
         ArrayList<String> Results = db.partSearch(search);
         
@@ -1203,7 +1373,11 @@ public class Base {
         	JLabel searchContent = new JLabel (stringResult);    	
             searchContent.setForeground(Color.BLUE);
             searchContent.setFont(sheader);
-            searchContent.setBounds (20,350,200,70);
+            searchContent.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.4375* height), 
+(int) Math.round(0.16393442622950818* width), 
+(int) Math.round(0.0875* height) );
             frame.add(searchContent);
         }
         
@@ -1213,7 +1387,12 @@ public class Base {
     	/*tab2*/
 
     	JButton searchBtn = new JButton("Search");
-    	searchBtn.setBounds(1050, 250, 70, 70);
+    	searchBtn.setBounds(
+(int) Math.round(0.860655737704918* width), 
+(int) Math.round(0.3125* height), 
+(int) Math.round(0.05737704918032787* width), 
+(int) Math.round(0.0875* height) 
+);
     	searchBtn.addActionListener(new ActionListener(){  
     		public void actionPerformed(ActionEvent e){ 
     	    	String search = searchBar.getText();
@@ -1224,7 +1403,11 @@ public class Base {
     	frame.add(searchBtn);
     	
     	JButton addComp = new JButton("Add Component");
-    	addComp.setBounds(1050,550,150,50);
+    	addComp.setBounds(
+(int) Math.round(0.860655737704918* width), 
+(int) Math.round(0.6875* height), 
+(int) Math.round(0.12295081967213115* width), 
+(int) Math.round(0.0625* height) );
     	searchBtn.addActionListener(new ActionListener(){  
     		public void actionPerformed(ActionEvent e){ 
     			wcs.setGWB(gwb);
@@ -1263,7 +1446,12 @@ public class Base {
 		JLabel testtitle = new JLabel ("testing123"); 
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
-        testtitle.setBounds (20,150,1000,300);
+        testtitle.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) 
+);
         frame.add(testtitle);
         
         Component[] mainComponents = createMainComponents();
@@ -1288,14 +1476,24 @@ public class Base {
         JLabel title = new JLabel("Why Water-Cooling?");
         title.setForeground(Color.BLUE);
         title.setFont(fheader);
-        title.setBounds (20,150,1000,300);
+        title.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.1875* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.375* height) 
+);
         comps[i++] = title;
         
         // Create Subtitle Text 
         JLabel subtitle = new JLabel("Why Not?");
         subtitle.setForeground(Color.BLACK);
         subtitle.setFont(sheader);
-        subtitle.setBounds(15, 100, 500, 500);
+        subtitle.setBounds(
+(int) Math.round(0.012295081967213115* width), 
+(int) Math.round(0.125* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.625* height) 
+);
         comps[i++] = subtitle;
         
         // Create Body Text 
@@ -1312,13 +1510,24 @@ public class Base {
         		+ "</p></html>");
         btext.setForeground(Color.BLACK);
         btext.setFont(bodytext);
-        btext.setBounds(15, 350, 1000, 250);
+        btext.setBounds(
+(int) Math.round(0.012295081967213115* width), 
+(int) Math.round(0.4375* height), 
+(int) Math.round(0.819672131147541* width), 
+(int) Math.round(0.3125* height) 
+
+);
         comps[i++] = btext;
         
         // Create Front page photo 
         
         JLabel frontpic = new JLabel(new ImageIcon(resourcePath + "examplepic.JPG"));
-        frontpic.setBounds(689, 270, 495, 350);
+        frontpic.setBounds(
+(int) Math.round(0.5647540983606557* width), 
+(int) Math.round(0.3375* height), 
+(int) Math.round(0.4057377049180328* width), 
+(int) Math.round(0.4375* height) 
+);
         comps[i++] = frontpic;
 
         
@@ -1349,7 +1558,12 @@ public class Base {
     	
     	// Create banner
     	JLabel banner = new JLabel(new ImageIcon(resourcePath + "banner.png"));
-        banner.setBounds(0, 0, 1212, 108);
+        banner.setBounds(
+(int) Math.round(0.0* width), 
+(int) Math.round(0.0* height), 
+(int) Math.round(0.9934426229508196* width), 
+(int) Math.round(0.135* height) 
+);
         comps[i++] = banner;
         
 
@@ -1451,7 +1665,11 @@ public class Base {
         // Create TextIcon 
         
         JLabel botbanner = new JLabel(new ImageIcon(resourcePath + "botbanner2.png"));
-        botbanner.setBounds(0, 800-185, 1212, 204);
+        botbanner.setBounds(
+(int) Math.round(0.0* width), 
+(int) Math.round(0.76875* height), 
+(int) Math.round(0.9934426229508196* width), 
+(int) Math.round(0.255* height) );
         comps[i++] = botbanner;
         
     	return comps;
