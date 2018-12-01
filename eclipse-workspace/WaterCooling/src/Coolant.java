@@ -1,8 +1,10 @@
 
 public class Coolant extends Part {
 	String edible;
+	String partName;
+
 	public Coolant(String name, String edible) {
-		partName = name; 
+		this.partName = name; 
 		this.edible = edible; 
 	}
 	public String getName() {
@@ -12,5 +14,9 @@ public class Coolant extends Part {
 		return edible;
 	}
 	
+	public String toString() {
+		return this.partName;
+	}
+
 
 }

@@ -1,8 +1,10 @@
 
 public class Reservoir extends Part{
 	String combo; 
+	String partName;
+
 	public Reservoir(String name, String combo) {
-		partName = name; 	
+		this.partName = name; 	
 		this.combo = combo; 
 
 		}

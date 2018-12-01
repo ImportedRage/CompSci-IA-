@@ -2,11 +2,13 @@
 public class CPUWaterblock extends Part{
 	String socket; 
 	String metal;
+	String partName;
+
 
 	public CPUWaterblock(String socket, String metal, String name) {
 		this.socket = socket; 
 		this.metal = metal; 
-		partName = name; 
+		this.partName = name; 
 	}
 	
 	public String getName() {
@@ -17,6 +19,10 @@ public class CPUWaterblock extends Part{
 	}
 	public String getMetal() {
 		return metal; 
+	}
+
+	public String toString() {
+		return this.partName;
 	}
 
 

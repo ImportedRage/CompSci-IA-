@@ -2,9 +2,11 @@
 public class Pump extends Part { 
 	String type;
 	String brand;
+	String partName;
+
 	
 	public Pump(String name, String type, String brand) {
-		partName = name; 
+		this.partName = name; 
 		this.type = type; 
 		this.brand = brand; 
 	
@@ -19,6 +21,9 @@ public class Pump extends Part {
 	}
 	public String getBrand() {
 		return brand;
+	}
+	public String toString() {
+		return this.partName;
 	}
 
 }

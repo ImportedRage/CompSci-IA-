@@ -4,7 +4,7 @@ public class GPUWaterblock extends Part{
 	String metal;
 	
 	public GPUWaterblock(String model, String metal, String name) {
-		partName = name; 
+		this.partName = name; 
 		this.model = model;
 		this.metal = metal; 
 	}
@@ -18,5 +18,9 @@ public class GPUWaterblock extends Part{
 	public String getMetal() {
 		return metal;
 	}
+	public String toString() {
+		return this.partName;
+	}
+
 	
 }

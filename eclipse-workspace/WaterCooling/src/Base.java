@@ -1374,10 +1374,10 @@ public class Base {
 (int) Math.round(0.0875* height) 
 );
     	frame.add(searchBar);
-        ArrayList<String> Results = db.partSearch(search);
+        ArrayList<Part> Results = db.partSearch(search);
         
         for(int i = 0; i < Results.size(); i++) {
-        	String stringResult = Results.get(i); 
+        	String stringResult = Results.get(i).toString(); 
         	JLabel searchContent = new JLabel (stringResult);    	
             searchContent.setForeground(Color.BLUE);
             searchContent.setFont(sheader);
@@ -1506,13 +1506,13 @@ public class Base {
         
         // Create Body Text 
         JLabel btext = new JLabel(""
-        		+ "<html><p style=\"width:" + 0.40983606557 * height + "px\">"
+        		+ "<html><p style=\"width:" + 0.40983606557 * width  + "px\">"
         		+ "In all seriousness, water-cooling your personal "
         		+ "computer is the next step in truly becoming an "
         		+ "enthusiast. The best components are only worthy of "
         		+ "the best cooling-system out there- water-cooling. "
         		+ "While water-cooling may seem extremely "
-        		+ "complicated for the beginning novice, here at WCPC "
+        		+ "complicated for the beginning novice, ihere at WCPC "
         		+ "we strive to simplify this process for you, and direct "
         		+ "you on your journey to becoming a water-cooler."
         		+ "</p></html>");

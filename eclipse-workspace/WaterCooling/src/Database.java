@@ -89,12 +89,12 @@ public class Database {
 		return cool;
 	}
 	
-	public ArrayList<String> partSearch(String name) {
-		ArrayList<String> matchingParts = new ArrayList<String>();
-	    ArrayList<String> allParts = getAllParts();
+	public ArrayList<Part> partSearch(String name) {
+		ArrayList<Part> matchingParts = new ArrayList<Part>();
+	    ArrayList<Part> allParts = getAllParts();
 	    
 	    for(int i = 0; i < allParts.size(); i++) {
-	    	if(allParts.get(i).equals(name)) {
+	    	if(allParts.get(i).toString().equals(name)) {
 	    		matchingParts.add(allParts.get(i));
 	    	}
 	    }
@@ -102,64 +102,65 @@ public class Database {
 		return matchingParts;
 	}
 
-	private ArrayList<String> getAllParts() {
-		ArrayList<String> partNames = new ArrayList<String>();
-		Part[] parts;
+	private ArrayList<Part> getAllParts() {
+		ArrayList<Part> parts = new ArrayList<Part>();
+		Part[] partArr;
 		
-		parts = getCpu();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
-		}
-		
-		parts = getGpu();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
+		partArr = getCpu();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
 		}
 		
-		parts = getCpuWaterblocks();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
+		partArr = getGpu();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
 		}
 		
-		parts = getGpuWaterblocks();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
-		}
-		parts = getRadiators();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
-		}
-		parts = getTubing();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
+		partArr = getCpuWaterblocks();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
 		}
 		
-		parts = getReservoir();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
+		partArr = getGpuWaterblocks();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
+		}
+		partArr = getRadiators();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
+		}
+		partArr = getTubing();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
 		}
 		
-		parts = getPump();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
+		partArr = getReservoir();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
 		}
 		
-		parts = getFittings();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
+		partArr = getPump();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
 		}
 		
-		parts = getCoolant();
-		for (int i = 0; i < parts.length; i++) {
-			partNames.add(parts[i].toString());
+		partArr = getFittings();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
+		}
+		
+		partArr = getCoolant();
+		for (int i = 0; i < partArr.length; i++) {
+			parts.add(partArr[i]);
 		}
 	
 		
-		return partNames;
+		return parts;
 	
 	
 		
 	}
+
 	
 	
 	

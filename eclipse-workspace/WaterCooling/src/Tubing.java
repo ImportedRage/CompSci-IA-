@@ -2,9 +2,11 @@
 public class Tubing extends Part{
 	String bendable; 
 	String diameter; 
+	String partName;
+
 	
 	public Tubing(String name, String bendable, String diameter) {
-		partName = name; 
+		this.partName = name; 
 		this.bendable = bendable; 
 		this.diameter = diameter; 
 		
@@ -20,4 +22,9 @@ public class Tubing extends Part{
 		return diameter;
 	}
 
+	public String toString() {
+		return this.partName;
+	}
+
+	
 }

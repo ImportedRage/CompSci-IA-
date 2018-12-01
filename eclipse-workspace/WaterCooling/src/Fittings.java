@@ -2,10 +2,13 @@
 public class Fittings extends Part{
 
 String diameter;
+String partName;
+
+
 
 	
 	public Fittings(String name, String diameter) {
-		partName = name; 
+		this.partName = name; 
 		this.diameter = diameter; 
 	}
 	public String getName() {
@@ -15,5 +18,10 @@ String diameter;
 		return diameter;
 	
 	}
+	
+	public String toString() {
+		return this.partName;
+	}
+
 	
 }
