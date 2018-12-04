@@ -2,29 +2,31 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Why N" key="selection"/>
+		<item value="tab" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Why n"/>
-			<item value="text"/>
-			<item value="In all"/>
-			<item value="Why Not?"/>
-			<item value="bodytext"/>
-			<item value="view"/>
-			<item value="view CPU"/>
-			<item value="Banner"/>
-			<item value="LAbel"/>
-			<item value="fheader"/>
-			<item value="View "/>
-			<item value="createSystemFrame"/>
-			<item value="y"/>
-			<item value="add Component"/>
-			<item value="GPUWater"/>
+			<item value="tab"/>
+			<item value="tab3"/>
+			<item value="Tab3"/>
+			<item value="JButton"/>
+			<item value="add component"/>
+			<item value="createWater"/>
+			<item value="createSearchedFrame"/>
+			<item value="createSearcjed"/>
+			<item value="createPumpRow"/>
+			<item value="createCool"/>
+			<item value="createFitting"/>
+			<item value="createPump"/>
+			<item value="createReserv"/>
+			<item value="createTub"/>
+			<item value="createRad"/>
 		</list>
 		<list key="replacehistory">
+			<item value="height"/>
+			<item value="width"/>
 			<item value="WaterCoolerSystem"/>
 			<item value="baseFrame."/>
 		</list>
@@ -33,7 +35,7 @@
 		<item value="350" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|12.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="451" key="DIALOG_HEIGHT"/>
-		<item value="1335" key="DIALOG_X_ORIGIN"/>
-		<item value="259" key="DIALOG_Y_ORIGIN"/>
+		<item value="1268" key="DIALOG_X_ORIGIN"/>
+		<item value="181" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

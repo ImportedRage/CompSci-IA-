@@ -40,52 +40,60 @@ public class Database {
 	
 	public CPUWaterblock[] getCpuWaterblocks() {
 		//int n = countCpuWaterblocks();
-		CPUWaterblock[] waterblocks = new CPUWaterblock[1];
+		CPUWaterblock[] waterblocks = new CPUWaterblock[2];
 		
 		// query database and parse into waterblocks array
 		waterblocks[0] = new CPUWaterblock("2011-3", "Copper", "Toby");
+		waterblocks[1] = new CPUWaterblock("2011-3", "Copper", "Kevin");
 		return waterblocks;
 		
 		
 	}
 	public GPUWaterblock[] getGpuWaterblocks() {
-		GPUWaterblock[] waterblocks = new GPUWaterblock[1]; 
+		GPUWaterblock[] waterblocks = new GPUWaterblock[2]; 
 		
 		waterblocks[0] = new GPUWaterblock("Name01", "Model01", "Metal01" );
+		waterblocks[1] = new GPUWaterblock("Name 01", "Mode101", "Meta102");
 		return waterblocks;
 	}
 	public Radiator[] getRadiators() {
-		Radiator[] rad = new Radiator[1];
+		Radiator[] rad = new Radiator[2];
 		rad[0] = new Radiator("RadName01","999", "Metal:Platinum");
+		rad[1] = new Radiator("RadName02", "999", "Metal: Metal");
 		return rad;
 	}
 	public Tubing[] getTubing() {
-		Tubing[] tub = new Tubing[1];
+		Tubing[] tub = new Tubing[2];
 		tub[0] = new Tubing("TubName01", "True/False", "Diameter:900 Meters");
+		tub[1] = new Tubing("TubName02", "Probably...", "Diameter: 9 Lightyears");
 		return tub;
 			
 	}
 	public Reservoir[] getReservoir() {
-		Reservoir[] res = new Reservoir[1];
+		Reservoir[] res = new Reservoir[2];
 		res[0] = new Reservoir("ResName01", "Combo:True");
+		res[1] = new Reservoir("ResName02", "Combo: Probably...");
 		return res;
 			
 	}
 	public Pump[] getPump() {
-		Pump[] pump = new Pump[1];
+		Pump[] pump = new Pump[2];
 		pump[0] = new Pump("PumpName","PumpType01", "Pump Brand");
+		pump[1] = new Pump("PumpName02", "PumpType01", "A brand");
 		return pump;
 			
 	}
 	public Fittings[] getFittings() {
-		Fittings[] fit = new Fittings[1];
+		Fittings[] fit = new Fittings[2];
 		fit[0] = new Fittings("FittingName01","FittingDiameter:9000");
+		fit[1] = new Fittings("FittingName02", "FittingDiameter: Really big");
 		return fit;
 			
 	}
 	public Coolant[] getCoolant() {
-		Coolant[] cool = new Coolant[1];
+		Coolant[] cool = new Coolant[2];
 		cool[0] = new Coolant("CoolantName01","True");
+		cool[1] = new Coolant("CoolantName02", "Maybe");
 		return cool;
 	}
 	
