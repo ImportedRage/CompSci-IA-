@@ -1374,23 +1374,39 @@ y,
 (int) Math.round(0.0875* height) 
 );
     	frame.add(searchBar);
+    	
+    	
+    	
         ArrayList<Part> Results = db.partSearch(search);
-        
+        y = (int) (0.5*height);
         for(int i = 0; i < Results.size(); i++) {
-        	String stringResult = Results.get(i).toString(); 
-        	JLabel searchContent = new JLabel (stringResult);    	
-            searchContent.setForeground(Color.BLUE);
-            searchContent.setFont(sheader);
-            searchContent.setBounds (
-(int) Math.round(0.01639344262295082* width), 
-(int) Math.round(0.4375* height), 
-(int) Math.round(0.16393442622950818* width), 
-(int) Math.round(0.0875* height) );
-            frame.add(searchContent);
+        	
+        	Part part = Results.get(i);
+        	if (part instanceof CPUWaterblock) {
+        		Component[] comps = createWaterblockRow((CPUWaterblock)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+        		}
+        	} else if(part instanceof GPUWaterblock) {
+        		Component[] comps = createGPUWaterblockRow((GPUWaterblock)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+        		}
+        	} else if(part instanceof Radiator) {
+
+        		Component[] comps = createRadiatorRow((Radiator)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+        		}
+        	}
+        	y += 0.05 * height; 
+
+        
+            
+            
+            
+            
         }
-        
-        
-        
         
     	/*tab2*/
 
@@ -1735,29 +1751,10 @@ y,
     	
     }
     //tab 3
-    public void createSearchedRow(Part part, int y) {
+
     	
     	
     	
-    	JLabel CName = new JLabel("Component Name");
-    	JLabel CType = new JLabel ("Component Type");
-    	
-    	
-    	JButton addComp = new JButton("Add Component");
-    	addComp.setBounds(
-(int) Math.round(0.860655737704918* width), 
-y, 
-(int) Math.round(0.12295081967213115* width), 
-(int) Math.round(0.0625* height) );
-    	addComp.addActionListener(new ActionListener(){  
-    		public void actionPerformed(ActionEvent e){ 
-    			
-        	
-    		}
-    	});
-    	
-    	
-    }
     
     public void show() {
         // Show frame

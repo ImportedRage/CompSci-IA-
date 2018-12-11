@@ -53,7 +53,7 @@ public class Database {
 		GPUWaterblock[] waterblocks = new GPUWaterblock[2]; 
 		
 		waterblocks[0] = new GPUWaterblock("Name01", "Model01", "Metal01" );
-		waterblocks[1] = new GPUWaterblock("Name 01", "Mode101", "Meta102");
+		waterblocks[1] = new GPUWaterblock("Name01", "Mode101", "Meta102");
 		return waterblocks;
 	}
 	public Radiator[] getRadiators() {
@@ -102,7 +102,7 @@ public class Database {
 	    ArrayList<Part> allParts = getAllParts();
 	    
 	    for(int i = 0; i < allParts.size(); i++) {
-	    	if(allParts.get(i).toString().equals(name)) {
+	    	if(allParts.get(i).toString().equals(name)) { // bug, GPUWAterblock replaces all component names with th elast component name. Must fix. 
 	    		matchingParts.add(allParts.get(i));
 	    	}
 	    }

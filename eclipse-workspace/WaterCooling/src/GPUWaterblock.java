@@ -2,8 +2,9 @@
 public class GPUWaterblock extends Part{
 	String model;
 	String metal;
+	String partName;
 	
-	public GPUWaterblock(String model, String metal, String name) {
+	public GPUWaterblock(String name,String model,String metal  ) {
 		this.partName = name; 
 		this.model = model;
 		this.metal = metal; 
