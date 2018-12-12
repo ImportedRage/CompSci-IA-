@@ -1398,8 +1398,38 @@ y,
         		for(int j = 0; j < comps.length; j++ ) {
         			frame.add(comps[j]);
         		}
-        	}
-        	y += 0.05 * height; 
+        	} else if(part instanceof Tubing) {
+			
+			Component[] comps = createTubingRow((Tubing)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+        		}
+		} else if(part instanceof Reservoir) {
+			
+			Component[] comps = createReservoirRow((Reservoir)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+        		}
+		} else if(part instanceof Pumps) {
+			
+			Component[] comps = createPumpRow((Pump)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+        		}
+		} else if(part instanceof Fittings) {
+			
+			Component[] comps = createFittingRow((Fitting)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+        		}
+		} else if(part instanceof Coolant) {
+			
+			Component[] comps = createCoolantRow((Coolant)part,y);
+        		for(int j = 0; j < comps.length; j++ ) {
+        			frame.add(comps[j]);
+			}
+		}
+		y += 0.05 * height; 
 
         
             
