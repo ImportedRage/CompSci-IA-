@@ -4,22 +4,21 @@ import java.util.*;
 
 public class Database {
 	
-	Connection c;
-	
 	Database() {
-	      Connection c = null;
-	      
-	      try {
-	         Class.forName("org.sqlite.JDBC");
-	         c = DriverManager.getConnection("jdbc:sqlite:watercoolers.odb");
-	      } catch ( Exception e ) {
-	         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-	         System.exit(0);
-	      }
-	      System.out.println("Opened database successfully");
-	   
 
 	}
+	
+	private Connection connect() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:watercoolers.odb";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
 	
 	int countCpuWaterblocks() {
 		// query database for amount of cpu waterblocks
@@ -28,7 +27,25 @@ public class Database {
 	
 	public CPU[] getCpu() {
 		CPU[] CPUList = new CPU[1];
-		CPUList[0] = new CPU("IntelCPU001", "2011-3");
+		String sql = "SELECT * FROM cpus";
+		
+		try (
+				Connection c    = connect();
+		        Statement stmt  = c.createStatement();
+		        ResultSet rs    = stmt.executeQuery(sql)
+	        ) {
+	        while (rs.next()) {
+	        	String name = rs.getString("name");
+	        	String model = rs.getString("model");
+	        	System.out.println(name + " " + model); // this should add a new CPU to CPUList
+	        
+	        }
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		//CPUList[0] = new CPU("IntelCPU001", "2011-3");
 		return CPUList; 
 	}
 	public GPU[] getGpu() {
@@ -98,13 +115,18 @@ public class Database {
 	}
 	
 	public ArrayList<Part> partSearch(String name) {
+		
 		ArrayList<Part> matchingParts = new ArrayList<Part>();
+		if (name.equals("")) return matchingParts;
+		
 	    ArrayList<Part> allParts = getAllParts();
 	    
+	    
 	    for(int i = 0; i < allParts.size(); i++) {
-	    	if(allParts.get(i).toString().equals(name)) { // bug, GPUWAterblock replaces all component names with th elast component name. Must fix. 
+	    	if(allParts.get(i).toString().equals(name)) { 
 	    		matchingParts.add(allParts.get(i));
 	    	}
+
 	    }
 		
 		return matchingParts;

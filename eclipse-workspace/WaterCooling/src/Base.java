@@ -1,6 +1,4 @@
-
-
-
+import javax.swing.JComponent;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -13,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class Base {
@@ -772,10 +771,7 @@ y,
 		testtitle.setForeground(Color.BLUE);
         testtitle.setFont(fheader);
         //20,150,1000,300
-        System.out.println((int) Math.round(0.01639344262295082* width)); 
-        System.out.println((int) Math.round(0.1875* height));
-        System.out.println((int) Math.round(0.819672131147541* width)); 
-        System.out.println((int) Math.round(0.2459016393442623* height)); 
+        
         testtitle.setBounds (
 (int) Math.round(0.01639344262295082* width), 
 (int) Math.round(0.1875* height), 
@@ -1058,12 +1054,18 @@ y,
      }
     	
 	public JFrame createSystemFrame() {
+		
 		JFrame frame = new JFrame("CreateSys");
 		
         frame.setSize(width,height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
+
+        JComponent[] searchFunction = createSearchFunction(frame);
+	    frame.add(searchFunction[0]);
+	    frame.add(searchFunction[1]);
         
+   
         JButton testSys = new JButton("TEST");
         testSys.setBounds(
 (int) Math.round(0.6557377049180327* width), 
@@ -1313,42 +1315,69 @@ y,
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
     	}
-    	JTextField searchBar = new JTextField();
-    	searchBar.setColumns(20);
-    	searchBar.setBounds(
-(int) Math.round(0.6967213114754098* width), 
-(int) Math.round(0.3125* height), 
-(int) Math.round(0.16393442622950818* width), 
-(int) Math.round(0.0875* height) 
-
-);
-    	frame.add(searchBar);
-    	
+    
     	/* tab1 */
 
-        	
-    	JButton searchBtn = new JButton("Search for Components");
-    	searchBtn.setBounds(
+           	return frame;
+	}
+
+
+
+public JComponent[] createSearchFunction(JFrame frame) {
+	
+	JTextField searchBar = new JTextField();
+	    	searchBar.setColumns(20);
+	    	searchBar.setBounds(
+	(int) Math.round(0.6967213114754098* width), 
+	(int) Math.round(0.3125* height), 
+	(int) Math.round(0.16393442622950818* width), 
+	(int) Math.round(0.0875* height) 
+	);
+	    	
+ 
+	JButton searchBtn = new JButton("Search for Components");
+	searchBtn.setBounds(
 (int) Math.round(0.860655737704918* width), 
 (int) Math.round(0.3125* height), 
 (int) Math.round(0.05737704918032787* width), 
 (int) Math.round(0.0875* height) );
-    	searchBtn.addActionListener(new ActionListener(){  
-    		public void actionPerformed(ActionEvent e){ 
-    			String search = searchBar.getText();
-    			searchFrame = createSearchedFrame(search);
-    			changeFrame(searchFrame);
-    			/*for (int i = 0; i < parts.size(); i++) {
-    				System.out.println(parts.get(i));
-    			} */
-    		}  
-        });
-    	frame.add(searchBtn);
-    	
-    	
-    	return frame;
-	} 
+	searchBtn.addActionListener(new ActionListener(){  
+		public void actionPerformed(ActionEvent e){ 
+			String search = searchBar.getText();
+			String specialChar = "!@#$%^&*()_+=?><,./\\;:[]{}`~";
+			
+			for(int i = 0; i < search.length(); i++) {
+				for(int j = 0; j < specialChar.length(); j++) {
+					if(search.charAt(i) == specialChar.charAt(j)) {
+						
+					JOptionPane.showMessageDialog(frame,
+							"Error! Special Characters Detected. Please refrain from using special characters when searching components. Thanks.",
+							"STOP!",
+							    JOptionPane.WARNING_MESSAGE);
+						
+					}
+				}
+			}
+			
+			searchFrame = createSearchedFrame(search);
+			changeFrame(searchFrame);
+			/*for (int i = 0; i < parts.size(); i++) {
+				System.out.println(parts.get(i));
+			} */
+		}  
+    });
+
+		JComponent[] items = new JComponent[2];
+		items[0] = searchBar;
+		items[1] = searchBtn;		
+		
+		return items;
+
+}
+		
 	
+	
+
 	public JFrame createSearchedFrame(String search) {
 		JFrame frame = new JFrame("Search Results");
 		
@@ -1365,16 +1394,9 @@ y,
 (int) Math.round(0.0875* height) );
         frame.add(searchResult);
        
-        JTextField searchBar = new JTextField();
-    	searchBar.setColumns(20);
-    	searchBar.setBounds(
-(int) Math.round(0.6967213114754098* width), 
-(int) Math.round(0.3125* height), 
-(int) Math.round(0.16393442622950818* width), 
-(int) Math.round(0.0875* height) 
-);
-    	frame.add(searchBar);
-    	
+        JComponent[] searchFunction = createSearchFunction(frame);
+	    frame.add(searchFunction[0]);
+	    frame.add(searchFunction[1]);
     	
     	
         ArrayList<Part> Results = db.partSearch(search);
@@ -1410,7 +1432,7 @@ y,
         		for(int j = 0; j < comps.length; j++ ) {
         			frame.add(comps[j]);
         		}
-		} else if(part instanceof Pumps) {
+		} else if(part instanceof Pump) {
 			
 			Component[] comps = createPumpRow((Pump)part,y);
         		for(int j = 0; j < comps.length; j++ ) {
@@ -1418,7 +1440,7 @@ y,
         		}
 		} else if(part instanceof Fittings) {
 			
-			Component[] comps = createFittingRow((Fitting)part,y);
+			Component[] comps = createFittingsRow((Fittings)part,y);
         		for(int j = 0; j < comps.length; j++ ) {
         			frame.add(comps[j]);
         		}
@@ -1439,26 +1461,6 @@ y,
         }
         
     	/*tab2*/
-
-    	JButton searchBtn = new JButton("Search");
-    	searchBtn.setBounds(
-(int) Math.round(0.860655737704918* width), 
-(int) Math.round(0.3125* height), 
-(int) Math.round(0.05737704918032787* width), 
-(int) Math.round(0.0875* height) 
-);
-    	searchBtn.addActionListener(new ActionListener(){  
-    		public void actionPerformed(ActionEvent e){ 
-    	    	String search = searchBar.getText();
-    			searchFrame = createSearchedFrame(search);
-    			changeFrame(searchFrame);
-    		}
-    	});
-    	frame.add(searchBtn);
-    	
-    
-        
-        
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);

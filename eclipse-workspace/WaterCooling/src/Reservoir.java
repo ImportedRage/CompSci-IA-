@@ -15,5 +15,7 @@ public class Reservoir extends Part{
 	public String getCombo() {
 		return combo;
 	}
-	
+	public String toString() {
+		return this.partName;
+	}
 }
