@@ -5,15 +5,18 @@ import java.util.*;
 public class Database {
 	
 	Database() {
+		/* check if database exists, if not create it */
+		//Connection conn = connect();
 
 	}
 	
 	private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:watercoolers.odb";
+        String url = "jdbc:sqlite:/home/madacoo/Desktop/robert_choy/CompSci-IA-/eclipse-workspace/WaterCooling/watercooler.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
+            System.out.println("Connected to database.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -25,9 +28,13 @@ public class Database {
 		return 1;
 	}
 	
+	
 	public CPU[] getCpu() {
+		
 		CPU[] CPUList = new CPU[1];
-		String sql = "SELECT * FROM cpus";
+		
+		/*
+		String sql = "SELECT * FROM cpus"; // table does not exist
 		
 		try (
 				Connection c    = connect();
@@ -43,11 +50,13 @@ public class Database {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		*/
 		
-		
-		//CPUList[0] = new CPU("IntelCPU001", "2011-3");
+		CPUList[0] = new CPU("IntelCPU001", "2011-3");
 		return CPUList; 
 	}
+	
+	
 	public GPU[] getGpu() {
 		GPU[] GPUList = new GPU[1]; 
 		GPUList[0] = new GPU("NVidiaGPU001", "GTX1080");
@@ -55,14 +64,65 @@ public class Database {
 	}
 	
 	
-	public CPUWaterblock[] getCpuWaterblocks() {
-		//int n = countCpuWaterblocks();
-		CPUWaterblock[] waterblocks = new CPUWaterblock[2];
+	public ArrayList<CPUWaterblock> getCpuWaterblocks() {
 		
-		// query database and parse into waterblocks array
-		waterblocks[0] = new CPUWaterblock("2011-3", "Copper", "Toby");
-		waterblocks[1] = new CPUWaterblock("2011-3", "Copper", "Kevin");
-		return waterblocks;
+		ArrayList<CPUWaterblock> resultsList = new ArrayList<CPUWaterblock>();
+		
+		String sql = "SELECT * FROM cpuwaterblock";
+		
+		try (
+				Connection c    = connect();
+		        Statement cwbStmt  = c.createStatement();
+		        ResultSet rs    = cwbStmt.executeQuery(sql);
+		        
+	        ) {
+	        while (rs.next()) {
+	        	
+	        	/* read through each column of a result and use those values to make a CpuWaterblock */
+	        	
+	        	String name = rs.getString("name");
+	        	
+	        	// metal_id
+	        	int metal_id = rs.getInt("metal_id");
+	        	
+	        	Statement metStmt = c.createStatement();
+	        	ResultSet metRs = metStmt.executeQuery("SELECT * FROM metal WHERE id=" + metal_id + ";");
+	        	
+	        	String metal = metRs.getString("name");
+	        	
+	        	// socket_id
+	        	int socket_id = rs.getInt("socket_id");
+	        	
+	        	Statement socStmt = c.createStatement();
+	        	ResultSet socRs = socStmt.executeQuery("SELECT * FROM socket WHERE id=" + socket_id + ";");
+	        	
+	        	String socket = socRs.getString("name");
+	        	
+	        	
+	        	
+	        	resultsList.add(new CPUWaterblock(socket, metal, name));
+	        	
+	        	
+	        	System.out.println(name + " " + metal); // this should add a new CPU to CPUList
+	        	
+	        	// add new CpuWaterblock to an array.
+	        	
+	        
+	        }
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		/* print out the resultList */
+		
+		
+		
+		return resultsList;
+		
+		
+		
+		
+		
 		
 		
 	}
@@ -146,9 +206,11 @@ public class Database {
 			parts.add(partArr[i]);
 		}
 		
-		partArr = getCpuWaterblocks();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
+		//parts.addAll(getCpuWaterblocks());
+		ArrayList<CPUWaterblock> cwbs = getCpuWaterblocks();
+		System.out.println("cwb size:" + cwbs.size());
+		for (int i = 0; i < cwbs.size(); i++) {
+			parts.add(cwbs.get(i));
 		}
 		
 		partArr = getGpuWaterblocks();

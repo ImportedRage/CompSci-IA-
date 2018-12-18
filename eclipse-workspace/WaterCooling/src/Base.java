@@ -781,10 +781,10 @@ y,
         frame.add(testtitle);
         
         int y = 400;
-        CPUWaterblock[] waterblocks = db.getCpuWaterblocks();
+        ArrayList<CPUWaterblock> waterblocks = db.getCpuWaterblocks();
         
-        for (int i = 0; i < waterblocks.length; i++) {
-	        Component[] row = createWaterblockRow(waterblocks[i], y);
+        for (int i = 0; i < waterblocks.size(); i++) {
+	        Component[] row = createWaterblockRow(waterblocks.get(i), y);
 	        y += 0.05*height;
 	        for (int j = 0; j < row.length; j++) {
 	        	frame.add(row[j]);

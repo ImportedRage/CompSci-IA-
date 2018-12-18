@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="tab2" key="selection"/>
+		<item value="getAll" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="getAll"/>
+			<item value="get"/>
 			<item value="tab2"/>
 			<item value="y +"/>
 			<item value="y=+"/>
@@ -21,8 +23,6 @@
 			<item value="CPUWater"/>
 			<item value="CPUWaterblock"/>
 			<item value="tab"/>
-			<item value="switch"/>
-			<item value="Search Res"/>
 		</list>
 		<list key="replacehistory">
 			<item value="height"/>

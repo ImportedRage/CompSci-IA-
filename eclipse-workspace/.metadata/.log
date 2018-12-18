@@ -4195,3 +4195,67 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY org.eclipse.core.resources 2 10035 2018-12-15 16:53:32.295
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2018-12-18 15:56:25.008 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=10.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-12-18 16:12:57.626
+!MESSAGE Full project indexing required:
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+  [+] /usr/lib/jvm/java-10-openjdk/lib/jrt-fs.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.base/java.lang.Thread.run(Thread.java:844)
