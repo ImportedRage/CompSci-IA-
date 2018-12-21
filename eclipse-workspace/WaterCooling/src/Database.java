@@ -16,7 +16,6 @@ public class Database {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println("Connected to database.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -64,59 +63,86 @@ public class Database {
 	}
 	
 	
+	public ArrayList<ArrayList<String>> select(String table, String id, String[] columns) {
+		/* Firstly, the method takes a "table, id and Array of Properties". The string table refers to the name of the specific table
+		 * within the database needed to select from. The string id refers to a specific row within the table, and if the id is the empty string, it will return every row. 
+		 * The properties array refers to the number and the different columns of properties (ie: metal, socket etc...) within the database. 
+		 *   
+		 * The Arraylist within the Arraylist creates a 2D arraylist where each arraylist corresponds to a specific row from the database, with each individual 
+		 * object within the database referring to an arraylist within the arraylist. 
+		 * 
+		 * The arraylist row is an arraylist within the reuslts arraylist that an individual object takes up. 
+		 * 
+		 * The SQL Statement builds the sql command to select all objects within a specific table, as well as establishing a connection from and to the database. 
+		 * It also fills the results array with all the data selected and obtained from the database. 
+		 * 
+		 * The try { section refers to: 
+		 * After executing the query to the SQL, the for loop goes through each column within each row, selecting the data within each row. The While Loop covers
+		 * each column within the database and ensures that the for loop ends once all the data have been selected. 
+		 * The catch SQL exception catches any potential errors and prints out any possible errors. 
+		 * By returning the results, it returns the data from the database. 
+		 */
+		
+		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
+		ArrayList<String> row = new ArrayList<String>();
+		
+		
+		
+		// build sql statement
+		String sql = "SELECT * FROM " + table;
+		if (!id.equals("")) {
+			sql += " WHERE id=" + id;
+		}
+		sql += ";";
+		
+		// connect to database
+		Connection c = connect();
+		
+    	ResultSet rs;
+
+    	try {
+    		Statement stmt = c.createStatement();
+    		rs = stmt.executeQuery(sql);
+    		while (rs.next()) {
+		    	for (int i = 0; i < columns.length; i++) {
+		    		String property = rs.getString(columns[i]);
+		    		row.add(property);
+		    	}
+		    	results.add(row);
+    		}
+    	
+    	} catch (SQLException e) {
+    		System.out.println(table);
+			System.out.println(e.getMessage());
+			System.out.println();
+		}
+		return results;
+	}
+	
+	
 	public ArrayList<CPUWaterblock> getCpuWaterblocks() {
 		
 		ArrayList<CPUWaterblock> resultsList = new ArrayList<CPUWaterblock>();
 		
-		String sql = "SELECT * FROM cpuwaterblock";
 		
-		try (
-				Connection c    = connect();
-		        Statement cwbStmt  = c.createStatement();
-		        ResultSet rs    = cwbStmt.executeQuery(sql);
-		        
-	        ) {
-	        while (rs.next()) {
-	        	
-	        	/* read through each column of a result and use those values to make a CpuWaterblock */
-	        	
-	        	String name = rs.getString("name");
-	        	
-	        	// metal_id
-	        	int metal_id = rs.getInt("metal_id");
-	        	
-	        	Statement metStmt = c.createStatement();
-	        	ResultSet metRs = metStmt.executeQuery("SELECT * FROM metal WHERE id=" + metal_id + ";");
-	        	
-	        	String metal = metRs.getString("name");
-	        	
-	        	// socket_id
-	        	int socket_id = rs.getInt("socket_id");
-	        	
-	        	Statement socStmt = c.createStatement();
-	        	ResultSet socRs = socStmt.executeQuery("SELECT * FROM socket WHERE id=" + socket_id + ";");
-	        	
-	        	String socket = socRs.getString("name");
-	        	
-	        	
-	        	
-	        	resultsList.add(new CPUWaterblock(socket, metal, name));
-	        	
-	        	
-	        	System.out.println(name + " " + metal); // this should add a new CPU to CPUList
-	        	
-	        	// add new CpuWaterblock to an array.
-	        	
-	        
-	        }
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+		String[] columns = new String[] { "name", "metal_id", "socket_id" };
+		ArrayList<ArrayList<String>> results = select("cpuwaterblock", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String metal_id = row.get(1);
+			String metal = select("metal", metal_id, new String[] {"name" }).get(0).get(0);
+			
+			String socket_id = row.get(2);
+			String socket = select("socket", socket_id, new String[] {"name" }).get(0).get(0);
+			
+			resultsList.add(new CPUWaterblock(socket, metal, name));
+			
 		}
-		
-		/* print out the resultList */
-		
-		
-		
+
 		return resultsList;
 		
 		
@@ -126,52 +152,179 @@ public class Database {
 		
 		
 	}
-	public GPUWaterblock[] getGpuWaterblocks() {
-		GPUWaterblock[] waterblocks = new GPUWaterblock[2]; 
+	public ArrayList<GPUWaterblock> getGpuWaterblocks() {
+		ArrayList<GPUWaterblock> resultsList = new ArrayList<GPUWaterblock>();
 		
-		waterblocks[0] = new GPUWaterblock("Name01", "Model01", "Metal01" );
-		waterblocks[1] = new GPUWaterblock("Name01", "Mode101", "Meta102");
-		return waterblocks;
+		
+		String[] columns = new String[] { "name", "metal_id", "GPUmodel_id" };
+		ArrayList<ArrayList<String>> results = select("gpuwaterblock", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String metal_id = row.get(1);
+			String metal = select("metal", metal_id, new String[] {"name" }).get(0).get(0);
+			
+			String GPUmodel_id = row.get(2);
+			String GPUmodel = select("GPUmodel", GPUmodel_id, new String[] {"name" }).get(0).get(0);
+			
+			resultsList.add(new GPUWaterblock(name, GPUmodel, metal));
+			
+		}
+
+		return resultsList;
 	}
-	public Radiator[] getRadiators() {
-		Radiator[] rad = new Radiator[2];
-		rad[0] = new Radiator("RadName01","999", "Metal:Platinum");
-		rad[1] = new Radiator("RadName02", "999", "Metal: Metal");
-		return rad;
+	public ArrayList<Radiator> getRadiators() {	
+		ArrayList<Radiator> resultsList = new ArrayList<Radiator>();
+		
+		
+		String[] columns = new String[] { "name", "metal_id", "maxfancount_id" };
+		ArrayList<ArrayList<String>> results = select("radiator", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String metal_id = row.get(1);
+			String metal = select("metal", metal_id, new String[] {"name" }).get(0).get(0);
+			
+			String maxfancount_id = row.get(2);
+			String maxfancount = select("maxfancount", maxfancount_id, new String[] {"name" }).get(0).get(0);
+			
+			resultsList.add(new Radiator(maxfancount, metal, name));
+			
+		}
+
+		return resultsList;
 	}
-	public Tubing[] getTubing() {
-		Tubing[] tub = new Tubing[2];
-		tub[0] = new Tubing("TubName01", "True/False", "Diameter:900 Meters");
-		tub[1] = new Tubing("TubName02", "Probably...", "Diameter: 9 Lightyears");
-		return tub;
+	public ArrayList<Tubing> getTubing() {
+		ArrayList<Tubing> resultsList = new ArrayList<Tubing>();
+		
+		
+		String[] columns = new String[] { "name", "material_id", "diameter_id" };
+		ArrayList<ArrayList<String>> results = select("tubing", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String material_id = row.get(1);
+			
+			String bendable = select("material", material_id, new String[] {"bendability" }).get(0).get(0);
+				if(bendable.equals("1")) {
+					bendable = ("Yes"); 
+				} else {
+					bendable = ("No");
+				}
+			
+			String diameter_id = row.get(2);
+			String diameter = select("diameter", diameter_id, new String[] {"name" }).get(0).get(0);
+			
+			resultsList.add(new Tubing (name, bendable,diameter ));
+			
+		}
+
+		return resultsList;
+	}
+	public ArrayList<Reservoir> getReservoir() {
+		ArrayList<Reservoir> resultsList = new ArrayList<Reservoir>();
+		
+		
+		String[] columns = new String[] { "name", "combo_id"};
+		ArrayList<ArrayList<String>> results = select("reservoir", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String combo_id = row.get(1);
+			String combo = select("combo", combo_id, new String[] {"name" }).get(0).get(0);
+		
+			
+			resultsList.add(new Reservoir (combo, name));
+			
+		}
+
+		return resultsList;
 			
 	}
-	public Reservoir[] getReservoir() {
-		Reservoir[] res = new Reservoir[2];
-		res[0] = new Reservoir("ResName01", "Combo:True");
-		res[1] = new Reservoir("ResName02", "Combo: Probably...");
-		return res;
+	public ArrayList<Pump> getPump() {
+		ArrayList<Pump> resultsList = new ArrayList<Pump>();
+		
+		
+		String[] columns = new String[] { "name", "type_id", "brand_id"};
+		ArrayList<ArrayList<String>> results = select("pump", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String type_id = row.get(1);
+			String type = select("type", type_id, new String[] {"name" }).get(0).get(0);
+			
+			String brand_id = row.get(1);
+			String brand = select("brand", brand_id, new String[] {"name" }).get(0).get(0);
+		
+			
+			resultsList.add(new Pump (type, brand, name));
+			
+		}
+
+		return resultsList;
 			
 	}
-	public Pump[] getPump() {
-		Pump[] pump = new Pump[2];
-		pump[0] = new Pump("PumpName","PumpType01", "Pump Brand");
-		pump[1] = new Pump("PumpName02", "PumpType01", "A brand");
-		return pump;
+	public ArrayList<Fittings> getFittings() {
+		ArrayList<Fittings> resultsList = new ArrayList<Fittings>();
+		
+		
+		String[] columns = new String[] { "name", "diameter_id"};
+		ArrayList<ArrayList<String>> results = select("fitting", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String diameter_id = row.get(1);
+			String diameter = select("diameter", diameter_id, new String[] {"name" }).get(0).get(0);
+			
+			
+		
+			
+			resultsList.add(new Fittings (name, diameter));
+			
+		}
+
+		return resultsList;
 			
 	}
-	public Fittings[] getFittings() {
-		Fittings[] fit = new Fittings[2];
-		fit[0] = new Fittings("FittingName01","FittingDiameter:9000");
-		fit[1] = new Fittings("FittingName02", "FittingDiameter: Really big");
-		return fit;
+	public ArrayList<Coolant> getCoolant() {
+		ArrayList<Coolant> resultsList = new ArrayList<Coolant>();
+		
+		
+		String[] columns = new String[] { "name", "edible_id"};
+		ArrayList<ArrayList<String>> results = select("coolant", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
 			
-	}
-	public Coolant[] getCoolant() {
-		Coolant[] cool = new Coolant[2];
-		cool[0] = new Coolant("CoolantName01","True");
-		cool[1] = new Coolant("CoolantName02", "Maybe");
-		return cool;
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			
+			String edible_id = row.get(1);
+			String edible = select("edible", edible_id, new String[] {"name" }).get(0).get(0);
+			
+		
+			resultsList.add(new Coolant (name, edible));
+			
+		}
+
+		return resultsList;
 	}
 	
 	public ArrayList<Part> partSearch(String name) {
@@ -206,46 +359,21 @@ public class Database {
 			parts.add(partArr[i]);
 		}
 		
-		//parts.addAll(getCpuWaterblocks());
-		ArrayList<CPUWaterblock> cwbs = getCpuWaterblocks();
-		System.out.println("cwb size:" + cwbs.size());
-		for (int i = 0; i < cwbs.size(); i++) {
-			parts.add(cwbs.get(i));
-		}
+		parts.addAll(getCpuWaterblocks());
 		
-		partArr = getGpuWaterblocks();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
-		partArr = getRadiators();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
-		partArr = getTubing();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
-		
-		partArr = getReservoir();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
-		
-		partArr = getPump();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
-		
-		partArr = getFittings();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
-		
-		partArr = getCoolant();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
+		parts.addAll(getGpuWaterblocks());
+
+		parts.addAll(getRadiators());
+
+		parts.addAll(getTubing());
+
+		parts.addAll(getReservoir());
+
+		parts.addAll(getPump());
 	
+		parts.addAll(getFittings());
+
+		parts.addAll(getCoolant());
 		
 		return parts;
 	

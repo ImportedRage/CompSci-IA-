@@ -825,10 +825,10 @@ y,
 		
     	}
     	int y = 400;
-        GPUWaterblock[] waterblocks = db.getGpuWaterblocks();
+        ArrayList <GPUWaterblock> waterblocks = db.getGpuWaterblocks();
         
-        for (int i = 0; i < waterblocks.length; i++) {
-	        Component[] row = createGPUWaterblockRow(waterblocks[i], y);
+        for (int i = 0; i < waterblocks.size(); i++) {
+	        Component[] row = createGPUWaterblockRow(waterblocks.get(i), y);
 	        y += 0.05 * height;
 	        for (int j = 0; j < row.length; j++) {
 	        	frame.add(row[j]);
@@ -861,10 +861,10 @@ y,
     		frame.add(mainComponents[i]);
     	}
     	int y = 400;
-        Radiator[] rad = db.getRadiators();
+        ArrayList<Radiator> rad = db.getRadiators();
         
-        for (int i = 0; i < rad.length; i++) {
-	        Component[] row = createRadiatorRow(rad[i], y);
+        for (int i = 0; i < rad.size(); i++) {
+	        Component[] row = createRadiatorRow(rad.get(i), y);
 	        y += 0.05 * height;
 	        for (int j = 0; j < row.length; j++) {
 	        	frame.add(row[j]);
@@ -896,10 +896,10 @@ y,
 		
     	}
         int y = 400;
-        Tubing[] tub = db.getTubing();
+        ArrayList<Tubing> tub = db.getTubing();
         
-        for (int i = 0; i < tub.length; i++) {
-	        Component[] row = createTubingRow(tub[i], y);
+        for (int i = 0; i < tub.size(); i++) {
+	        Component[] row = createTubingRow(tub.get(i), y);
 	        y += 0.05 * height; 
 	        for (int j = 0; j < row.length; j++) {
 	        	frame.add(row[j]);
@@ -932,10 +932,10 @@ y,
     		frame.add(mainComponents[i]);
     	}
     		int y = 400;
-            Reservoir[] res = db.getReservoir();
+            ArrayList<Reservoir> res = db.getReservoir();
             
-            for (int i = 0; i < res.length; i++) {
-    	        Component[] row = createReservoirRow(res[i], y);
+            for (int i = 0; i < res.size(); i++) {
+    	        Component[] row = createReservoirRow(res.get(i), y);
     	        y += 0.05 * height; 
     	        for (int j = 0; j < row.length; j++) {
     	        	frame.add(row[j]);
@@ -967,10 +967,10 @@ y,
 		
     	}
         int y = 400;
-        Pump[] pump = db.getPump();
+        ArrayList<Pump> pump = db.getPump();
         
-        for (int i = 0; i < pump.length; i++) {
-	        Component[] row = createPumpRow(pump[i], y);
+        for (int i = 0; i < pump.size(); i++) {
+	        Component[] row = createPumpRow(pump.get(i), y);
 	        y += 0.05 * height;
 	        for (int j = 0; j < row.length; j++) {
 	        	frame.add(row[j]);
@@ -1005,10 +1005,10 @@ y,
 		
     	}
     	  int y = 400;
-          Fittings[] fit = db.getFittings();
+          ArrayList<Fittings> fit = db.getFittings();
           
-          for (int i = 0; i < fit.length; i++) {
-  	        Component[] row = createFittingsRow(fit[i], y);
+          for (int i = 0; i < fit.size(); i++) {
+  	        Component[] row = createFittingsRow(fit.get(i), y);
   	        y += 0.05 * height; 
   	        for (int j = 0; j < row.length; j++) {
   	        	frame.add(row[j]);
@@ -1040,10 +1040,10 @@ y,
 		
     	}
     		 int y = 400;
-             Coolant[] cool = db.getCoolant();
+             ArrayList<Coolant> cool = db.getCoolant();
              
-             for (int i = 0; i < cool.length; i++) {
-     	        Component[] row = createCoolantRow(cool[i], y);
+             for (int i = 0; i < cool.size(); i++) {
+     	        Component[] row = createCoolantRow(cool.get(i), y);
      	        y += 0.05 * height; 
      	        for (int j = 0; j < row.length; j++) {
      	        	frame.add(row[j]);
