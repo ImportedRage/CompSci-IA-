@@ -1,9 +1,8 @@
 
 public class Part {
-	static String partName; 
+	String partName; 
 	
 	public String toString() {
-		
 		return partName;
 	}
 }

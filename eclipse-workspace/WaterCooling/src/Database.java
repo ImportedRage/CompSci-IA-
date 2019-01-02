@@ -56,10 +56,28 @@ public class Database {
 	}
 	
 	
-	public GPU[] getGpu() {
-		GPU[] GPUList = new GPU[1]; 
-		GPUList[0] = new GPU("NVidiaGPU001", "GTX1080");
-		return GPUList;
+	public ArrayList<GPU> getGpu() {
+
+			
+			ArrayList<GPU> resultsList = new ArrayList<GPU>();
+			
+			
+			String[] columns = new String[] {"name",};
+			ArrayList<ArrayList<String>> results = select("gpumodel", "", columns);
+			
+			for (int i = 0; i < results.size(); i++) {
+				
+				ArrayList<String> row = results.get(i);
+				String name = row.get(0);
+				resultsList.add(new GPU(name));
+				
+			}
+
+			return resultsList;
+			
+			
+			
+			
 	}
 	
 	
@@ -96,26 +114,33 @@ public class Database {
 		sql += ";";
 		
 		// connect to database
-		Connection c = connect();
-		
-    	ResultSet rs;
+		Connection c;
 
     	try {
+    		c = connect();
+    		
+        	ResultSet rs;
     		Statement stmt = c.createStatement();
     		rs = stmt.executeQuery(sql);
     		while (rs.next()) {
+    			// The line below ensures that the previous row is cleared and that any further rows will not include the previous row, 
+    			//resulting in only one variable being displayed.  
+    			row = new ArrayList<String>();
 		    	for (int i = 0; i < columns.length; i++) {
 		    		String property = rs.getString(columns[i]);
 		    		row.add(property);
 		    	}
 		    	results.add(row);
     		}
+    		c.close();
     	
     	} catch (SQLException e) {
     		System.out.println(table);
 			System.out.println(e.getMessage());
 			System.out.println();
+			
 		}
+    	
 		return results;
 	}
 	
@@ -194,7 +219,7 @@ public class Database {
 			String maxfancount_id = row.get(2);
 			String maxfancount = select("maxfancount", maxfancount_id, new String[] {"name" }).get(0).get(0);
 			
-			resultsList.add(new Radiator(maxfancount, metal, name));
+			resultsList.add(new Radiator(name, maxfancount, metal));
 			
 		}
 
@@ -243,10 +268,19 @@ public class Database {
 			String name = row.get(0);
 			
 			String combo_id = row.get(1);
-			String combo = select("combo", combo_id, new String[] {"name" }).get(0).get(0);
+			
+			try {
+				ArrayList<ArrayList<String>> comboTable = select("combo", combo_id, new String[] {"name" });
+				ArrayList<String> comboRow = comboTable.get(0);
+				String combo = comboRow.get(0);
+				resultsList.add(new Reservoir (name, combo));
+			} catch (IndexOutOfBoundsException e) {
+				System.out.println(e);
+				
+			}
 		
 			
-			resultsList.add(new Reservoir (combo, name));
+			
 			
 		}
 
@@ -268,11 +302,11 @@ public class Database {
 			String type_id = row.get(1);
 			String type = select("type", type_id, new String[] {"name" }).get(0).get(0);
 			
-			String brand_id = row.get(1);
+			String brand_id = row.get(2);
 			String brand = select("brand", brand_id, new String[] {"name" }).get(0).get(0);
 		
 			
-			resultsList.add(new Pump (type, brand, name));
+			resultsList.add(new Pump (name, type, brand));
 			
 		}
 

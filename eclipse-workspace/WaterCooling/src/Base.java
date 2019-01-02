@@ -1080,14 +1080,32 @@ y,
         	}
         });	
         
-        String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
-      JComboBox petList = new JComboBox(petStrings);
-      petList.setSelectedIndex(4);
+        String[] CPUList = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+      JComboBox CPUBox = new JComboBox(CPUList);
+      CPUBox.setSelectedIndex(4);
      // petList.addActionListener((ActionListener) this);
-      petList.setBounds(170,330,200,50);
-      frame.add(petList);
+      CPUBox.setBounds(170,330,200,50);
+      frame.add(CPUBox);
+      
+      
+      
+      
+      ArrayList<GPU> GPUListArr = db.getGpu();    
+      String[] GPUList = new String[GPUListArr.size()];
+      for(int i = 0; i < GPUListArr.size(); i++) {
+    	  String name = GPUListArr.get(i).toString();  
+    	  GPUList[i] = name;    
+      }
+      JComboBox GPUBox = new JComboBox(GPUList);
+      GPUBox.setSelectedIndex(4);
+     // petList.addActionListener((ActionListener) this);
+      GPUBox.setBounds(170,410,200,50);      
+      frame.add(GPUBox);
 
         	
+      
+      
+      
 		JLabel CreateSysTitle = new JLabel ("Create a new system "); 
 		CreateSysTitle.setForeground(Color.BLUE);
 		CreateSysTitle.setFont(fheader);

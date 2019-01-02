@@ -2,7 +2,6 @@
 public class CPUWaterblock extends Part{
 	String socket; 
 	String metal;
-	String partName;
 
 
 	public CPUWaterblock(String socket, String metal, String name) {

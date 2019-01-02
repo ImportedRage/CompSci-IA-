@@ -1,9 +1,8 @@
 
 public class GPU extends Part{
-	String model;
 	String partName;
-	public GPU(String name, String model) {
-		this.model = model; 
+	
+	public GPU(String name) {
 		this.partName = name; 
 	}
 
