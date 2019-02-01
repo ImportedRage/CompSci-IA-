@@ -1406,10 +1406,10 @@ public JComponent[] createSearchFunction(JFrame frame) {
         searchResult.setForeground(Color.BLUE);
         searchResult.setFont(fheader);
         searchResult.setBounds (
-(int) Math.round(0.01639344262295082* width), 
-(int) Math.round(0.34375* height), 
-(int) Math.round(0.4098360655737705* width), 
-(int) Math.round(0.0875* height) );
+			(int) Math.round(0.01639344262295082* width), 
+			(int) Math.round(0.34375* height), 
+			(int) Math.round(0.4098360655737705* width), 
+			(int) Math.round(0.0875* height) );
         frame.add(searchResult);
        
         JComponent[] searchFunction = createSearchFunction(frame);
@@ -1417,76 +1417,37 @@ public JComponent[] createSearchFunction(JFrame frame) {
 	    frame.add(searchFunction[1]);
     	
     	
-        ArrayList<Part> Results = db.partSearch(search);
-        y = (int) (0.5*height);
-        for(int i = 0; i < Results.size(); i++) {
-        	
-        	Part part = Results.get(i);
-        	if (part instanceof CPUWaterblock) {
-        		Component[] comps = createWaterblockRow((CPUWaterblock)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-        		}
-        	} else if(part instanceof GPUWaterblock) {
-        		Component[] comps = createGPUWaterblockRow((GPUWaterblock)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-        		}
-        	} else if(part instanceof Radiator) {
 
-        		Component[] comps = createRadiatorRow((Radiator)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-        		}
-        	} else if(part instanceof Tubing) {
-			
-			Component[] comps = createTubingRow((Tubing)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-        		}
-		} else if(part instanceof Reservoir) {
-			
-			Component[] comps = createReservoirRow((Reservoir)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-        		}
-		} else if(part instanceof Pump) {
-			
-			Component[] comps = createPumpRow((Pump)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-        		}
-		} else if(part instanceof Fittings) {
-			
-			Component[] comps = createFittingsRow((Fittings)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-        		}
-		} else if(part instanceof Coolant) {
-			
-			Component[] comps = createCoolantRow((Coolant)part,y);
-        		for(int j = 0; j < comps.length; j++ ) {
-        			frame.add(comps[j]);
-			}
+	    ArrayList<Part> results = db.partSearch(search);
+	    Part part;
+	    Component[] comps = new Component[0];
+	    y = (int) (0.5*height);
+
+        for(int i = 0; i < results.size(); i++) {
+            part = results.get(i);
+            	 if (part instanceof CPUWaterblock) comps = createWaterblockRow((CPUWaterblock)part,y);
+            else if (part instanceof GPUWaterblock) comps = createGPUWaterblockRow((GPUWaterblock)part,y);
+            else if (part instanceof Radiator) 		comps = createRadiatorRow((Radiator)part,y);
+            else if (part instanceof Tubing) 		comps = createTubingRow((Tubing)part,y);
+            else if (part instanceof Reservoir) 	comps = createReservoirRow((Reservoir)part,y);
+    		else if (part instanceof Pump) 			comps = createPumpRow((Pump)part,y);
+    		else if (part instanceof Fittings) 		comps = createFittingsRow((Fittings)part,y);
+    		else if (part instanceof Coolant) 		comps = createCoolantRow((Coolant)part,y);
+            y += 0.05 * height;
+    	}
+    		
+		for(int j = 0; j < comps.length; j++ ) {
+            frame.add(comps[j]);
 		}
-		y += 0.05 * height; 
-
-        
-            
-            
-            
-            
-        }
-        
-    	/*tab2*/
+/*tab2*/
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
     		frame.add(mainComponents[i]);
     	}
     	
 		return frame;
-      
-        	}
+	    
+	}
        
 
         
@@ -1646,10 +1607,12 @@ public JComponent[] createSearchFunction(JFrame frame) {
         
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
+        		/*
         		if(wcsChanged == true) {
         			systemFrame = createSystemFrame();
         			wcsChanged = false; 
         		}
+        		*/
         		changeFrame(systemFrame);
         	 }  
         });  
