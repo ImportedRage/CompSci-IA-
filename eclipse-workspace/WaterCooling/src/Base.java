@@ -1424,21 +1424,24 @@ public JComponent[] createSearchFunction(JFrame frame) {
 	    y = (int) (0.5*height);
 
         for(int i = 0; i < results.size(); i++) {
-            part = results.get(i);
-            	 if (part instanceof CPUWaterblock) comps = createWaterblockRow((CPUWaterblock)part,y);
-            else if (part instanceof GPUWaterblock) comps = createGPUWaterblockRow((GPUWaterblock)part,y);
-            else if (part instanceof Radiator) 		comps = createRadiatorRow((Radiator)part,y);
-            else if (part instanceof Tubing) 		comps = createTubingRow((Tubing)part,y);
-            else if (part instanceof Reservoir) 	comps = createReservoirRow((Reservoir)part,y);
-    		else if (part instanceof Pump) 			comps = createPumpRow((Pump)part,y);
-    		else if (part instanceof Fittings) 		comps = createFittingsRow((Fittings)part,y);
-    		else if (part instanceof Coolant) 		comps = createCoolantRow((Coolant)part,y);
-            y += 0.05 * height;
+		part = results.get(i);
+		if (part instanceof CPUWaterblock) comps = createWaterblockRow((CPUWaterblock)part,y);
+		else if (part instanceof GPUWaterblock) comps = createGPUWaterblockRow((GPUWaterblock)part,y);
+		else if (part instanceof Radiator) 		comps = createRadiatorRow((Radiator)part,y);
+		else if (part instanceof Tubing) 		comps = createTubingRow((Tubing)part,y);
+		else if (part instanceof Reservoir) 	comps = createReservoirRow((Reservoir)part,y);
+		else if (part instanceof Pump) 			comps = createPumpRow((Pump)part,y);
+		else if (part instanceof Fittings) 		comps = createFittingsRow((Fittings)part,y);
+		else if (part instanceof Coolant) 		comps = createCoolantRow((Coolant)part,y);
+
+		for(int j = 0; j < comps.length; j++ ) {
+			frame.add(comps[j]);
+		}
+
+		y += 0.05 * height;
     	}
     		
-		for(int j = 0; j < comps.length; j++ ) {
-            frame.add(comps[j]);
-		}
+		
 /*tab2*/
         Component[] mainComponents = createMainComponents();
     	for (int i = 0; i < mainComponents.length; i++) {
