@@ -23,10 +23,9 @@ public class WaterCoolerSystem {
 	public WaterCoolerSystem() {
 	}
 	
-	public WaterCoolerSystem(CPU cpu, GPU gpu, Case c4, CPUWaterblock cwb, GPUWaterblock gwb, Radiator rad, Tubing tub, Reservoir res, Pump pump, Fittings fit, Coolant cool) {  
+	public WaterCoolerSystem(CPU cpu, GPU gpu,  CPUWaterblock cwb, GPUWaterblock gwb, Radiator rad, Tubing tub, Reservoir res, Pump pump, Fittings fit, Coolant cool) {  
 		this.cpu = cpu; 
 		this.gpu = gpu; 
-		this.c4 = c4;
 		this.cwb = cwb; 
 		this.gwb = gwb; 
 		this.rad = rad; 
@@ -43,9 +42,7 @@ public class WaterCoolerSystem {
 	public void setGpu(GPU gpu) {
 		this.gpu = gpu; 
 	}
-	public void setCase(Case c4) {
-		this.c4 = c4;
-	}
+
 	
 	public void setCWB(CPUWaterblock cwb) {
 		this.cwb = cwb; 
@@ -174,8 +171,9 @@ public class WaterCoolerSystem {
 		advice = new ArrayList<String>();  
 		
 		if(cpu == null) return;
+		System.out.println("has cpu");
 		if(gpu == null) return;
-		if(c4 == null) return;
+		System.out.println("has gpu");
 		if(cwb == null) return;
 		if(gwb == null) return;
 		if(rad == null) return;
@@ -186,12 +184,14 @@ public class WaterCoolerSystem {
 		if(cool == null) return;
 		
 		
+		
+		
 		if(this.cwb.socket != this.cpu.socket) {
 			errors.add("The currently selected CPU Waterblock is incompatible with your current CPU Model."
 					+ " Please select another CPU Waterblock."); 
 		}
 		
-		if(this.gwb.model != this.gpu.model) {
+		if(this.gwb.model != this.gpu.toString()) {
 			errors.add("The currently selected GPU Waterblock is incompatible with your current GPU Model."
 					+ "Please select another GPU Waterblock.");
 		}

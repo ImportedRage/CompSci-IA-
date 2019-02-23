@@ -28,31 +28,25 @@ public class Database {
 	}
 	
 	
-	public CPU[] getCpu() {
+	public ArrayList<CPU> getCpu() {
 		
-		CPU[] CPUList = new CPU[1];
+		ArrayList<CPU> resultsList = new ArrayList<CPU>();
 		
-		/*
-		String sql = "SELECT * FROM cpus"; // table does not exist
 		
-		try (
-				Connection c    = connect();
-		        Statement stmt  = c.createStatement();
-		        ResultSet rs    = stmt.executeQuery(sql)
-	        ) {
-	        while (rs.next()) {
-	        	String name = rs.getString("name");
-	        	String model = rs.getString("model");
-	        	System.out.println(name + " " + model); // this should add a new CPU to CPUList
-	        
-	        }
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+		String[] columns = new String[] {"name", "socket_id"};
+		ArrayList<ArrayList<String>> results = select("cpumodel", "", columns);
+		
+		for (int i = 0; i < results.size(); i++) {
+			
+			ArrayList<String> row = results.get(i);
+			String name = row.get(0);
+			String socket_id = row.get(1);
+			String socket = select("socket", socket_id, new String[] {"name" }).get(0).get(0);
+			resultsList.add(new CPU(name, socket));
+			
 		}
-		*/
-		
-		CPUList[0] = new CPU("IntelCPU001", "2011-3");
-		return CPUList; 
+
+		return resultsList;
 	}
 	
 	
@@ -62,7 +56,7 @@ public class Database {
 			ArrayList<GPU> resultsList = new ArrayList<GPU>();
 			
 			
-			String[] columns = new String[] {"name",};
+			String[] columns = new String[] {"name"};
 			ArrayList<ArrayList<String>> results = select("gpumodel", "", columns);
 			
 			for (int i = 0; i < results.size(); i++) {
@@ -79,6 +73,7 @@ public class Database {
 			
 			
 	}
+	
 	
 	
 	public ArrayList<ArrayList<String>> select(String table, String id, String[] columns) {

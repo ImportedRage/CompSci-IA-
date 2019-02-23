@@ -1077,13 +1077,36 @@ y,
         	public void actionPerformed(ActionEvent e){
         		wcs.check();
         		System.out.println(wcs.getAdvice());
+        		System.out.println(wcs.getErrors());
         	}
         });	
         
-        String[] CPUList = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+        ArrayList<CPU> CPUListArr = db.getCpu();
+        String[] CPUList = new String[CPUListArr.size()];
+        for(int i = 0; i < CPUListArr.size(); i++) {
+      	  String name = CPUListArr.get(i).toString();  
+      	  CPUList[i] = name;    
+        }
+        
       JComboBox CPUBox = new JComboBox(CPUList);
-      CPUBox.setSelectedIndex(4);
-     // petList.addActionListener((ActionListener) this);
+      
+      //CPUBox.setSelectedIndex(4);
+      CPUBox.addActionListener(new ActionListener(){  
+     	public void actionPerformed(ActionEvent e){  
+     	      String cpuString = (String) CPUBox.getSelectedItem();
+     	      for(int i = 0; i < CPUListArr.size(); i++) {
+     	    	  if(cpuString.equals(CPUListArr.get(i).toString())) {
+     	    		 wcs.setCpu(CPUListArr.get(i));
+         			wcsChanged = true; 
+         			return;
+     	    	  }
+     	      }
+     		//System.out.println(CPUBox.getSelectedItem());
+
+	        } 
+     }
+     );
+     
       CPUBox.setBounds(170,330,200,50);
       frame.add(CPUBox);
       
@@ -1607,12 +1630,12 @@ public JComponent[] createSearchFunction(JFrame frame) {
         
         buildsys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){ 
-        		/*
+        		
         		if(wcsChanged == true) {
         			systemFrame = createSystemFrame();
         			wcsChanged = false; 
         		}
-        		*/
+        		
         		changeFrame(systemFrame);
         	 }  
         });  

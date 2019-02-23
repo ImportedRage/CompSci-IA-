@@ -28,7 +28,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		CPU cpu1 = new CPU("AMDCPU1","AMD4");
-		GPU gpu1 = new GPU("GTX970","GTX970");
+		GPU gpu1 = new GPU("GTX970");
 		Case c1 = new Case(444);
 		CPUWaterblock block1 = new CPUWaterblock("2011-3", "Copper", "Toby");
 		GPUWaterblock gblock1 = new GPUWaterblock("Name1", "Model01", "Metal01");

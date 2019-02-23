@@ -4,7 +4,9 @@ public class GPU extends Part{
 	
 	public GPU(String name) {
 		this.partName = name; 
+
 	}
+	
 
 	public String toString() {
 		return this.partName;
