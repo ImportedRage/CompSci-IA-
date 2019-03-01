@@ -1080,13 +1080,14 @@ y,
         		System.out.println(wcs.getErrors());
         	}
         });	
-        
+        String emptyCPU = "";      
         ArrayList<CPU> CPUListArr = db.getCpu();
-        String[] CPUList = new String[CPUListArr.size()];
+        String[] CPUList = new String[CPUListArr.size()+1];
         for(int i = 0; i < CPUListArr.size(); i++) {
       	  String name = CPUListArr.get(i).toString();  
-      	  CPUList[i] = name;    
+      	  CPUList[i+1] = name;    
         }
+        CPUList[0] = emptyCPU; 
         
       JComboBox CPUBox = new JComboBox(CPUList);
       
@@ -1111,23 +1112,36 @@ y,
       frame.add(CPUBox);
       
       
-      
-      
+      String emptyGPU = "";      
       ArrayList<GPU> GPUListArr = db.getGpu();    
-      String[] GPUList = new String[GPUListArr.size()];
+      String[] GPUList = new String[GPUListArr.size() + 1];
       for(int i = 0; i < GPUListArr.size(); i++) {
     	  String name = GPUListArr.get(i).toString();  
-    	  GPUList[i] = name;    
-      }
+    	  GPUList[i+1] = name;
+      }    	  
+      GPUList[0] = emptyGPU;
+
+      
       JComboBox GPUBox = new JComboBox(GPUList);
-      GPUBox.setSelectedIndex(4);
-     // petList.addActionListener((ActionListener) this);
+      
+      //CPUBox.setSelectedIndex(4);
+      GPUBox.addActionListener(new ActionListener(){  
+     	public void actionPerformed(ActionEvent e){  
+     	      String gpuString = (String) GPUBox.getSelectedItem();
+     	      for(int i = 0; i < GPUListArr.size(); i++) {
+     	    	  if(gpuString.equals(GPUListArr.get(i).toString())) {
+     	    		 wcs.setGpu(GPUListArr.get(i));
+         			wcsChanged = true; 
+         			return;
+     	    	  }
+     	      }
+     		//System.out.println(GPUBox.getSelectedItem());
+
+	        } 
+     }
+     );
       GPUBox.setBounds(170,410,200,50);      
       frame.add(GPUBox);
-
-        	
-      
-      
       
 		JLabel CreateSysTitle = new JLabel ("Create a new system "); 
 		CreateSysTitle.setForeground(Color.BLUE);

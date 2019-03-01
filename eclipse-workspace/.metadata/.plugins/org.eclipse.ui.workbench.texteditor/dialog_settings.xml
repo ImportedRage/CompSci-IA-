@@ -2,12 +2,16 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ArrayList&lt;Part" key="selection"/>
+		<item value="createWaterblockRow" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="createWaterblockRow"/>
+			<item value="frame.add"/>
+			<item value="ComboBox"/>
+			<item value="TEST"/>
 			<item value="ArrayList&lt;Part"/>
 			<item value="Array"/>
 			<item value="createSearched"/>
@@ -19,10 +23,6 @@
 			<item value="getGPU"/>
 			<item value=".get"/>
 			<item value="Current "/>
-			<item value="getAll"/>
-			<item value="get"/>
-			<item value="tab2"/>
-			<item value="y +"/>
 		</list>
 		<list key="replacehistory">
 			<item value="height"/>

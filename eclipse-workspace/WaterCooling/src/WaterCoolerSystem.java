@@ -202,12 +202,7 @@ public class WaterCoolerSystem {
 					+ "the use of angled fittings is required in your currently selected water-cooling system.");
 		} 
 		
-		if(this.rad.maxfancount.equals(this.c4.maxfancount)) {
-			advice.add("Do ensure that your selected radiator can be fit into your PC case. "
-					+ "This can be done by simply checking the fan size,counts of your PC case, "
-					+ "the fan count of the radiator should correspond with the number of fans and fan sizes of your PC case."); 
-		}
-		
+
 		if(this.res.combo.equals("False")) {
 			advice.add("The currently selected reservoir does not contain a pump unit,"
 					+ "you would have to purchase an additional pumo unit for your system to function properly.");
