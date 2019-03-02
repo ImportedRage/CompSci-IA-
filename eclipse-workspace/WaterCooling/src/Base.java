@@ -14,6 +14,40 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+
+public static JLabel JLabelMaker(String Title, String name, String color, String font, int xbounds, int ybounds, int hbounds, int zbounds) {
+	this.title = title; 
+	this.name = name; 
+	this.color = color; 
+	this.font = font; 
+	this.bounds = bounds; 
+	
+	JLabel title = new JLabel ("name"); 
+	title.setForegrounds(Color.color); 
+	title.setFont(font); 
+	title.setBounds(int xbounds, int ybounds, int hbounds, int zbounds); 
+	
+	return JLabel; 
+}
+			       
+			       
+			       
+
+JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
+    	gpuWaterBlockTitleName.setForeground(Color.GREEN);
+    	gpuWaterBlockTitleName.setFont(sheader);
+    	gpuWaterBlockTitleName.setBounds (
+(int) Math.round(0.01639344262295082* width), 
+(int) Math.round(0.40625* height), 
+(int) Math.round(0.4098360655737705* width), 
+(int) Math.round(0.0875* height) );
+    	comps[3] = gpuWaterBlockTitleName;
+    	
+
+
+
+
+
 public class Base {
 	
 	private static String resourcePath = "/home/madacoo/Desktop/robert_choy/CompSci-IA-/resources/";
