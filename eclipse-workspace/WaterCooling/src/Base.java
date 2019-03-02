@@ -15,12 +15,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
+/*
 public static JLabel JLabelMaker(String Title, String name, String color, String font, int xbounds, int ybounds, int hbounds, int zbounds) {
 	this.title = title; 
 	this.name = name; 
 	this.color = color; 
 	this.font = font; 
 	this.bounds = bounds; 
+	
+	
+	
 	
 	JLabel title = new JLabel ("name"); 
 	title.setForegrounds(Color.color); 
@@ -29,6 +33,7 @@ public static JLabel JLabelMaker(String Title, String name, String color, String
 	
 	return JLabel; 
 }
+
 			       
 			       
 			       
@@ -42,6 +47,8 @@ JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
 (int) Math.round(0.4098360655737705* width), 
 (int) Math.round(0.0875* height) );
     	comps[3] = gpuWaterBlockTitleName;
+    	
+    	*/
     	
 
 
@@ -79,6 +86,7 @@ public class Base {
 
 	
 	static JFrame currentFrame;
+	
 	int x;
 	int y;
 	

@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="createWaterblockRow" key="selection"/>
+		<item value="changeFrame" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="changeFrame"/>
+			<item value="createMainCom"/>
+			<item value="createbaseFrame"/>
+			<item value="createFrame"/>
+			<item value="wb.get"/>
+			<item value="CPUWater"/>
+			<item value="CPU"/>
+			<item value="Socket"/>
+			<item value="add"/>
+			<item value="Socket Type"/>
+			<item value="CPUWaterblockn"/>
+			<item value="JButton"/>
 			<item value="createWaterblockRow"/>
 			<item value="frame.add"/>
 			<item value="ComboBox"/>
-			<item value="TEST"/>
-			<item value="ArrayList&lt;Part"/>
-			<item value="Array"/>
-			<item value="createSearched"/>
-			<item value="Box"/>
-			<item value="wc.getGPU"/>
-			<item value="System.out"/>
-			<item value="try"/>
-			<item value="gpuToString"/>
-			<item value="getGPU"/>
-			<item value=".get"/>
-			<item value="Current "/>
 		</list>
 		<list key="replacehistory">
 			<item value="height"/>
@@ -35,7 +35,7 @@
 		<item value="350" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|12.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="451" key="DIALOG_HEIGHT"/>
-		<item value="1268" key="DIALOG_X_ORIGIN"/>
-		<item value="181" key="DIALOG_Y_ORIGIN"/>
+		<item value="1058" key="DIALOG_X_ORIGIN"/>
+		<item value="161" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
