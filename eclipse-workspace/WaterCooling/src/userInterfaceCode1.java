@@ -108,41 +108,22 @@ public class Base {
 	
     public Component[] createWaterblockRow(CPUWaterblock wb, int y) {
     	Component[] comps = new Component[7];
+	    String[] CWBcolumnHeaders = new String[2];
+	    	CWBcolumnHeaders[0] = "CPU Waterblock Name:";
+		CWBcolumnHeaders[1] = "Socket Type:";
+		CWBcolumnHeaders[2] = "Metal Type:"; 
+	    
+	Component[] wbName = new String[50] // Need to find a way to make the array size the number of waterblock names gotten! 50 is only filler. 
+		for(int i = 0; i < 100; i++) {
+			wbName[i] = wb.getName;
+		}
+	    
+		
     	
-    	JLabel cpuWaterBlockTitleName = new JLabel ("CPU Waterblock Name:");
-    	cpuWaterBlockTitleName.setForeground(Color.GREEN);
-    	cpuWaterBlockTitleName.setFont(sheader);
-    	
-    	
-    	cpuWaterBlockTitleName.setBounds (
-(int) Math.round(0.01639344262295082* width), 
-(int) Math.round(0.40625* height), 
-(int) Math.round(0.4098360655737705* width), 
-(int) Math.round(0.0875* height));
-    	
-    	comps[3] = cpuWaterBlockTitleName;
-    	
-     	JLabel cpuWaterBlockSocketName = new JLabel ("Socket Type:");
-     	cpuWaterBlockSocketName.setForeground(Color.GREEN);
-     	cpuWaterBlockSocketName.setFont(sheader);
-     	cpuWaterBlockSocketName.setBounds (
-(int) Math.round(0.32786885245901637* width), 
-(int) Math.round(0.40625* height), 
-(int) Math.round(0.16393442622950818* width), 
-(int) Math.round(0.0875* height));
-     	comps[4] = cpuWaterBlockSocketName;
-    	
-     	JLabel cpuWaterBlockMetalName = new JLabel ("Metal Type:");
-     	cpuWaterBlockMetalName.setForeground(Color.GREEN);
-     	cpuWaterBlockMetalName.setFont(sheader);
-     	cpuWaterBlockMetalName.setBounds (
-(int) Math.round(0.4918032786885246* width), 
-(int) Math.round(0.40625* height), 
-(int) Math.round(0.16393442622950818* width), 
-(int) Math.round(0.0875* height) 
-);
-    	comps[5] = cpuWaterBlockMetalName;
-    	
+	    makeColumnHeadings(CWBcolumnHeaders, Math.round(0.01639344262295082* width), Math.round(0.40625* height));
+	    comps[0] = makeColumnHeadings; 
+	    comps[1] = 
+	   
     	
     	JLabel cpuWaterblockName = new JLabel (wb.getName());    	
     	cpuWaterblockName.setForeground(Color.BLUE);
@@ -179,23 +160,15 @@ y,
  );
         comps[2] = cpuWaterblockMetal;
         
-        JButton addCPU = new JButton("Add CPU Waterblock");
-        addCPU.setBounds(
-        		
-(int) Math.round(0.7377049180327869* width), 
-y, 
-(int) Math.round(0.14754098360655737* width), 
-(int) Math.round(0.04375* height) 
-);
-        comps[6] = addCPU;
-        addCPU.addActionListener(new ActionListener(){  
+        addCPU.makeAddButton(String "Add CPU Waterblock", Math.round(0.7377049180327869* width), (double) y, addCPU);
+		ActionListener() addCPU(addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){  
         				wcs.setCWB(wb);
             			wcsChanged = true; 
-        	        } 
-        	}
-        );
-        
+			}
+		}
+	};						  
+
         
         
     	return comps;
@@ -204,12 +177,20 @@ y,
 	
     public Component[] createGPUWaterblockRow(GPUWaterblock gwb, int y) {
     	Component[] comps = new Component[7];
+	    
+	    String[] GWBcolumnHeaders = new String[2];
+	    	GWBcolumnHeaders[0] = "GPU Waterblock Name:";
+		GWBcolumnHeaders[1] = "Model Type:";
+		GWBcolumnHeaders[2] = "Metal Type:"; 
+	 
+	 JLabel GPURow.makeColumnHeadings(String[] GWBcolumnHeaders, Math.round(0.4098360655737705* width), Math.round(0.0875* height));
+	   
     	
     	JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
     	gpuWaterBlockTitleName.setForeground(Color.GREEN);
     	gpuWaterBlockTitleName.setFont(sheader);
     	gpuWaterBlockTitleName.setBounds (
-(int) Math.round(0.01639344262295082* width), 
+(int) , 
 (int) Math.round(0.40625* height), 
 (int) Math.round(0.4098360655737705* width), 
 (int) Math.round(0.0875* height) );
