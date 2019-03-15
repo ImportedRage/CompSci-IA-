@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="changeFrame" key="selection"/>
+		<item value="change" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="changeFrame"/>
-			<item value="createMainCom"/>
-			<item value="createbaseFrame"/>
-			<item value="createFrame"/>
-			<item value="wb.get"/>
-			<item value="CPUWater"/>
-			<item value="CPU"/>
-			<item value="Socket"/>
-			<item value="add"/>
-			<item value="Socket Type"/>
-			<item value="CPUWaterblockn"/>
+			<item value="change"/>
+			<item value="Feedback"/>
+			<item value="TEST"/>
 			<item value="JButton"/>
-			<item value="createWaterblockRow"/>
+			<item value="Feedbac"/>
+			<item value="Current GPU Water"/>
+			<item value="Current CPU Water"/>
+			<item value="Current GPU"/>
+			<item value="Current"/>
+			<item value="feedbac"/>
+			<item value="current CPU"/>
+			<item value="feedback"/>
 			<item value="frame.add"/>
-			<item value="ComboBox"/>
+			<item value="Fittings"/>
+			<item value="TESTtitle"/>
 		</list>
 		<list key="replacehistory">
 			<item value="height"/>

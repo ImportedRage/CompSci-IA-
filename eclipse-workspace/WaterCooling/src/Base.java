@@ -1024,6 +1024,7 @@ y,
 
 	}
 	
+	
 	public JFrame createFitFrame() {
 		JFrame frame = new JFrame ("fitting123");
         frame.setSize(width,height);
@@ -1094,6 +1095,67 @@ y,
              }
      		return frame;
      }
+	public JFrame createFeedbackFrame() {
+		JFrame frame = new JFrame ("Feedback");
+        frame.setSize(width,height);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.GRAY);
+        
+        JLabel ErrorTitle = new JLabel ("Major Errors");
+        ErrorTitle.setForeground(Color.BLUE);
+        ErrorTitle.setFont(sheader);
+        ErrorTitle.setBounds (
+        		(int) Math.round(0.01639344262295082* width), 
+        		(int) Math.round(0.275* height), 
+        		(int) Math.round(0.4098360655737705* width), 
+        		(int) Math.round(0.375* height) );
+    	frame.add(ErrorTitle);
+    	
+    	String errors = String.join("\n", wcs.getErrors());
+    	
+    	JLabel ErrorsMsg = new JLabel (errors);
+    	ErrorsMsg.setForeground(Color.BLUE);
+    	ErrorsMsg.setFont(sheader);
+    	ErrorsMsg.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.35* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.375* height) 
+    			);
+    	frame.add(ErrorsMsg);
+ 
+    	JLabel AdviceTitle = new JLabel ("Geberal Advice");
+    	AdviceTitle.setForeground(Color.BLUE);
+    	AdviceTitle.setFont(sheader);
+    	AdviceTitle.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.5* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.375* height) );
+    	frame.add(AdviceTitle);
+    	
+    	String advice = String.join("\n", wcs.getAdvice());
+    	
+    	JLabel AdviceMsg = new JLabel (advice);
+    	AdviceTitle.setForeground(Color.BLUE);
+    	AdviceTitle.setFont(sheader);
+    	AdviceTitle.setBounds (
+    			(int) Math.round(0.01639344262295082* width), 
+    			(int) Math.round(0.425* height), 
+    			(int) Math.round(0.4098360655737705* width), 
+    			(int) Math.round(0.375* height) 
+    			);
+    	frame.add(AdviceTitle);
+
+        
+        
+        Component[] mainComponents = createMainComponents();
+    	for (int i = 0; i < mainComponents.length; i++) {
+    		frame.add(mainComponents[i]);
+	
+    	}
+		return frame;
+}
     	
 	public JFrame createSystemFrame() {
 		
@@ -1117,9 +1179,7 @@ y,
     	frame.add(testSys);
         testSys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){
-        		wcs.check();
-        		System.out.println(wcs.getAdvice());
-        		System.out.println(wcs.getErrors());
+        		changeFrame(createFeedbackFrame());
         	}
         });	
         String emptyCPU = "";      
