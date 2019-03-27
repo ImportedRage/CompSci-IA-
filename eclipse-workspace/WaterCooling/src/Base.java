@@ -15,46 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
-/*
-public static JLabel JLabelMaker(String Title, String name, String color, String font, int xbounds, int ybounds, int hbounds, int zbounds) {
-	this.title = title; 
-	this.name = name; 
-	this.color = color; 
-	this.font = font; 
-	this.bounds = bounds; 
-	
-	
-	
-	
-	JLabel title = new JLabel ("name"); 
-	title.setForegrounds(Color.color); 
-	title.setFont(font); 
-	title.setBounds(int xbounds, int ybounds, int hbounds, int zbounds); 
-	
-	return JLabel; 
-}
-
-			       
-			       
-			       
-
-JLabel gpuWaterBlockTitleName = new JLabel ("GPU Waterblock Name:");
-    	gpuWaterBlockTitleName.setForeground(Color.GREEN);
-    	gpuWaterBlockTitleName.setFont(sheader);
-    	gpuWaterBlockTitleName.setBounds (
-(int) Math.round(0.01639344262295082* width), 
-(int) Math.round(0.40625* height), 
-(int) Math.round(0.4098360655737705* width), 
-(int) Math.round(0.0875* height) );
-    	comps[3] = gpuWaterBlockTitleName;
-    	
-    	*/
-    	
-
-
-
-
-
 public class Base {
 	
 	private static String resourcePath = "/home/madacoo/Desktop/robert_choy/CompSci-IA-/resources/";
@@ -1095,57 +1055,63 @@ y,
              }
      		return frame;
      }
-	public JFrame createFeedbackFrame() {
+	
+	public String aLtoString(ArrayList<String> aL) {
+		String output = "<html>";
+		for(int i = 0; i < aL.size(); i++) {
+			output = output + "<br>" + aL.get(i);
+		}
+		
+		return output + "</html>"; 
+	}
+	
+	
+	public JFrame createFeedbackFrame(String errors, String advice) {
 		JFrame frame = new JFrame ("Feedback");
         frame.setSize(width,height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.GRAY);
         
-        JLabel ErrorTitle = new JLabel ("Major Errors");
+        JLabel ErrorTitle = new JLabel ("Major Errors:");
         ErrorTitle.setForeground(Color.BLUE);
         ErrorTitle.setFont(sheader);
         ErrorTitle.setBounds (
-        		(int) Math.round(0.01639344262295082* width), 
-        		(int) Math.round(0.275* height), 
+        		 21,
+        		 120  , 
         		(int) Math.round(0.4098360655737705* width), 
         		(int) Math.round(0.375* height) );
     	frame.add(ErrorTitle);
     	
-    	String errors = String.join("\n", wcs.getErrors());
     	
     	JLabel ErrorsMsg = new JLabel (errors);
     	ErrorsMsg.setForeground(Color.BLUE);
-    	ErrorsMsg.setFont(sheader);
+    	ErrorsMsg.setFont(bodytext);
     	ErrorsMsg.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.35* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.375* height) 
-    			);
+    			21, 
+    			250, 
+    			1000, 150);
     	frame.add(ErrorsMsg);
  
-    	JLabel AdviceTitle = new JLabel ("Geberal Advice");
+    	JLabel AdviceTitle = new JLabel ("General Advice:");
     	AdviceTitle.setForeground(Color.BLUE);
     	AdviceTitle.setFont(sheader);
     	AdviceTitle.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.5* height), 
+    			21, 
+    			280, 
     			(int) Math.round(0.4098360655737705* width), 
     			(int) Math.round(0.375* height) );
-    	frame.add(AdviceTitle);
-    	
-    	String advice = String.join("\n", wcs.getAdvice());
+    	frame.add(AdviceTitle);    	
     	
     	JLabel AdviceMsg = new JLabel (advice);
-    	AdviceTitle.setForeground(Color.BLUE);
-    	AdviceTitle.setFont(sheader);
-    	AdviceTitle.setBounds (
-    			(int) Math.round(0.01639344262295082* width), 
-    			(int) Math.round(0.425* height), 
-    			(int) Math.round(0.4098360655737705* width), 
-    			(int) Math.round(0.375* height) 
-    			);
-    	frame.add(AdviceTitle);
+    	AdviceMsg.setForeground(Color.BLUE);
+    	AdviceMsg.setFont(bodytext);
+    	AdviceMsg.setBounds (
+    			21, 
+    			400, 
+    			1000, 250);
+    	frame.add(AdviceMsg);
+    	System.out.println(advice);
+    	System.out.println(errors);
 
         
         
@@ -1169,7 +1135,7 @@ y,
 	    frame.add(searchFunction[0]);
 	    frame.add(searchFunction[1]);
         
-   
+   //JButton TEST
         JButton testSys = new JButton("TEST");
         testSys.setBounds(
 (int) Math.round(0.6557377049180327* width), 
@@ -1179,7 +1145,11 @@ y,
     	frame.add(testSys);
         testSys.addActionListener(new ActionListener(){  
         	public void actionPerformed(ActionEvent e){
-        		changeFrame(createFeedbackFrame());
+        		wcs.check();
+            	String errors = aLtoString(wcs.getErrors());
+            	String advice = aLtoString(wcs.getAdvice());
+        		changeFrame(createFeedbackFrame(errors, advice));
+
         	}
         });	
         String emptyCPU = "";      
@@ -1507,12 +1477,14 @@ public JComponent[] createSearchFunction(JFrame frame) {
 				for(int j = 0; j < specialChar.length(); j++) {
 					if(search.charAt(i) == specialChar.charAt(j)) {
 						
-					JOptionPane.showMessageDialog(frame,
+						JOptionPane.showMessageDialog(frame,
 							"Error! Special Characters Detected. Please refrain from using special characters when searching components. Thanks.",
 							"STOP!",
 							    JOptionPane.WARNING_MESSAGE);
-						
+					
+						return;
 					}
+					
 				}
 			}
 			
@@ -1666,7 +1638,7 @@ public JComponent[] createSearchFunction(JFrame frame) {
         		+ "enthusiast. The best components are only worthy of "
         		+ "the best cooling-system out there- water-cooling. "
         		+ "While water-cooling may seem extremely "
-        		+ "complicated for the beginning novice, ihere at WCPC "
+        		+ "complicated for the beginning novice, here at WCPC "
         		+ "we strive to simplify this process for you, and direct "
         		+ "you on your journey to becoming a water-cooler."
         		+ "</p></html>");

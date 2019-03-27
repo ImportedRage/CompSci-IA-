@@ -171,9 +171,7 @@ public class WaterCoolerSystem {
 		advice = new ArrayList<String>();  
 		
 		if(cpu == null) return;
-		System.out.println("has cpu");
 		if(gpu == null) return;
-		System.out.println("has gpu");
 		if(cwb == null) return;
 		if(gwb == null) return;
 		if(rad == null) return;
@@ -224,6 +222,8 @@ public class WaterCoolerSystem {
 			advice.add("The current selection of radiators, CPU waterblock and GPU waterblock(s) have different "
 					+ "set(s) of metals, to ensure system longevity, we recommend keeping all metals uniform to prevent metal corrosion.");
 		} 
+		advice.add("While the current system checker may or may not highlight a metal difference between the selected components, it is highly adviced that you research "
+				+ "the selected components individually to ensure a uniform metal, in order to ensure system longvity.");
 		
 		
 		
