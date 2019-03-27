@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="change" key="selection"/>
+		<item value="Search" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="change"/>
-			<item value="Feedback"/>
-			<item value="TEST"/>
-			<item value="JButton"/>
-			<item value="Feedbac"/>
-			<item value="Current GPU Water"/>
-			<item value="Current CPU Water"/>
-			<item value="Current GPU"/>
-			<item value="Current"/>
-			<item value="feedbac"/>
-			<item value="current CPU"/>
+			<item value="search"/>
 			<item value="feedback"/>
-			<item value="frame.add"/>
-			<item value="Fittings"/>
-			<item value="TESTtitle"/>
+			<item value="fee"/>
+			<item value="header"/>
+			<item value="feedbac"/>
+			<item value="width ="/>
+			<item value="width"/>
+			<item value="aLtoString"/>
+			<item value="errors"/>
+			<item value="Feedback"/>
+			<item value="&quot;The curr"/>
+			<item value="&lt;br&gt;"/>
+			<item value="feedvack"/>
+			<item value="\n"/>
+			<item value="JButton"/>
 		</list>
 		<list key="replacehistory">
 			<item value="height"/>

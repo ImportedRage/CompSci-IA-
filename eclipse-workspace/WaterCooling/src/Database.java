@@ -376,15 +376,8 @@ public class Database {
 
 	private ArrayList<Part> getAllParts() {
 		ArrayList<Part> parts = new ArrayList<Part>();
-		Part[] partArr;
 		
-		// temporarily using a Part[] until getCpu can pull from database and return an ArrayList
-		partArr = getCpu();
-		for (int i = 0; i < partArr.length; i++) {
-			parts.add(partArr[i]);
-		}
-		
-		//parts.addAll(getCpu());
+		parts.addAll(getCpu());
 		
 		
 		parts.addAll(getGpu());

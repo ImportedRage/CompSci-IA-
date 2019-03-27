@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.*;       
-import userInterface.*;
+
 
 public class WCSChecker {
 	
